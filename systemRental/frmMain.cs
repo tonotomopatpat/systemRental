@@ -12,7 +12,7 @@ namespace systemRental
 {
     public partial class frmMain : Form
     {
-        public frmMain(string username, string user)
+        public frmMain(string username)
         {
             InitializeComponent();
         }
