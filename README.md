@@ -1,10 +1,10 @@
 # systemRental
 # Requirements
-download visual studio (meron naman na siguro)
-this is a .net framework project
-download guna2winform
-  --- you can download it from nuget manager
-download mysqldata for c# to connect
+1. download visual studio (meron naman na siguro)
+2. this is a .net framework project
+3. download guna2winform
+3.1  --- you can download it from nuget manager
+4. download mysqldata for c# to connect
 
 
 # guide for setup
