@@ -42,11 +42,11 @@ namespace systemRental
         {
             try
             {
-                DataTable dt = login.GetData("SELECT * FROM tbl_accounts WHERE username'" + txtUsername.Text + "' AND password = '" + txtPassword.Text);
+                DataTable dt = login.GetData("SELECT * FROM tbl_accounts WHERE username = '" + txtUsername.Text + "' AND password = '" + txtPassword.Text +"'");
                 if (dt.Rows.Count > 0)
                 {
                     //MessageBox.Show("Login Successful", "Message");
-                    frmMain mainform = new frmMain(txtUsername.Text, dt.Rows[0].Field<string>("usertype"));
+                    frmMain mainform = new frmMain(txtUsername.Text);
                     mainform.Show();
                     this.Hide();
                 }
