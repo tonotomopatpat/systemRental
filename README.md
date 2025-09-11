@@ -5,6 +5,7 @@
 3. download guna2winform
 3.1  --- you can download it from nuget manager
 4. download mysqldata for c# to connect
+5. download poppins font (but i will take care of this some other time)
 
 
 # guide for setup
