@@ -1,0 +1,73 @@
+﻿using Guna.UI2.WinForms;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace systemRental
+{
+    public partial class billingsPage : UserControl
+    {
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+        public billingsPage()
+        {
+            InitializeComponent();
+            this.Dock = DockStyle.Fill;
+            this.AutoSize = true;
+        }
+
+        private void billingsPage_Load(object sender, EventArgs e)
+        {
+            string query = @"
+            SELECT 
+                c.contract_id,
+                c.start_date,
+                c.end_date,
+                t.first_name,
+                t.last_name,
+                u.unit_number,
+                u.floor,
+                u.unit_type,
+                u.monthly_rate,
+                SUM(ut.water_bill + ut.electricity_bill + ut.maintenance_fee + ut.other_charges) AS total_utilities,
+                (u.monthly_rate + SUM(ut.water_bill + ut.electricity_bill + ut.maintenance_fee + ut.other_charges)) AS total_amount
+            FROM tbl_contracts c
+            JOIN tbl_tenants t ON c.tenant_id = t.tenant_id
+            JOIN tbl_units u ON c.unit_id = u.unit_id
+            LEFT JOIN tbl_utilities ut ON c.contract_id = ut.contract_id
+            GROUP BY c.contract_id
+            ";
+
+            DataTable dt= db.GetData(query);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                ContractCard card = new ContractCard();
+
+                card.TenantName = row["first_name"].ToString() + " " + row["last_name"].ToString();
+                card.ContractInfo = "Contract: " +
+                    Convert.ToDateTime(row["start_date"]).ToShortDateString() +
+                    " - " + Convert.ToDateTime(row["end_date"]).ToShortDateString();
+                card.Room = "Room: " + row["unit_number"] + " (" + row["unit_type"] + "), Floor " + row["floor"];
+                card.UnitType = "Type: " + row["unit_type"];
+                card.TotalUtilities = "Total Balance: ₱" + row["total_amount"];
+
+                flowLayoutPanelContents.Controls.Add(card);
+                //flowLayoutPanelBilling.Controls.Add(card);
+            }
+        }
+        private void btnCompute_Click_1(object sender, EventArgs e)
+        {
+            using (calculate calcForm = new calculate())
+            {
+                calcForm.ShowDialog();
+            }
+        }
+    }
+}
