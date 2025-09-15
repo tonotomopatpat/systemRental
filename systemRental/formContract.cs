@@ -18,7 +18,7 @@ namespace systemRental
     {
         private addTenant mainOriginalForm;
         private dimOverlayForm mainOverlay;
-        private int errorcount;
+        //private int errorcount;
 
 
         public formContract(addTenant originalForm, dimOverlayForm overlay)
@@ -39,7 +39,7 @@ namespace systemRental
             // Position it off-screen left
             //mainOriginalForm.Location = new Point(this.Location.X - this.Width, this.Location.Y);
 
-            int targetXContractForm = this.Location.X + this.Width; // contract form slides right
+            int targetXContractForm = this.Location.X + this.Width; //contract form slides right
             int targetXAddTenant = mainOriginalForm.Location.X;
 
 

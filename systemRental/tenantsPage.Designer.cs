@@ -92,8 +92,8 @@
             this.mainTable.Location = new System.Drawing.Point(0, 98);
             this.mainTable.Name = "mainTable";
             this.mainTable.RowCount = 2;
-            this.mainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.230143F));
-            this.mainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.76986F));
+            this.mainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.10998F));
+            this.mainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.89002F));
             this.mainTable.Size = new System.Drawing.Size(1753, 982);
             this.mainTable.TabIndex = 1;
             // 
@@ -104,7 +104,7 @@
             this.flowSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowSearch.Location = new System.Drawing.Point(3, 3);
             this.flowSearch.Name = "flowSearch";
-            this.flowSearch.Size = new System.Drawing.Size(393, 65);
+            this.flowSearch.Size = new System.Drawing.Size(393, 54);
             this.flowSearch.TabIndex = 0;
             // 
             // guna2TextBox6
@@ -136,9 +136,9 @@
             this.flowPeople.BackColor = System.Drawing.Color.Silver;
             this.flowPeople.Controls.Add(this.btnTenant);
             this.flowPeople.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPeople.Location = new System.Drawing.Point(3, 74);
+            this.flowPeople.Location = new System.Drawing.Point(3, 63);
             this.flowPeople.Name = "flowPeople";
-            this.flowPeople.Size = new System.Drawing.Size(393, 905);
+            this.flowPeople.Size = new System.Drawing.Size(393, 916);
             this.flowPeople.TabIndex = 1;
             // 
             // btnTenant
@@ -174,13 +174,13 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(402, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1348, 65);
+            this.guna2Panel1.Size = new System.Drawing.Size(1348, 54);
             this.guna2Panel1.TabIndex = 2;
             // 
             // btnOverview
             // 
             this.btnOverview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOverview.BorderRadius = 8;
+            this.btnOverview.BorderRadius = 30;
             this.btnOverview.CustomizableEdges.BottomLeft = false;
             this.btnOverview.CustomizableEdges.BottomRight = false;
             this.btnOverview.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -190,9 +190,9 @@
             this.btnOverview.FillColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnOverview.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOverview.ForeColor = System.Drawing.Color.DimGray;
-            this.btnOverview.Location = new System.Drawing.Point(29, 24);
+            this.btnOverview.Location = new System.Drawing.Point(29, 0);
             this.btnOverview.Name = "btnOverview";
-            this.btnOverview.Size = new System.Drawing.Size(111, 41);
+            this.btnOverview.Size = new System.Drawing.Size(111, 54);
             this.btnOverview.TabIndex = 14;
             this.btnOverview.Text = "Overview";
             this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
@@ -210,16 +210,16 @@
             this.guna2Button6.FillColor = System.Drawing.SystemColors.ActiveBorder;
             this.guna2Button6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button6.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button6.Location = new System.Drawing.Point(474, 24);
+            this.guna2Button6.Location = new System.Drawing.Point(1187, 0);
             this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.Size = new System.Drawing.Size(111, 41);
+            this.guna2Button6.Size = new System.Drawing.Size(111, 65);
             this.guna2Button6.TabIndex = 13;
             this.guna2Button6.Text = "Edit Profile";
             // 
             // guna2Button5
             // 
             this.guna2Button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button5.BorderRadius = 8;
+            this.guna2Button5.BorderRadius = 30;
             this.guna2Button5.CustomizableEdges.BottomLeft = false;
             this.guna2Button5.CustomizableEdges.BottomRight = false;
             this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -229,16 +229,16 @@
             this.guna2Button5.FillColor = System.Drawing.SystemColors.ActiveBorder;
             this.guna2Button5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button5.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button5.Location = new System.Drawing.Point(326, 24);
+            this.guna2Button5.Location = new System.Drawing.Point(326, 0);
             this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(111, 41);
+            this.guna2Button5.Size = new System.Drawing.Size(111, 54);
             this.guna2Button5.TabIndex = 12;
             this.guna2Button5.Text = "Documents";
             // 
             // btnHistory
             // 
             this.btnHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHistory.BorderRadius = 8;
+            this.btnHistory.BorderRadius = 30;
             this.btnHistory.CustomizableEdges.BottomLeft = false;
             this.btnHistory.CustomizableEdges.BottomRight = false;
             this.btnHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -248,9 +248,9 @@
             this.btnHistory.FillColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnHistory.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistory.ForeColor = System.Drawing.Color.DimGray;
-            this.btnHistory.Location = new System.Drawing.Point(184, 24);
+            this.btnHistory.Location = new System.Drawing.Point(172, 0);
             this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(111, 41);
+            this.btnHistory.Size = new System.Drawing.Size(111, 54);
             this.btnHistory.TabIndex = 11;
             this.btnHistory.Text = "Histroy";
             this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
@@ -261,9 +261,9 @@
             this.mainInfo.Controls.Add(this.panelSecondContent);
             this.mainInfo.Controls.Add(this.panelFirstContent);
             this.mainInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainInfo.Location = new System.Drawing.Point(402, 74);
+            this.mainInfo.Location = new System.Drawing.Point(402, 63);
             this.mainInfo.Name = "mainInfo";
-            this.mainInfo.Size = new System.Drawing.Size(1348, 905);
+            this.mainInfo.Size = new System.Drawing.Size(1348, 916);
             this.mainInfo.TabIndex = 3;
             // 
             // panelSecondContent
@@ -272,7 +272,7 @@
             this.panelSecondContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSecondContent.Location = new System.Drawing.Point(0, 286);
             this.panelSecondContent.Name = "panelSecondContent";
-            this.panelSecondContent.Size = new System.Drawing.Size(1348, 619);
+            this.panelSecondContent.Size = new System.Drawing.Size(1348, 630);
             this.panelSecondContent.TabIndex = 2;
             // 
             // panelFirstContent

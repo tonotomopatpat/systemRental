@@ -28,6 +28,9 @@ namespace systemRental
         {
             //show dashboard by default
             ShowUserControl(new dashboardPage());
+            //timer date and time
+            timer1.Start();
+
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -43,6 +46,17 @@ namespace systemRental
         private void btnTenants_Click(object sender, EventArgs e)
         {
             ShowUserControl(new tenantsPage());
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToLongTimeString();
+            lblDate.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void btnRooms_Click(object sender, EventArgs e)
+        {
+            ShowUserControl(new roomPage());
         }
     }
 }

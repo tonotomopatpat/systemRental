@@ -17,10 +17,15 @@ namespace systemRental
         {
             InitializeComponent();
         }
+        
         //mysql database
         Class1 login = new Class1("localhost", "rentalsystem", "root", "manzano");
 
-
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = txtUsername;
+            //txtUsername.Focus();
+        }
         private bool isPasswordVisible = false;
         private void btnShow_Click(object sender, EventArgs e)
         {
@@ -86,9 +91,6 @@ namespace systemRental
 
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-            txtUsername.Focus();
-        }
+        
     }
 }

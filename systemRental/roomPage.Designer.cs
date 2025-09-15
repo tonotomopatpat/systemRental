@@ -1,6 +1,6 @@
 ﻿namespace systemRental
 {
-    partial class billingsPage
+    partial class roomPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,44 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(billingsPage));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelContents = new System.Windows.Forms.FlowLayoutPanel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(roomPage));
+            this.pnlFirst = new Guna.UI2.WinForms.Guna2Panel();
+            this.flowRooms = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnCompute = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.panel1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlFirst.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlFirst
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.flowLayoutPanelContents);
-            this.panel1.Controls.Add(this.guna2Panel2);
-            this.panel1.Controls.Add(this.guna2Panel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(25, 50, 25, 25);
-            this.panel1.Size = new System.Drawing.Size(1753, 1080);
-            this.panel1.TabIndex = 0;
+            this.pnlFirst.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlFirst.Controls.Add(this.guna2Panel2);
+            this.pnlFirst.Controls.Add(this.guna2Panel3);
+            this.pnlFirst.Controls.Add(this.flowRooms);
+            this.pnlFirst.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFirst.Location = new System.Drawing.Point(0, 0);
+            this.pnlFirst.Name = "pnlFirst";
+            this.pnlFirst.Padding = new System.Windows.Forms.Padding(25, 50, 25, 25);
+            this.pnlFirst.Size = new System.Drawing.Size(1753, 1080);
+            this.pnlFirst.TabIndex = 0;
             // 
-            // flowLayoutPanelContents
+            // flowRooms
             // 
-            this.flowLayoutPanelContents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelContents.Location = new System.Drawing.Point(25, 163);
-            this.flowLayoutPanelContents.Name = "flowLayoutPanelContents";
-            this.flowLayoutPanelContents.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.flowLayoutPanelContents.Size = new System.Drawing.Size(1703, 892);
-            this.flowLayoutPanelContents.TabIndex = 2;
+            this.flowRooms.AutoScroll = true;
+            this.flowRooms.BackColor = System.Drawing.Color.Transparent;
+            this.flowRooms.Location = new System.Drawing.Point(28, 189);
+            this.flowRooms.Name = "flowRooms";
+            this.flowRooms.Size = new System.Drawing.Size(1681, 783);
+            this.flowRooms.TabIndex = 0;
             // 
             // guna2Panel2
             // 
@@ -77,7 +77,7 @@
             this.guna2Panel2.Location = new System.Drawing.Point(25, 110);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1703, 53);
-            this.guna2Panel2.TabIndex = 1;
+            this.guna2Panel2.TabIndex = 3;
             // 
             // guna2Button4
             // 
@@ -94,7 +94,7 @@
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.Size = new System.Drawing.Size(111, 41);
             this.guna2Button4.TabIndex = 9;
-            this.guna2Button4.Text = "Un-paid";
+            this.guna2Button4.Text = "Maintenance";
             // 
             // guna2Button3
             // 
@@ -111,7 +111,7 @@
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(111, 41);
             this.guna2Button3.TabIndex = 8;
-            this.guna2Button3.Text = "Overdue";
+            this.guna2Button3.Text = "Occupied";
             // 
             // guna2Button2
             // 
@@ -128,7 +128,7 @@
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(111, 41);
             this.guna2Button2.TabIndex = 7;
-            this.guna2Button2.Text = "Completed";
+            this.guna2Button2.Text = "Vacant";
             // 
             // guna2Button1
             // 
@@ -147,19 +147,19 @@
             this.guna2Button1.TabIndex = 6;
             this.guna2Button1.Text = "All";
             // 
-            // guna2Panel1
+            // guna2Panel3
             // 
-            this.guna2Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.guna2Panel1.BorderRadius = 10;
-            this.guna2Panel1.Controls.Add(this.btnCompute);
-            this.guna2Panel1.Controls.Add(this.guna2TextBox1);
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.Location = new System.Drawing.Point(25, 50);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1703, 60);
-            this.guna2Panel1.TabIndex = 0;
+            this.guna2Panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.guna2Panel3.BorderRadius = 10;
+            this.guna2Panel3.Controls.Add(this.btnCompute);
+            this.guna2Panel3.Controls.Add(this.guna2TextBox1);
+            this.guna2Panel3.Controls.Add(this.label1);
+            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Panel3.Location = new System.Drawing.Point(25, 50);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(1703, 60);
+            this.guna2Panel3.TabIndex = 2;
             // 
             // btnCompute
             // 
@@ -172,22 +172,11 @@
             this.btnCompute.FillColor = System.Drawing.Color.LightSkyBlue;
             this.btnCompute.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompute.ForeColor = System.Drawing.Color.DimGray;
-            this.btnCompute.Location = new System.Drawing.Point(198, 18);
+            this.btnCompute.Location = new System.Drawing.Point(295, 21);
             this.btnCompute.Name = "btnCompute";
             this.btnCompute.Size = new System.Drawing.Size(180, 33);
             this.btnCompute.TabIndex = 4;
-            this.btnCompute.Text = "Calculate Utilities";
-            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(62, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "We are Group 10";
+            this.btnCompute.Text = "Add Rooms";
             // 
             // guna2TextBox1
             // 
@@ -209,34 +198,44 @@
             this.guna2TextBox1.Size = new System.Drawing.Size(340, 33);
             this.guna2TextBox1.TabIndex = 5;
             // 
-            // billingsPage
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 28);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "ROOMS PAGE";
+            // 
+            // roomPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
-            this.Name = "billingsPage";
+            this.Controls.Add(this.pnlFirst);
+            this.Name = "roomPage";
             this.Size = new System.Drawing.Size(1753, 1080);
-            this.Load += new System.EventHandler(this.billingsPage_Load);
-            this.panel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.roomPage_Load);
+            this.pnlFirst.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
+            this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2Panel pnlFirst;
+        private System.Windows.Forms.FlowLayoutPanel flowRooms;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Button btnCompute;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelContents;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2Button btnCompute;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

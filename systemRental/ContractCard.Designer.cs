@@ -38,6 +38,10 @@
             this.lblContract = new System.Windows.Forms.Label();
             this.lblRoom = new System.Windows.Forms.Label();
             this.lblTenant = new System.Windows.Forms.Label();
+            this.btnStatus = new Guna.UI2.WinForms.Guna2Button();
+            this.lblWater = new System.Windows.Forms.Label();
+            this.lblElectricity = new System.Windows.Forms.Label();
+            this.lblOther = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +50,10 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 30;
+            this.guna2Panel1.Controls.Add(this.lblOther);
+            this.guna2Panel1.Controls.Add(this.lblElectricity);
+            this.guna2Panel1.Controls.Add(this.lblWater);
+            this.guna2Panel1.Controls.Add(this.btnStatus);
             this.guna2Panel1.Controls.Add(this.lblTotal);
             this.guna2Panel1.Controls.Add(this.pictureBox1);
             this.guna2Panel1.Controls.Add(this.guna2Button4);
@@ -59,7 +67,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.BorderRadius = 10;
-            this.guna2Panel1.Size = new System.Drawing.Size(269, 271);
+            this.guna2Panel1.Size = new System.Drawing.Size(358, 384);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -69,7 +77,7 @@
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotal.Location = new System.Drawing.Point(44, 192);
+            this.lblTotal.Location = new System.Drawing.Point(19, 291);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(96, 16);
             this.lblTotal.TabIndex = 14;
@@ -78,7 +86,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(30, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(17, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(45, 49);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -95,7 +103,7 @@
             this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button4.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.Location = new System.Drawing.Point(145, 220);
+            this.guna2Button4.Location = new System.Drawing.Point(218, 332);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.Size = new System.Drawing.Size(93, 32);
             this.guna2Button4.TabIndex = 12;
@@ -111,9 +119,9 @@
             this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.Location = new System.Drawing.Point(30, 220);
+            this.guna2Button3.Location = new System.Drawing.Point(71, 332);
             this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(109, 32);
+            this.guna2Button3.Size = new System.Drawing.Size(88, 32);
             this.guna2Button3.TabIndex = 11;
             this.guna2Button3.Text = "Print";
             // 
@@ -123,7 +131,7 @@
             this.lblUnitType.BackColor = System.Drawing.Color.Transparent;
             this.lblUnitType.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnitType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblUnitType.Location = new System.Drawing.Point(44, 162);
+            this.lblUnitType.Location = new System.Drawing.Point(19, 167);
             this.lblUnitType.Name = "lblUnitType";
             this.lblUnitType.Size = new System.Drawing.Size(66, 16);
             this.lblUnitType.TabIndex = 10;
@@ -135,7 +143,7 @@
             this.lblContract.BackColor = System.Drawing.Color.Transparent;
             this.lblContract.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContract.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblContract.Location = new System.Drawing.Point(44, 133);
+            this.lblContract.Location = new System.Drawing.Point(19, 138);
             this.lblContract.Name = "lblContract";
             this.lblContract.Size = new System.Drawing.Size(63, 16);
             this.lblContract.TabIndex = 9;
@@ -147,7 +155,7 @@
             this.lblRoom.BackColor = System.Drawing.Color.Transparent;
             this.lblRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblRoom.Location = new System.Drawing.Point(44, 98);
+            this.lblRoom.Location = new System.Drawing.Point(19, 103);
             this.lblRoom.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblRoom.Name = "lblRoom";
             this.lblRoom.Size = new System.Drawing.Size(43, 16);
@@ -160,11 +168,64 @@
             this.lblTenant.BackColor = System.Drawing.Color.Transparent;
             this.lblTenant.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTenant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTenant.Location = new System.Drawing.Point(81, 34);
+            this.lblTenant.Location = new System.Drawing.Point(68, 46);
             this.lblTenant.Name = "lblTenant";
             this.lblTenant.Size = new System.Drawing.Size(50, 16);
             this.lblTenant.TabIndex = 7;
             this.lblTenant.Text = "Tenant";
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.BackColor = System.Drawing.Color.Transparent;
+            this.btnStatus.BorderRadius = 10;
+            this.btnStatus.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStatus.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStatus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnStatus.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatus.ForeColor = System.Drawing.Color.Black;
+            this.btnStatus.Location = new System.Drawing.Point(245, 12);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(93, 32);
+            this.btnStatus.TabIndex = 15;
+            this.btnStatus.Text = "Paid";
+            // 
+            // lblWater
+            // 
+            this.lblWater.AutoSize = true;
+            this.lblWater.BackColor = System.Drawing.Color.Transparent;
+            this.lblWater.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblWater.Location = new System.Drawing.Point(19, 199);
+            this.lblWater.Name = "lblWater";
+            this.lblWater.Size = new System.Drawing.Size(70, 16);
+            this.lblWater.TabIndex = 16;
+            this.lblWater.Text = "Water bill";
+            // 
+            // lblElectricity
+            // 
+            this.lblElectricity.AutoSize = true;
+            this.lblElectricity.BackColor = System.Drawing.Color.Transparent;
+            this.lblElectricity.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblElectricity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblElectricity.Location = new System.Drawing.Point(19, 234);
+            this.lblElectricity.Name = "lblElectricity";
+            this.lblElectricity.Size = new System.Drawing.Size(95, 16);
+            this.lblElectricity.TabIndex = 17;
+            this.lblElectricity.Text = "Electricity Bill";
+            // 
+            // lblOther
+            // 
+            this.lblOther.AutoSize = true;
+            this.lblOther.BackColor = System.Drawing.Color.Transparent;
+            this.lblOther.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOther.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblOther.Location = new System.Drawing.Point(19, 263);
+            this.lblOther.Name = "lblOther";
+            this.lblOther.Size = new System.Drawing.Size(67, 16);
+            this.lblOther.TabIndex = 18;
+            this.lblOther.Text = "Other Bill";
             // 
             // ContractCard
             // 
@@ -173,7 +234,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ContractCard";
-            this.Size = new System.Drawing.Size(269, 271);
+            this.Size = new System.Drawing.Size(358, 384);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -192,5 +253,9 @@
         private System.Windows.Forms.Label lblTenant;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTotal;
+        private Guna.UI2.WinForms.Guna2Button btnStatus;
+        private System.Windows.Forms.Label lblOther;
+        private System.Windows.Forms.Label lblElectricity;
+        private System.Windows.Forms.Label lblWater;
     }
 }

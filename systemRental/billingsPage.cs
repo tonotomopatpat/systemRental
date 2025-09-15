@@ -46,6 +46,7 @@ namespace systemRental
 
             DataTable dt= db.GetData(query);
 
+
             foreach (DataRow row in dt.Rows)
             {
                 ContractCard card = new ContractCard();
@@ -57,6 +58,7 @@ namespace systemRental
                 card.Room = "Room: " + row["unit_number"] + " (" + row["unit_type"] + "), Floor " + row["floor"];
                 card.UnitType = "Type: " + row["unit_type"];
                 card.TotalUtilities = "Total Balance: ₱" + row["total_amount"];
+                card.Margin = new Padding(20);
 
                 flowLayoutPanelContents.Controls.Add(card);
                 //flowLayoutPanelBilling.Controls.Add(card);

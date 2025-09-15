@@ -239,6 +239,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="roomCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="roomCard.Designer.cs">
+      <DependentUpon>roomCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="roomPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="roomPage.Designer.cs">
+      <DependentUpon>roomPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="tenantsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -285,6 +297,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="roomCard.resx">
+      <DependentUpon>roomCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="roomPage.resx">
+      <DependentUpon>roomPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tenantsPage.resx">
       <DependentUpon>tenantsPage.cs</DependentUpon>

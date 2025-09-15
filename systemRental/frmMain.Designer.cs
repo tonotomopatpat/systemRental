@@ -39,8 +39,11 @@
             this.btnTenants = new Guna.UI2.WinForms.Guna2Button();
             this.btnRooms = new Guna.UI2.WinForms.Guna2Button();
             this.btnBilling = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.panelSideBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.panelHeader.SuspendLayout();
             this.panelSideBar.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +54,7 @@
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(169, 0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1703, 970);
+            this.panelContent.Size = new System.Drawing.Size(1703, 1080);
             this.panelContent.TabIndex = 1;
             // 
             // guna2ControlBox1
@@ -106,7 +109,7 @@
             this.btnDashboard.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
             this.btnDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 134);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 228);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(0);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(30)))));
@@ -136,7 +139,7 @@
             this.btnTenants.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnTenants.Image = ((System.Drawing.Image)(resources.GetObject("btnTenants.Image")));
             this.btnTenants.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTenants.Location = new System.Drawing.Point(0, 275);
+            this.btnTenants.Location = new System.Drawing.Point(0, 332);
             this.btnTenants.Name = "btnTenants";
             this.btnTenants.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnTenants.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(30)))));
@@ -166,7 +169,7 @@
             this.btnRooms.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnRooms.Image = ((System.Drawing.Image)(resources.GetObject("btnRooms.Image")));
             this.btnRooms.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRooms.Location = new System.Drawing.Point(0, 414);
+            this.btnRooms.Location = new System.Drawing.Point(0, 437);
             this.btnRooms.Name = "btnRooms";
             this.btnRooms.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRooms.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(30)))));
@@ -174,6 +177,7 @@
             this.btnRooms.TabIndex = 2;
             this.btnRooms.Text = "Rooms";
             this.btnRooms.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRooms.Click += new System.EventHandler(this.btnRooms_Click);
             // 
             // btnBilling
             // 
@@ -195,48 +199,23 @@
             this.btnBilling.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnBilling.Image = ((System.Drawing.Image)(resources.GetObject("btnBilling.Image")));
             this.btnBilling.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnBilling.Location = new System.Drawing.Point(0, 581);
+            this.btnBilling.Location = new System.Drawing.Point(0, 535);
             this.btnBilling.Name = "btnBilling";
             this.btnBilling.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBilling.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(30)))));
-            this.btnBilling.Size = new System.Drawing.Size(177, 45);
+            this.btnBilling.Size = new System.Drawing.Size(169, 71);
             this.btnBilling.TabIndex = 1;
             this.btnBilling.Text = "Billing / Payment";
             this.btnBilling.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnBilling.Click += new System.EventHandler(this.btnBilling_Click);
             // 
-            // guna2Button5
-            // 
-            this.guna2Button5.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button5.CheckedState.FillColor = System.Drawing.Color.Silver;
-            this.guna2Button5.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button5.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button5.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.guna2Button5.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button5.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button5.Location = new System.Drawing.Point(0, 774);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.guna2Button5.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(30)))));
-            this.guna2Button5.Size = new System.Drawing.Size(151, 45);
-            this.guna2Button5.TabIndex = 3;
-            this.guna2Button5.Text = "I dont know";
-            this.guna2Button5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button5.TextOffset = new System.Drawing.Point(15, 0);
-            // 
             // panelSideBar
             // 
             this.panelSideBar.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panelSideBar.BorderRadius = 25;
-            this.panelSideBar.Controls.Add(this.guna2Button5);
+            this.panelSideBar.Controls.Add(this.btnLogout);
+            this.panelSideBar.Controls.Add(this.lblDate);
+            this.panelSideBar.Controls.Add(this.lblTime);
             this.panelSideBar.Controls.Add(this.btnBilling);
             this.panelSideBar.Controls.Add(this.btnRooms);
             this.panelSideBar.Controls.Add(this.btnTenants);
@@ -246,8 +225,62 @@
             this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideBar.Location = new System.Drawing.Point(0, 0);
             this.panelSideBar.Name = "panelSideBar";
-            this.panelSideBar.Size = new System.Drawing.Size(169, 970);
+            this.panelSideBar.Size = new System.Drawing.Size(169, 1080);
             this.panelSideBar.TabIndex = 0;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Location = new System.Drawing.Point(12, 42);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(51, 26);
+            this.lblTime.TabIndex = 11;
+            this.lblTime.Text = "Time:";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(12, 78);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(50, 26);
+            this.lblDate.TabIndex = 12;
+            this.lblDate.Text = "Date:";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BorderRadius = 25;
+            this.btnLogout.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnLogout.CheckedState.FillColor = System.Drawing.Color.Silver;
+            this.btnLogout.CheckedState.ForeColor = System.Drawing.Color.Black;
+            this.btnLogout.CustomizableEdges.BottomRight = false;
+            this.btnLogout.CustomizableEdges.TopRight = false;
+            this.btnLogout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogout.FillColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.DimGray;
+            this.btnLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnLogout.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLogout.Location = new System.Drawing.Point(0, 1035);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnLogout.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(30)))));
+            this.btnLogout.Size = new System.Drawing.Size(169, 45);
+            this.btnLogout.TabIndex = 13;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // frmMain
             // 
@@ -255,7 +288,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.CancelButton = this.btnDashboard;
-            this.ClientSize = new System.Drawing.Size(1872, 970);
+            this.ClientSize = new System.Drawing.Size(1872, 1080);
             this.ControlBox = false;
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelContent);
@@ -268,6 +301,7 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelSideBar.ResumeLayout(false);
+            this.panelSideBar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -282,7 +316,10 @@
         private Guna.UI2.WinForms.Guna2Button btnTenants;
         private Guna.UI2.WinForms.Guna2Button btnRooms;
         private Guna.UI2.WinForms.Guna2Button btnBilling;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Panel panelSideBar;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }
