@@ -48,5 +48,10 @@ namespace systemRental
             get => lblTotal.Text;
             set => lblTotal.Text = value;
         }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

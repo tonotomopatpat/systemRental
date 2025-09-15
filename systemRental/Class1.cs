@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 
 namespace systemRental
@@ -42,7 +43,9 @@ namespace systemRental
             MySqlCommand SQLcom = new MySqlCommand(sql, Sqlcon);
             //execute the sql command
             rowAffected = SQLcom.ExecuteNonQuery();
+
         }
+        
 
         public string SqlConString { get; set; }
     }
