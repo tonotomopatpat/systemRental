@@ -54,6 +54,9 @@ namespace systemRental
 
         }
 
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractCard));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblOther = new System.Windows.Forms.Label();
+            this.lblElectricity = new System.Windows.Forms.Label();
+            this.lblWater = new System.Windows.Forms.Label();
+            this.btnStatus = new Guna.UI2.WinForms.Guna2Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -38,10 +42,6 @@
             this.lblContract = new System.Windows.Forms.Label();
             this.lblRoom = new System.Windows.Forms.Label();
             this.lblTenant = new System.Windows.Forms.Label();
-            this.btnStatus = new Guna.UI2.WinForms.Guna2Button();
-            this.lblWater = new System.Windows.Forms.Label();
-            this.lblElectricity = new System.Windows.Forms.Label();
-            this.lblOther = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,59 @@
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // lblOther
+            // 
+            this.lblOther.AutoSize = true;
+            this.lblOther.BackColor = System.Drawing.Color.Transparent;
+            this.lblOther.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOther.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblOther.Location = new System.Drawing.Point(19, 263);
+            this.lblOther.Name = "lblOther";
+            this.lblOther.Size = new System.Drawing.Size(67, 16);
+            this.lblOther.TabIndex = 18;
+            this.lblOther.Text = "Other Bill";
+            // 
+            // lblElectricity
+            // 
+            this.lblElectricity.AutoSize = true;
+            this.lblElectricity.BackColor = System.Drawing.Color.Transparent;
+            this.lblElectricity.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblElectricity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblElectricity.Location = new System.Drawing.Point(19, 234);
+            this.lblElectricity.Name = "lblElectricity";
+            this.lblElectricity.Size = new System.Drawing.Size(95, 16);
+            this.lblElectricity.TabIndex = 17;
+            this.lblElectricity.Text = "Electricity Bill";
+            // 
+            // lblWater
+            // 
+            this.lblWater.AutoSize = true;
+            this.lblWater.BackColor = System.Drawing.Color.Transparent;
+            this.lblWater.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblWater.Location = new System.Drawing.Point(19, 199);
+            this.lblWater.Name = "lblWater";
+            this.lblWater.Size = new System.Drawing.Size(70, 16);
+            this.lblWater.TabIndex = 16;
+            this.lblWater.Text = "Water bill";
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.BackColor = System.Drawing.Color.Transparent;
+            this.btnStatus.BorderRadius = 10;
+            this.btnStatus.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStatus.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStatus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnStatus.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatus.ForeColor = System.Drawing.Color.Black;
+            this.btnStatus.Location = new System.Drawing.Point(245, 12);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(93, 32);
+            this.btnStatus.TabIndex = 15;
+            this.btnStatus.Text = "Paid";
+            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
@@ -82,6 +135,7 @@
             this.lblTotal.Size = new System.Drawing.Size(96, 16);
             this.lblTotal.TabIndex = 14;
             this.lblTotal.Text = "Total Balance";
+            this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
             // 
             // pictureBox1
             // 
@@ -173,59 +227,6 @@
             this.lblTenant.Size = new System.Drawing.Size(50, 16);
             this.lblTenant.TabIndex = 7;
             this.lblTenant.Text = "Tenant";
-            // 
-            // btnStatus
-            // 
-            this.btnStatus.BackColor = System.Drawing.Color.Transparent;
-            this.btnStatus.BorderRadius = 10;
-            this.btnStatus.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnStatus.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStatus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnStatus.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatus.ForeColor = System.Drawing.Color.Black;
-            this.btnStatus.Location = new System.Drawing.Point(245, 12);
-            this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(93, 32);
-            this.btnStatus.TabIndex = 15;
-            this.btnStatus.Text = "Paid";
-            // 
-            // lblWater
-            // 
-            this.lblWater.AutoSize = true;
-            this.lblWater.BackColor = System.Drawing.Color.Transparent;
-            this.lblWater.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblWater.Location = new System.Drawing.Point(19, 199);
-            this.lblWater.Name = "lblWater";
-            this.lblWater.Size = new System.Drawing.Size(70, 16);
-            this.lblWater.TabIndex = 16;
-            this.lblWater.Text = "Water bill";
-            // 
-            // lblElectricity
-            // 
-            this.lblElectricity.AutoSize = true;
-            this.lblElectricity.BackColor = System.Drawing.Color.Transparent;
-            this.lblElectricity.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblElectricity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblElectricity.Location = new System.Drawing.Point(19, 234);
-            this.lblElectricity.Name = "lblElectricity";
-            this.lblElectricity.Size = new System.Drawing.Size(95, 16);
-            this.lblElectricity.TabIndex = 17;
-            this.lblElectricity.Text = "Electricity Bill";
-            // 
-            // lblOther
-            // 
-            this.lblOther.AutoSize = true;
-            this.lblOther.BackColor = System.Drawing.Color.Transparent;
-            this.lblOther.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOther.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblOther.Location = new System.Drawing.Point(19, 263);
-            this.lblOther.Name = "lblOther";
-            this.lblOther.Size = new System.Drawing.Size(67, 16);
-            this.lblOther.TabIndex = 18;
-            this.lblOther.Text = "Other Bill";
             // 
             // ContractCard
             // 

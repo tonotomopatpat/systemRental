@@ -25,28 +25,38 @@ namespace systemRental
         private void billingsPage_Load(object sender, EventArgs e)
         {
             string query = @"
-            SELECT 
-                c.contract_id,
-                c.start_date,
-                c.end_date,
-                t.first_name,
-                t.last_name,
-                u.unit_number,
-                u.floor,
-                u.unit_type,
-                u.monthly_rate,
-                SUM(ut.water_bill + ut.electricity_bill + ut.maintenance_fee + ut.other_charges) AS total_utilities,
-                (u.monthly_rate + SUM(ut.water_bill + ut.electricity_bill + ut.maintenance_fee + ut.other_charges)) AS total_amount
-            FROM tbl_contracts c
-            JOIN tbl_tenants t ON c.tenant_id = t.tenant_id
-            JOIN tbl_units u ON c.unit_id = u.unit_id
-            LEFT JOIN tbl_utilities ut ON c.contract_id = ut.contract_id
-            GROUP BY c.contract_id
+                SELECT 
+                    c.contract_id,
+                    c.start_date,
+                    c.end_date,
+                    t.first_name,
+                    t.last_name,
+                    u.unit_number,
+                    u.floor,
+                    u.unit_type,
+                    u.monthly_rate,
+                    COALESCE(SUM(ut.total_fees), 0) AS total_utilities,
+                    (u.monthly_rate + COALESCE(SUM(ut.total_fees), 0)) AS total_amount
+                FROM tbl_contracts c
+                JOIN tbl_tenants t ON c.tenant_id = t.tenant_id
+                JOIN tbl_units u ON c.unit_id = u.unit_id
+                LEFT JOIN tbl_utilities ut ON c.contract_id = ut.contract_id
+                GROUP BY 
+                    c.contract_id, 
+                    c.start_date, 
+                    c.end_date, 
+                    t.first_name, 
+                    t.last_name, 
+                    u.unit_number, 
+                    u.floor, 
+                    u.unit_type, 
+                    u.monthly_rate;
             ";
 
             DataTable dt= db.GetData(query);
-
-
+            flowLayoutPanelContents.Controls.Clear();
+            
+            //name,contract,stat date,end date, unit number, total balance
             foreach (DataRow row in dt.Rows)
             {
                 ContractCard card = new ContractCard();

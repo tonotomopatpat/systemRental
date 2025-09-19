@@ -13,6 +13,7 @@ namespace systemRental
 {
     public partial class addTenant : Form
     {
+        //public the txtbox so can to fetch the value
         public string TenantLastName { get { return txtSurname.Text.Trim(); } }
         public string TenantFirstName { get { return txtFirstName.Text.Trim(); } }
         public string TenantMiddleName { get { return txtMiddleName.Text.Trim(); } }
@@ -26,6 +27,8 @@ namespace systemRental
         {
             InitializeComponent();
         }
+
+        //this just for dimming the personalinfo when adding personal information along with the animaiton
         private void showDimOverlay()
         {
             dimOverlay = new Panel();
@@ -43,6 +46,8 @@ namespace systemRental
                 }
             }
         }
+
+        //then removing fuckkldfjsklj fusdf animatino
         private void RemoveDimOverlay()
         {
             if (dimOverlay != null)
@@ -123,7 +128,7 @@ namespace systemRental
 
                     //add the timer
                     Timer timer = new Timer();
-                    timer.Interval = 10; //speed of the sliding/animation
+                    timer.Interval = 10; //speed of the sliding/animation then
                     timer.Tick += (s, ev) =>
                     {
                         if (contractForm.Left > targetXContractForm)

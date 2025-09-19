@@ -39,7 +39,6 @@
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.cmbMonth = new Guna.UI2.WinForms.Guna2ComboBox();
             this.resComputedWater = new Guna.UI2.WinForms.Guna2TextBox();
             this.resComputedKWH = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -49,6 +48,7 @@
             this.btnCompute = new Guna.UI2.WinForms.Guna2Button();
             this.labelMessage = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
+            this.dtpMonthOf = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.SuspendLayout();
             // 
             // txtKWH
@@ -206,35 +206,6 @@
             this.guna2HtmlLabel6.TabIndex = 11;
             this.guna2HtmlLabel6.Text = "i dont know";
             // 
-            // cmbMonth
-            // 
-            this.cmbMonth.BackColor = System.Drawing.Color.Transparent;
-            this.cmbMonth.BorderRadius = 10;
-            this.cmbMonth.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMonth.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbMonth.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbMonth.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbMonth.ItemHeight = 30;
-            this.cmbMonth.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.cmbMonth.Location = new System.Drawing.Point(29, 338);
-            this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(200, 36);
-            this.cmbMonth.TabIndex = 12;
-            // 
             // resComputedWater
             // 
             this.resComputedWater.BorderRadius = 10;
@@ -368,11 +339,25 @@
             this.btnPrint.TabIndex = 27;
             this.btnPrint.Text = "&Print";
             // 
+            // dtpMonthOf
+            // 
+            this.dtpMonthOf.Checked = true;
+            this.dtpMonthOf.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpMonthOf.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpMonthOf.Location = new System.Drawing.Point(29, 330);
+            this.dtpMonthOf.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpMonthOf.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpMonthOf.Name = "dtpMonthOf";
+            this.dtpMonthOf.Size = new System.Drawing.Size(200, 36);
+            this.dtpMonthOf.TabIndex = 28;
+            this.dtpMonthOf.Value = new System.DateTime(2025, 9, 17, 10, 53, 36, 540);
+            // 
             // calculate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 499);
+            this.Controls.Add(this.dtpMonthOf);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.btnCompute);
@@ -382,7 +367,6 @@
             this.Controls.Add(this.guna2HtmlLabel7);
             this.Controls.Add(this.resComputedKWH);
             this.Controls.Add(this.resComputedWater);
-            this.Controls.Add(this.cmbMonth);
             this.Controls.Add(this.guna2HtmlLabel6);
             this.Controls.Add(this.guna2HtmlLabel5);
             this.Controls.Add(this.guna2HtmlLabel4);
@@ -419,7 +403,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbMonth;
         private Guna.UI2.WinForms.Guna2TextBox resComputedWater;
         private Guna.UI2.WinForms.Guna2TextBox resComputedKWH;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
@@ -429,5 +412,6 @@
         private Guna.UI2.WinForms.Guna2Button btnCompute;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelMessage;
         private Guna.UI2.WinForms.Guna2Button btnPrint;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpMonthOf;
     }
 }
