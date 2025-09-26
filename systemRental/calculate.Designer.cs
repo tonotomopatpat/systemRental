@@ -31,14 +31,12 @@
             this.txtKWH = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtWater = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtRent = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbTenants = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.resComputedWater = new Guna.UI2.WinForms.Guna2TextBox();
             this.resComputedKWH = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -111,25 +109,6 @@
             this.txtRent.Size = new System.Drawing.Size(200, 32);
             this.txtRent.TabIndex = 2;
             // 
-            // guna2TextBox5
-            // 
-            this.guna2TextBox5.BorderRadius = 10;
-            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox5.DefaultText = "";
-            this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Location = new System.Drawing.Point(29, 399);
-            this.guna2TextBox5.Name = "guna2TextBox5";
-            this.guna2TextBox5.PlaceholderText = "";
-            this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.Size = new System.Drawing.Size(200, 30);
-            this.guna2TextBox5.TabIndex = 4;
-            // 
             // cmbTenants
             // 
             this.cmbTenants.BackColor = System.Drawing.Color.Transparent;
@@ -195,16 +174,6 @@
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(73, 28);
             this.guna2HtmlLabel5.TabIndex = 10;
             this.guna2HtmlLabel5.Text = "Month of:";
-            // 
-            // guna2HtmlLabel6
-            // 
-            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(29, 372);
-            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(90, 28);
-            this.guna2HtmlLabel6.TabIndex = 11;
-            this.guna2HtmlLabel6.Text = "i dont know";
             // 
             // resComputedWater
             // 
@@ -344,7 +313,7 @@
             this.dtpMonthOf.Checked = true;
             this.dtpMonthOf.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpMonthOf.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpMonthOf.Location = new System.Drawing.Point(29, 330);
+            this.dtpMonthOf.Location = new System.Drawing.Point(29, 354);
             this.dtpMonthOf.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpMonthOf.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpMonthOf.Name = "dtpMonthOf";
@@ -367,14 +336,12 @@
             this.Controls.Add(this.guna2HtmlLabel7);
             this.Controls.Add(this.resComputedKWH);
             this.Controls.Add(this.resComputedWater);
-            this.Controls.Add(this.guna2HtmlLabel6);
             this.Controls.Add(this.guna2HtmlLabel5);
             this.Controls.Add(this.guna2HtmlLabel4);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.cmbTenants);
-            this.Controls.Add(this.guna2TextBox5);
             this.Controls.Add(this.txtRent);
             this.Controls.Add(this.txtWater);
             this.Controls.Add(this.txtKWH);
@@ -395,14 +362,12 @@
         private Guna.UI2.WinForms.Guna2TextBox txtKWH;
         private Guna.UI2.WinForms.Guna2TextBox txtWater;
         private Guna.UI2.WinForms.Guna2TextBox txtRent;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
         private Guna.UI2.WinForms.Guna2ComboBox cmbTenants;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2TextBox resComputedWater;
         private Guna.UI2.WinForms.Guna2TextBox resComputedKWH;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;

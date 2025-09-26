@@ -158,12 +158,15 @@ namespace systemRental
 
                         if (db.rowAffected > 0)
                         {
+                            //update unit status to occupied
+                            string updateUnit = $"UPDATE tbl_units SET status = 'occupied' WHERE unit_id = '{cmbUnit.SelectedValue}'";
+                            db.executeSQL(updateUnit);
+
                             MessageBox.Show("Tenant and contract saved successfully.",
                                             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                            //mainOriginalForm.Close();
 
-                            //this one got from stackoverflow!!!!! dang
+                            this.Close();
+
                             if (mainOriginalForm != null && !mainOriginalForm.IsDisposed)
                             {
                                 mainOriginalForm.Close();

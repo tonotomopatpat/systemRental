@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Asn1.Cmp;
+﻿using Guna.UI2.WinForms;
+using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,12 +21,13 @@ namespace systemRental
 
         public string unitStatus
         {
-            get => lblUnitStatus.Text;
-            set
-            {
-                string v = string.IsNullOrWhiteSpace(value) ? "N/A" : value;
-                lblUnitStatus.Text = "Status: " + v;
-            }
+            get => btnStatus.Text;
+            set => btnStatus.Text = value;
+        }
+
+        public Guna2Button StatusButton
+        {
+            get => btnStatus;
         }
 
         public string unitNo
@@ -59,6 +61,11 @@ namespace systemRental
         }
 
         private void roomCard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

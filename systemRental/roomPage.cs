@@ -30,7 +30,7 @@ namespace systemRental
 
                 DataTable dt = db.GetData(sql);
 
-                
+
 
                 foreach (DataRow row in dt.Rows)
                 {
@@ -46,6 +46,31 @@ namespace systemRental
                     string tenant = string.IsNullOrEmpty(row["tenant_name"].ToString()) ? "-" : row["tenant_name"].ToString();
                     card.tenant = tenant;
                     card.Margin = new Padding(20);
+
+                    string status = row["status"].ToString();
+
+                    if (status == "vacant")
+                    {
+                        card.StatusButton.FillColor = Color.LimeGreen;
+                    }
+                    else if (status == "occupied")
+                    {
+                        card.StatusButton.FillColor = Color.Red;
+                    }
+                    else if (status == "maintenance")
+                    {
+                        card.StatusButton.FillColor = Color.Orange;
+                    }
+                    else
+                    {
+                        card.StatusButton.FillColor = Color.Gray; // default for unknown
+                    }
+
+                    // ✅ Make button look like a tag (not a clickable button)
+                    //card.StatusButton.FlatStyle = FlatStyle.Flat;
+                    //card.StatusButton.FlatAppearance.BorderSize = 0;
+                    //card.StatusButton.Enabled = false; // disables click
+                    //card.StatusButton.Cursor = Cursors.Default; // no hand icon
 
                     flowRooms.Controls.Add(card);
                 }
@@ -63,6 +88,11 @@ namespace systemRental
         private void roomPage_Load(object sender, EventArgs e)
         {
             loadRooms();
+        }
+
+        private void btnCompute_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

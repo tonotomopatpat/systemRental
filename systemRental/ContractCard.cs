@@ -58,5 +58,10 @@ namespace systemRental
         {
 
         }
+
+        private void ContractCard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

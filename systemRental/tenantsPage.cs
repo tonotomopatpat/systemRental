@@ -31,6 +31,7 @@ namespace systemRental
         {
             //LoadControl(new overview()); //para default yung overview
             flowPeople.Controls.Clear();
+
             DataTable dt = getTenants();
             foreach (DataRow row in dt.Rows)
             {
@@ -60,17 +61,17 @@ namespace systemRental
             }
             if (dt.Rows.Count > 0)
             {
-                int firstTenantID = Convert.ToInt32(dt.Rows[0]["tenant_id"]);
-                selectedTenantID = firstTenantID;
-                LoadControl(new overview(firstTenantID));
-                lblName.Text = $"{dt.Rows[0]["first_name"]} {dt.Rows[0]["last_name"]}";
-                lblCompanyNumber.Text = dt.Rows[0]["phone_no"].ToString();
-                //lblContractStatus.Text = row["contract_status"].ToString();
+                //not auto select tenants
+                lblName.Text = "Please select a tenant";
+                lblCompanyNumber.Text = "-";
+                selectedTenantID = null;
+                panelSecondContent.Controls.Clear(); //all empty
             }
             else
             {
                 lblName.Text = "N/A";
                 lblCompanyNumber.Text = "N/A";
+                panelSecondContent.Controls.Clear();
             }
         }
 
@@ -137,6 +138,15 @@ namespace systemRental
         {
             addTenant addTenant = new addTenant();
             addTenant.Show();
+        }
+
+        private void btnGoToRooms_Click(object sender, EventArgs e)
+        {
+            var parentForm = this.FindForm() as frmMain;
+            if (parentForm != null)
+            {
+                parentForm.ShowUserControl(new roomPage());
+            }
         }
     }
 }

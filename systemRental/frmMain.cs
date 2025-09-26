@@ -17,7 +17,7 @@ namespace systemRental
             InitializeComponent();
         }
 
-        private void ShowUserControl(UserControl uc)
+        public void ShowUserControl(UserControl uc)
         {
             panelContent.Controls.Clear();
             uc.Dock = DockStyle.Fill;
@@ -58,5 +58,6 @@ namespace systemRental
         {
             ShowUserControl(new roomPage());
         }
+
     }
 }

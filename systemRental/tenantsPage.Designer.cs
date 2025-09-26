@@ -54,7 +54,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnGoToRooms = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddTenants = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panelMainBackground.SuspendLayout();
@@ -412,7 +412,7 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panelTop.Controls.Add(this.guna2Button1);
+            this.panelTop.Controls.Add(this.btnGoToRooms);
             this.panelTop.Controls.Add(this.btnAddTenants);
             this.panelTop.Controls.Add(this.guna2HtmlLabel1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -421,22 +421,23 @@
             this.panelTop.Size = new System.Drawing.Size(1753, 98);
             this.panelTop.TabIndex = 0;
             // 
-            // guna2Button1
+            // btnGoToRooms
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button1.Location = new System.Drawing.Point(8, 39);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(111, 41);
-            this.guna2Button1.TabIndex = 9;
-            this.guna2Button1.Text = "Filter";
+            this.btnGoToRooms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGoToRooms.BorderRadius = 8;
+            this.btnGoToRooms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGoToRooms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGoToRooms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGoToRooms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGoToRooms.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnGoToRooms.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToRooms.ForeColor = System.Drawing.Color.DimGray;
+            this.btnGoToRooms.Location = new System.Drawing.Point(1621, 42);
+            this.btnGoToRooms.Name = "btnGoToRooms";
+            this.btnGoToRooms.Size = new System.Drawing.Size(111, 41);
+            this.btnGoToRooms.TabIndex = 9;
+            this.btnGoToRooms.Text = "Go To Rooms";
+            this.btnGoToRooms.Click += new System.EventHandler(this.btnGoToRooms_Click);
             // 
             // btnAddTenants
             // 
@@ -449,7 +450,7 @@
             this.btnAddTenants.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnAddTenants.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTenants.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAddTenants.Location = new System.Drawing.Point(1621, 39);
+            this.btnAddTenants.Location = new System.Drawing.Point(8, 42);
             this.btnAddTenants.Name = "btnAddTenants";
             this.btnAddTenants.Size = new System.Drawing.Size(111, 41);
             this.btnAddTenants.TabIndex = 8;
@@ -518,6 +519,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
         private Guna.UI2.WinForms.Guna2Button btnOverview;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnGoToRooms;
     }
 }

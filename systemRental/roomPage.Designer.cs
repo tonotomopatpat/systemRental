@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(roomPage));
             this.pnlFirst = new Guna.UI2.WinForms.Guna2Panel();
-            this.flowRooms = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
@@ -40,6 +39,7 @@
             this.btnCompute = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.flowRooms = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlFirst.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -57,15 +57,6 @@
             this.pnlFirst.Padding = new System.Windows.Forms.Padding(25, 50, 25, 25);
             this.pnlFirst.Size = new System.Drawing.Size(1753, 1080);
             this.pnlFirst.TabIndex = 0;
-            // 
-            // flowRooms
-            // 
-            this.flowRooms.AutoScroll = true;
-            this.flowRooms.BackColor = System.Drawing.Color.Transparent;
-            this.flowRooms.Location = new System.Drawing.Point(28, 189);
-            this.flowRooms.Name = "flowRooms";
-            this.flowRooms.Size = new System.Drawing.Size(1681, 783);
-            this.flowRooms.TabIndex = 0;
             // 
             // guna2Panel2
             // 
@@ -177,6 +168,7 @@
             this.btnCompute.Size = new System.Drawing.Size(180, 33);
             this.btnCompute.TabIndex = 4;
             this.btnCompute.Text = "Add Rooms";
+            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
             // 
             // guna2TextBox1
             // 
@@ -207,6 +199,15 @@
             this.label1.Size = new System.Drawing.Size(170, 28);
             this.label1.TabIndex = 3;
             this.label1.Text = "ROOMS PAGE";
+            // 
+            // flowRooms
+            // 
+            this.flowRooms.AutoScroll = true;
+            this.flowRooms.BackColor = System.Drawing.Color.Transparent;
+            this.flowRooms.Location = new System.Drawing.Point(28, 189);
+            this.flowRooms.Name = "flowRooms";
+            this.flowRooms.Size = new System.Drawing.Size(1681, 783);
+            this.flowRooms.TabIndex = 0;
             // 
             // roomPage
             // 

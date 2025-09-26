@@ -236,6 +236,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ContractCard";
             this.Size = new System.Drawing.Size(358, 384);
+            this.Load += new System.EventHandler(this.ContractCard_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
