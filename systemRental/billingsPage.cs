@@ -100,28 +100,28 @@ namespace systemRental
 
                 ContractCard card = new ContractCard
                 {
-                    BillId = row["bill_id"].ToString(),
+                    BillId = row["bill_id"].ToString(),   // ✅ Make sure this is assigned!
                     TenantName = row["first_name"].ToString() + " " + row["last_name"].ToString(),
                     ContractInfo = "Contract: " +
-                    Convert.ToDateTime(row["start_date"]).ToShortDateString() +
-                    " - " + Convert.ToDateTime(row["end_date"]).ToShortDateString(),
+                   Convert.ToDateTime(row["start_date"]).ToShortDateString() +
+                   " - " + Convert.ToDateTime(row["end_date"]).ToShortDateString(),
                     Room = "Room: " + row["unit_number"] + " (" + row["unit_type"] + "), Floor " + row["floor"],
                     UnitType = "Type: " + row["unit_type"],
                     TotalUtilities = "Total Balance: ₱" + row["total_amount"],
-                    PaymentStatus = status,   // ✅ use DB value
+                    PaymentStatus = row["status"].ToString(),
                     Margin = new Padding(20)
                 };
 
                 // ✅ Filtering logic
                 bool addCard = true;
 
-                if (currentFilter == "Paid" && status != "Paid")
+                if (currentFilter == "paid" && status != "paid")
                     addCard = false;
-                else if (currentFilter == "Un-paid" && status != "Un-paid")
+                else if (currentFilter == "unpaid" && status != "unpaid")
                     addCard = false;
-                else if (currentFilter == "Overdue")
+                else if (currentFilter == "overdue")
                 {
-                    if (status != "Un-paid")
+                    if (status != "unpaid")
                         addCard = false;
                     else
                     {
@@ -177,19 +177,19 @@ namespace systemRental
 
         private void btnPaid_Click(object sender, EventArgs e)
         {
-            currentFilter = "Paid";
+            currentFilter = "paid";
             billingsPage_Load(sender, e);
         }
 
         private void btnOverdue_Click(object sender, EventArgs e)
         {
-            currentFilter = "Overdue";
+            currentFilter = "overdue";
             billingsPage_Load(sender, e);
         }
 
         private void btnUnPaid_Click(object sender, EventArgs e)
         {
-            currentFilter = "Un-paid";
+            currentFilter = "unpaid";
             billingsPage_Load(sender, e);
         }
 

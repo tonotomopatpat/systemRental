@@ -61,13 +61,13 @@ namespace systemRental
             {
                 btnStatus.Text = value;
 
-                if (value == "Un-paid")
+                if (value == "unpaid")
                 {
                     btnStatus.FillColor = Color.Red;       // background
                     btnStatus.ForeColor = Color.White;     // text color
                     btnPaid.Enabled = true;
                 }
-                else if (value == "Paid")
+                else if (value == "paid")
                 {
                     btnStatus.FillColor = Color.Green;
                     btnStatus.ForeColor = Color.White;
@@ -153,12 +153,12 @@ namespace systemRental
 
                 if (dr == DialogResult.Yes)
                 {
-                    string query = $"UPDATE tbl_utilities SET status = 'Paid' WHERE bill_id = '{BillId}'";
+                    string query = $"UPDATE tbl_utilities SET status = 'paid' WHERE bill_id = '{BillId}'";
                     db.executeSQL(query);
 
                     if (db.rowAffected > 0)
                     {
-                        PaymentStatus = "Paid"; // ✅ updates UI & disables button
+                        PaymentStatus = "paid"; // ✅ updates UI & disables button
                         MessageBox.Show("Bill marked as PAID successfully!",
                                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
