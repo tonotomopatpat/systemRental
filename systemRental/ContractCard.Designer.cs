@@ -36,8 +36,8 @@
             this.btnStatus = new Guna.UI2.WinForms.Guna2Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPaid = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
             this.lblUnitType = new System.Windows.Forms.Label();
             this.lblContract = new System.Windows.Forms.Label();
             this.lblRoom = new System.Windows.Forms.Label();
@@ -56,8 +56,8 @@
             this.guna2Panel1.Controls.Add(this.btnStatus);
             this.guna2Panel1.Controls.Add(this.lblTotal);
             this.guna2Panel1.Controls.Add(this.pictureBox1);
-            this.guna2Panel1.Controls.Add(this.guna2Button4);
-            this.guna2Panel1.Controls.Add(this.guna2Button3);
+            this.guna2Panel1.Controls.Add(this.btnPaid);
+            this.guna2Panel1.Controls.Add(this.btnPrint);
             this.guna2Panel1.Controls.Add(this.lblUnitType);
             this.guna2Panel1.Controls.Add(this.lblContract);
             this.guna2Panel1.Controls.Add(this.lblRoom);
@@ -147,37 +147,39 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
-            // guna2Button4
+            // btnPaid
             // 
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderRadius = 10;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.Location = new System.Drawing.Point(218, 332);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(93, 32);
-            this.guna2Button4.TabIndex = 12;
-            this.guna2Button4.Text = "Paid";
+            this.btnPaid.BackColor = System.Drawing.Color.Transparent;
+            this.btnPaid.BorderRadius = 10;
+            this.btnPaid.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPaid.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPaid.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPaid.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPaid.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaid.ForeColor = System.Drawing.Color.Black;
+            this.btnPaid.Location = new System.Drawing.Point(218, 332);
+            this.btnPaid.Name = "btnPaid";
+            this.btnPaid.Size = new System.Drawing.Size(93, 32);
+            this.btnPaid.TabIndex = 12;
+            this.btnPaid.Text = "Paid";
+            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
             // 
-            // guna2Button3
+            // btnPrint
             // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderRadius = 10;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.Location = new System.Drawing.Point(71, 332);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(88, 32);
-            this.guna2Button3.TabIndex = 11;
-            this.guna2Button3.Text = "Print";
+            this.btnPrint.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrint.BorderRadius = 10;
+            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrint.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.Black;
+            this.btnPrint.Location = new System.Drawing.Point(71, 332);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(88, 32);
+            this.btnPrint.TabIndex = 11;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // lblUnitType
             // 
@@ -247,8 +249,8 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnPaid;
+        private Guna.UI2.WinForms.Guna2Button btnPrint;
         private System.Windows.Forms.Label lblUnitType;
         private System.Windows.Forms.Label lblContract;
         private System.Windows.Forms.Label lblRoom;

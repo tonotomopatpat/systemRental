@@ -34,14 +34,17 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbMonth = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUnPaid = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOverdue = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPaid = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAll = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnCompute = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbYear = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -71,12 +74,15 @@
             // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Controls.Add(this.label4);
+            this.guna2Panel2.Controls.Add(this.label3);
+            this.guna2Panel2.Controls.Add(this.cmbYear);
             this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Controls.Add(this.cmbMonth);
-            this.guna2Panel2.Controls.Add(this.guna2Button4);
-            this.guna2Panel2.Controls.Add(this.guna2Button3);
-            this.guna2Panel2.Controls.Add(this.guna2Button2);
-            this.guna2Panel2.Controls.Add(this.guna2Button1);
+            this.guna2Panel2.Controls.Add(this.btnUnPaid);
+            this.guna2Panel2.Controls.Add(this.btnOverdue);
+            this.guna2Panel2.Controls.Add(this.btnPaid);
+            this.guna2Panel2.Controls.Add(this.btnAll);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel2.Location = new System.Drawing.Point(25, 110);
             this.guna2Panel2.Name = "guna2Panel2";
@@ -87,7 +93,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(800, 16);
+            this.label2.Location = new System.Drawing.Point(997, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(185, 16);
             this.label2.TabIndex = 6;
@@ -118,79 +124,83 @@
             "October",
             "November",
             "December"});
-            this.cmbMonth.Location = new System.Drawing.Point(510, 6);
+            this.cmbMonth.Location = new System.Drawing.Point(803, 6);
             this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(284, 36);
+            this.cmbMonth.Size = new System.Drawing.Size(182, 36);
             this.cmbMonth.TabIndex = 41;
             this.cmbMonth.SelectedIndexChanged += new System.EventHandler(this.cmbMonth_SelectedIndexChanged);
             // 
-            // guna2Button4
+            // btnUnPaid
             // 
-            this.guna2Button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button4.BorderRadius = 8;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.LightSkyBlue;
-            this.guna2Button4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button4.Location = new System.Drawing.Point(384, 6);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(111, 41);
-            this.guna2Button4.TabIndex = 9;
-            this.guna2Button4.Text = "Un-paid";
+            this.btnUnPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUnPaid.BorderRadius = 8;
+            this.btnUnPaid.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUnPaid.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUnPaid.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUnPaid.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUnPaid.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnUnPaid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnPaid.ForeColor = System.Drawing.Color.DimGray;
+            this.btnUnPaid.Location = new System.Drawing.Point(384, 6);
+            this.btnUnPaid.Name = "btnUnPaid";
+            this.btnUnPaid.Size = new System.Drawing.Size(111, 41);
+            this.btnUnPaid.TabIndex = 9;
+            this.btnUnPaid.Text = "Un-paid";
+            this.btnUnPaid.Click += new System.EventHandler(this.btnUnPaid_Click);
             // 
-            // guna2Button3
+            // btnOverdue
             // 
-            this.guna2Button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button3.BorderRadius = 8;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.LightSkyBlue;
-            this.guna2Button3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button3.Location = new System.Drawing.Point(258, 6);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(111, 41);
-            this.guna2Button3.TabIndex = 8;
-            this.guna2Button3.Text = "Overdue";
+            this.btnOverdue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOverdue.BorderRadius = 8;
+            this.btnOverdue.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOverdue.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOverdue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOverdue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOverdue.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnOverdue.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOverdue.ForeColor = System.Drawing.Color.DimGray;
+            this.btnOverdue.Location = new System.Drawing.Point(258, 6);
+            this.btnOverdue.Name = "btnOverdue";
+            this.btnOverdue.Size = new System.Drawing.Size(111, 41);
+            this.btnOverdue.TabIndex = 8;
+            this.btnOverdue.Text = "Overdue";
+            this.btnOverdue.Click += new System.EventHandler(this.btnOverdue_Click);
             // 
-            // guna2Button2
+            // btnPaid
             // 
-            this.guna2Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button2.BorderRadius = 8;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.LightSkyBlue;
-            this.guna2Button2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.Location = new System.Drawing.Point(131, 6);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(111, 41);
-            this.guna2Button2.TabIndex = 7;
-            this.guna2Button2.Text = "Completed";
+            this.btnPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPaid.BorderRadius = 8;
+            this.btnPaid.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPaid.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPaid.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPaid.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPaid.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnPaid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaid.ForeColor = System.Drawing.Color.DimGray;
+            this.btnPaid.Location = new System.Drawing.Point(131, 6);
+            this.btnPaid.Name = "btnPaid";
+            this.btnPaid.Size = new System.Drawing.Size(111, 41);
+            this.btnPaid.TabIndex = 7;
+            this.btnPaid.Text = "Paid";
+            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
             // 
-            // guna2Button1
+            // btnAll
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.LightSkyBlue;
-            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button1.Location = new System.Drawing.Point(3, 6);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(111, 41);
-            this.guna2Button1.TabIndex = 6;
-            this.guna2Button1.Text = "All";
+            this.btnAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAll.BorderRadius = 8;
+            this.btnAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAll.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAll.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAll.ForeColor = System.Drawing.Color.DimGray;
+            this.btnAll.Location = new System.Drawing.Point(3, 6);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(111, 41);
+            this.btnAll.TabIndex = 6;
+            this.btnAll.Text = "All";
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // guna2Panel1
             // 
@@ -254,6 +264,44 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "We are Group 10";
             // 
+            // cmbYear
+            // 
+            this.cmbYear.BackColor = System.Drawing.Color.Transparent;
+            this.cmbYear.BorderRadius = 5;
+            this.cmbYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbYear.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbYear.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbYear.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbYear.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbYear.ItemHeight = 30;
+            this.cmbYear.Location = new System.Drawing.Point(553, 6);
+            this.cmbYear.Name = "cmbYear";
+            this.cmbYear.Size = new System.Drawing.Size(182, 36);
+            this.cmbYear.TabIndex = 42;
+            this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(502, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "Year: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(746, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 16);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Month:";
+            // 
             // billingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -280,11 +328,14 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelContents;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnAll;
+        private Guna.UI2.WinForms.Guna2Button btnUnPaid;
+        private Guna.UI2.WinForms.Guna2Button btnOverdue;
+        private Guna.UI2.WinForms.Guna2Button btnPaid;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox cmbMonth;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbYear;
     }
 }
