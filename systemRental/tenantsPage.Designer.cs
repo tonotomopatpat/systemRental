@@ -43,8 +43,9 @@
             this.mainInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.panelSecondContent = new Guna.UI2.WinForms.Guna2Panel();
             this.panelFirstContent = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditContract = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDeleteProfile = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditProfile = new Guna.UI2.WinForms.Guna2Button();
             this.lblEmail = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblCompanyNumber = new System.Windows.Forms.Label();
@@ -181,6 +182,7 @@
             // 
             this.btnOverview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOverview.BorderRadius = 30;
+            this.btnOverview.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOverview.CustomizableEdges.BottomLeft = false;
             this.btnOverview.CustomizableEdges.BottomRight = false;
             this.btnOverview.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -220,6 +222,7 @@
             // 
             this.guna2Button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Button5.BorderRadius = 30;
+            this.guna2Button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button5.CustomizableEdges.BottomLeft = false;
             this.guna2Button5.CustomizableEdges.BottomRight = false;
             this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -239,6 +242,7 @@
             // 
             this.btnHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnHistory.BorderRadius = 30;
+            this.btnHistory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHistory.CustomizableEdges.BottomLeft = false;
             this.btnHistory.CustomizableEdges.BottomRight = false;
             this.btnHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -279,8 +283,9 @@
             // 
             this.panelFirstContent.BackColor = System.Drawing.Color.Transparent;
             this.panelFirstContent.BorderRadius = 60;
-            this.panelFirstContent.Controls.Add(this.guna2Button3);
-            this.panelFirstContent.Controls.Add(this.guna2Button2);
+            this.panelFirstContent.Controls.Add(this.btnEditContract);
+            this.panelFirstContent.Controls.Add(this.btnDeleteProfile);
+            this.panelFirstContent.Controls.Add(this.btnEditProfile);
             this.panelFirstContent.Controls.Add(this.lblEmail);
             this.panelFirstContent.Controls.Add(this.label6);
             this.panelFirstContent.Controls.Add(this.lblCompanyNumber);
@@ -296,39 +301,62 @@
             this.panelFirstContent.Size = new System.Drawing.Size(1348, 286);
             this.panelFirstContent.TabIndex = 0;
             // 
-            // guna2Button3
+            // btnEditContract
             // 
-            this.guna2Button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button3.BorderRadius = 8;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button3.Location = new System.Drawing.Point(1219, 89);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(111, 41);
-            this.guna2Button3.TabIndex = 10;
-            this.guna2Button3.Text = "Delete Profile";
+            this.btnEditContract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditContract.BorderRadius = 8;
+            this.btnEditContract.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditContract.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditContract.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditContract.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditContract.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditContract.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnEditContract.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditContract.ForeColor = System.Drawing.Color.DimGray;
+            this.btnEditContract.Location = new System.Drawing.Point(1219, 82);
+            this.btnEditContract.Name = "btnEditContract";
+            this.btnEditContract.Size = new System.Drawing.Size(111, 41);
+            this.btnEditContract.TabIndex = 11;
+            this.btnEditContract.Text = "Edit Contract";
+            this.btnEditContract.Click += new System.EventHandler(this.btnEditContract_Click);
             // 
-            // guna2Button2
+            // btnDeleteProfile
             // 
-            this.guna2Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button2.BorderRadius = 8;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.Location = new System.Drawing.Point(1219, 24);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(111, 41);
-            this.guna2Button2.TabIndex = 9;
-            this.guna2Button2.Text = "Edit Profile";
+            this.btnDeleteProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteProfile.BorderRadius = 8;
+            this.btnDeleteProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDeleteProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDeleteProfile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDeleteProfile.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteProfile.ForeColor = System.Drawing.Color.DimGray;
+            this.btnDeleteProfile.Location = new System.Drawing.Point(1219, 142);
+            this.btnDeleteProfile.Name = "btnDeleteProfile";
+            this.btnDeleteProfile.Size = new System.Drawing.Size(111, 41);
+            this.btnDeleteProfile.TabIndex = 10;
+            this.btnDeleteProfile.Text = "Delete Profile";
+            this.btnDeleteProfile.Click += new System.EventHandler(this.btnDeleteProfile_Click);
+            // 
+            // btnEditProfile
+            // 
+            this.btnEditProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditProfile.BorderRadius = 8;
+            this.btnEditProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditProfile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnEditProfile.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditProfile.ForeColor = System.Drawing.Color.DimGray;
+            this.btnEditProfile.Location = new System.Drawing.Point(1219, 24);
+            this.btnEditProfile.Name = "btnEditProfile";
+            this.btnEditProfile.Size = new System.Drawing.Size(111, 41);
+            this.btnEditProfile.TabIndex = 9;
+            this.btnEditProfile.Text = "Edit Profile";
+            this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
             // 
             // lblEmail
             // 
@@ -443,6 +471,7 @@
             // 
             this.btnAddTenants.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddTenants.BorderRadius = 8;
+            this.btnAddTenants.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddTenants.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddTenants.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddTenants.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -513,12 +542,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblName;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnDeleteProfile;
+        private Guna.UI2.WinForms.Guna2Button btnEditProfile;
         private Guna.UI2.WinForms.Guna2Button guna2Button6;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
         private Guna.UI2.WinForms.Guna2Button btnOverview;
         private Guna.UI2.WinForms.Guna2Button btnGoToRooms;
+        private Guna.UI2.WinForms.Guna2Button btnEditContract;
     }
 }

@@ -148,5 +148,44 @@ namespace systemRental
                 parentForm.ShowUserControl(new roomPage());
             }
         }
+
+        private void btnEditProfile_Click(object sender, EventArgs e)
+        {
+            editProfile editProfile = new editProfile();
+            editProfile.Show();
+        }
+
+        private void btnEditContract_Click(object sender, EventArgs e)
+        {
+            editContract editContract = new editContract();
+            editContract.Show();
+        }
+
+        private void btnDeleteProfile_Click(object sender, EventArgs e)
+        {
+            if (!selectedTenantID.HasValue)
+            {
+                MessageBox.Show("Please select a tenant first.");
+                return;
+            }
+            try
+            {
+                DialogResult dr = MessageBox.Show("Are you sure you want to delete thi account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    string query = $"DELETE FROM tbl_tenants WHERE tenant_id={selectedTenantID.Value}";
+                    db.executeSQL(query);
+
+                    MessageBox.Show("Tenant deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //refresh tenants
+                    tenantsPage_Load(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error while deleting tenant: " + ex.Message);
+            }
+        }
     }
 }
