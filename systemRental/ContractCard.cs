@@ -99,6 +99,23 @@ namespace systemRental
             get => lblUnitType.Text;
             set => lblUnitType.Text = value;
         }
+        public string WaterBill
+        {
+            get => lblWaterBill.Text;
+            set => lblWaterBill.Text = "Water: ₱" + value;
+        }
+
+        public string ElectricityBill
+        {
+            get => lblElectricityBill.Text;
+            set => lblElectricityBill.Text = "Electricity: ₱" + value;
+        }
+
+        public string OtherCharges
+        {
+            get => lblOtherCharges.Text;
+            set => lblOtherCharges.Text = "Other: ₱" + value;
+        }
         public string TotalUtilities
         {
             get => lblTotal.Text;

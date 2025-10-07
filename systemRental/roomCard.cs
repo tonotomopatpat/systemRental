@@ -17,6 +17,7 @@ namespace systemRental
         public roomCard()
         {
             InitializeComponent();
+            btnDeleteRoom.Click += btnDeleteRoom_Click;
         }
 
         public string unitStatus
@@ -29,6 +30,8 @@ namespace systemRental
         {
             get => btnStatus;
         }
+        public int RoomId { get; set; } // store unit_id for deletion
+
 
         public string unitNo
         {
@@ -73,6 +76,17 @@ namespace systemRental
         private void btnStatus_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public event EventHandler DeleteClicked;
+        private void btnDeleteRoom_Click(object sender, EventArgs e)
+        {
+            DeleteClicked?.Invoke(this, EventArgs.Empty);
+        }
+        public event EventHandler MaintenanceClicked;
+        private void btnMaintenance_Click(object sender, EventArgs e)
+        {
+            MaintenanceClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

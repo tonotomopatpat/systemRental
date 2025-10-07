@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace systemRental
@@ -18,6 +19,7 @@ namespace systemRental
         private void calculate_Load(object sender, EventArgs e)
         {
             loadTenants();
+            dtpMonthOf.Value = DateTime.Now; // Automatically pick current date
         }
 
         private void loadTenants()
@@ -65,11 +67,10 @@ namespace systemRental
 
                 double water = double.Parse(txtWater.Text);
                 double KWH = double.Parse(txtKWH.Text);
-                double rent = double.Parse(txtRent.Text);
 
                 double waterBill = water * 30;
                 double kwhBill = KWH * 30;
-                double total = rent + waterBill + kwhBill;
+                double total = waterBill + kwhBill; // rent is removed
 
                 resComputedWater.Text = waterBill.ToString("0.00");
                 resComputedKWH.Text = kwhBill.ToString("0.00");
@@ -79,36 +80,79 @@ namespace systemRental
                 string dbMonth = dtpMonthOf.Value.ToString("yyyy-MM");
                 labelMessage.Text = $"Your total bill for month {displayMonth} is:";
 
-                if (errorcount == 0)
+                if (errorcount > 0) return;
+
+                DataRow selectedRow = ((DataTable)cmbTenants.DataSource).Rows[cmbTenants.SelectedIndex];
+                string tenantId = selectedRow["tenant_id"].ToString();
+                string contractId = cmbTenants.SelectedValue.ToString();
+
+                // Check if billing already exists
+                string checkSql = $"SELECT * FROM tbl_utilities WHERE contract_id = {contractId} AND billing_month = '{dbMonth}'";
+                DataTable dtCheck = newBilling.GetData(checkSql);
+
+                if (dtCheck.Rows.Count > 0)
                 {
-                    DialogResult dr = MessageBox.Show("Are you sure you want to save this bill?",
-                                                      "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dr == DialogResult.Yes)
+                    // Ask if user wants to override
+                    DialogResult drOverride = MessageBox.Show(
+                        $"A bill for this tenant for {dbMonth} already exists. Do you want to override it?",
+                        "Duplicate Billing",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+
+                    if (drOverride == DialogResult.Yes)
                     {
-                        // Get tenant_id from DataTable
-                        DataRow selectedRow = ((DataTable)cmbTenants.DataSource).Rows[cmbTenants.SelectedIndex];
-                        string tenantId = selectedRow["tenant_id"].ToString();
-                        string contractId = cmbTenants.SelectedValue.ToString();
-
-                        string sql = "INSERT INTO tbl_utilities " +
-                                     "(tenant_id, contract_id, billing_month, water_bill, electricity_bill, other_charges, total_fees) " +
-                                     "VALUES (" +
-                                     $"{tenantId}, {contractId}, '{dbMonth}', {waterBill}, {kwhBill}, {rent}, {total})";
-
-                        newBilling.executeSQL(sql);
+                        // Update existing billing
+                        string updateSql = $"UPDATE tbl_utilities SET water_bill = {waterBill}, electricity_bill = {kwhBill}, total_fees = {total} " +
+                                           $"WHERE contract_id = {contractId} AND billing_month = '{dbMonth}'";
+                        newBilling.executeSQL(updateSql);
 
                         if (newBilling.rowAffected > 0)
                         {
-                            MessageBox.Show("Billing saved successfully.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
+                            MessageBox.Show("Billing updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Failed to save billing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Failed to update billing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
+                    else
+                    {
+                        // User chose not to override
+                        return;
+                    }
                 }
+                else
+                {
+                    // Insert new billing
+                    string insertSql = "INSERT INTO tbl_utilities " +
+                                       "(tenant_id, contract_id, billing_month, water_bill, electricity_bill, total_fees) " +
+                                       $"VALUES ({tenantId}, {contractId}, '{dbMonth}', {waterBill}, {kwhBill}, {total})";
+                    newBilling.executeSQL(insertSql);
+
+                    if (newBilling.rowAffected > 0)
+                    {
+                        MessageBox.Show("Billing saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to save billing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                //automatically refresh billingsPage if open
+                Form mainForm = Application.OpenForms["frmMain"];
+                if (mainForm != null)
+                {
+                    var billingPage = mainForm.Controls.OfType<billingsPage>().FirstOrDefault();
+                    if (billingPage != null)
+                        billingPage.billingsPage_Load(sender, e);
+                }
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {

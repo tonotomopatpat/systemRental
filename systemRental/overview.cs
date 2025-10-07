@@ -1,12 +1,8 @@
 ﻿using Org.BouncyCastle.Asn1.Cmp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace systemRental
@@ -28,6 +24,7 @@ namespace systemRental
             get => lblContract.Text;
             set => lblContract.Text = value;
         }
+
         public string unitNumber
         {
             get => lblUnitNo.Text;
@@ -37,7 +34,7 @@ namespace systemRental
         public string unitType
         {
             get => lblUnitType.Text;
-            set =>lblUnitType.Text = value;
+            set => lblUnitType.Text = value;
         }
 
         public string contractStatus
@@ -54,29 +51,29 @@ namespace systemRental
 
         private void panelBackground_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void overview_Load(object sender, EventArgs e)
         {
             LoadOverview();
+            LoadDocuments(); // show documents as checkboxes
         }
 
         private void LoadOverview()
         {
             string query = @"
-        SELECT
-            c.contract_id,
-            c.start_date,
-            c.end_date,
-            c.contract_status,
-            c.contract_duration,
-            u.unit_number,
-            u.unit_type
-        FROM tbl_contracts c
-        JOIN tbl_units u ON c.unit_id = u.unit_id
-        WHERE c.tenant_ID = " + tenantID + " " +
-                "ORDER BY c.contract_id DESC LIMIT 1"; // show latest contract
+                SELECT
+                    c.contract_id,
+                    c.start_date,
+                    c.end_date,
+                    c.contract_status,
+                    c.contract_duration,
+                    u.unit_number,
+                    u.unit_type
+                FROM tbl_contracts c
+                JOIN tbl_units u ON c.unit_id = u.unit_id
+                WHERE c.tenant_ID = " + tenantID + @"
+                ORDER BY c.contract_id DESC LIMIT 1";
 
             DataTable dt = db.GetData(query);
 
@@ -84,27 +81,23 @@ namespace systemRental
             {
                 DataRow row = dt.Rows[0];
 
-                // read values safely
                 string dbDuration = row["contract_duration"] == DBNull.Value ? "" : row["contract_duration"].ToString().Trim();
                 DateTime start = Convert.ToDateTime(row["start_date"]);
                 DateTime end = Convert.ToDateTime(row["end_date"]);
 
-                // Show unit / type / status
                 lblUnitNo.Text = row["unit_number"].ToString();
                 lblUnitType.Text = row["unit_type"].ToString();
                 lblContractStatus.Text = row["contract_status"].ToString();
 
-                // If contract_duration exists in DB, use it. Otherwise compute from dates.
                 if (!string.IsNullOrEmpty(dbDuration))
                 {
-                    lblContract.Text = dbDuration; // show "1 year", "2 years", etc.
+                    lblContract.Text = dbDuration;
                 }
                 else
                 {
                     lblContract.Text = ComputeDurationString(start, end);
                 }
 
-                // Show date range in lblDuration (you had this before)
                 lblDuration.Text = $"{start:MM/dd/yyyy} - {end:MM/dd/yyyy}";
             }
             else
@@ -116,6 +109,7 @@ namespace systemRental
                 lblDuration.Text = "N/A";
             }
         }
+
         private string ComputeDurationString(DateTime start, DateTime end)
         {
             int years = end.Year - start.Year;
@@ -125,7 +119,6 @@ namespace systemRental
             if (years > 0)
                 return years == 1 ? "1 year" : $"{years} years";
 
-            // compute months if < 1 year
             int months = (end.Year - start.Year) * 12 + end.Month - start.Month;
             if (end.Day < start.Day) months--;
             if (months > 0)
@@ -135,11 +128,42 @@ namespace systemRental
             return days == 1 ? "1 day" : $"{days} days";
         }
 
+        private void LoadDocuments()
+        {
+            try
+            {
+                string query = $"SELECT document_type FROM tbl_tenants WHERE tenant_id = {tenantID}";
+                DataTable dt = db.GetData(query);
 
+                // Reset all checkboxes
+                chkPassport.Checked = false;
+                chkVoter.Checked = false;
+                chkNational.Checked = false;
+                chkDriver.Checked = false;
+
+                if (dt.Rows.Count > 0)
+                {
+                    string documentTypes = dt.Rows[0]["document_type"].ToString();
+                    // assuming comma-separated values like "Passport,Voters ID,National ID,Drivers License"
+                    string[] docArray = documentTypes
+                        .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(d => d.Trim())
+                        .ToArray();
+
+                    chkPassport.Checked = docArray.Contains("Passport");
+                    chkVoter.Checked = docArray.Contains("Voters ID");
+                    chkNational.Checked = docArray.Contains("National ID");
+                    chkDriver.Checked = docArray.Contains("Drivers License");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading documents: " + ex.Message);
+            }
+        }
 
         private void lblContract_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

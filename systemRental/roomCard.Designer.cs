@@ -35,6 +35,8 @@
             this.lblUnitType = new System.Windows.Forms.Label();
             this.lblUnitSize = new System.Windows.Forms.Label();
             this.lblUnitNo = new System.Windows.Forms.Label();
+            this.btnDeleteRoom = new Guna.UI2.WinForms.Guna2Button();
+            this.btnMaintenance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,6 +44,8 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 50;
+            this.guna2Panel1.Controls.Add(this.btnMaintenance);
+            this.guna2Panel1.Controls.Add(this.btnDeleteRoom);
             this.guna2Panel1.Controls.Add(this.btnStatus);
             this.guna2Panel1.Controls.Add(this.lblTenant);
             this.guna2Panel1.Controls.Add(this.lblUnitRate);
@@ -52,7 +56,7 @@
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(434, 366);
+            this.guna2Panel1.Size = new System.Drawing.Size(313, 366);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -66,9 +70,9 @@
             this.btnStatus.FillColor = System.Drawing.Color.Gray;
             this.btnStatus.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatus.ForeColor = System.Drawing.Color.White;
-            this.btnStatus.Location = new System.Drawing.Point(180, 12);
+            this.btnStatus.Location = new System.Drawing.Point(157, 13);
             this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(93, 45);
+            this.btnStatus.Size = new System.Drawing.Size(133, 45);
             this.btnStatus.TabIndex = 15;
             this.btnStatus.Text = "Status";
             this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
@@ -138,6 +142,44 @@
             this.lblUnitNo.TabIndex = 9;
             this.lblUnitNo.Text = "Unit No:";
             // 
+            // btnDeleteRoom
+            // 
+            this.btnDeleteRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteRoom.BorderRadius = 8;
+            this.btnDeleteRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDeleteRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDeleteRoom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDeleteRoom.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteRoom.ForeColor = System.Drawing.Color.DimGray;
+            this.btnDeleteRoom.Location = new System.Drawing.Point(197, 303);
+            this.btnDeleteRoom.Name = "btnDeleteRoom";
+            this.btnDeleteRoom.Size = new System.Drawing.Size(73, 46);
+            this.btnDeleteRoom.TabIndex = 16;
+            this.btnDeleteRoom.Text = "Delete Room";
+            this.btnDeleteRoom.Click += new System.EventHandler(this.btnDeleteRoom_Click);
+            // 
+            // btnMaintenance
+            // 
+            this.btnMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaintenance.BorderRadius = 8;
+            this.btnMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaintenance.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMaintenance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMaintenance.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMaintenance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMaintenance.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnMaintenance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaintenance.ForeColor = System.Drawing.Color.DimGray;
+            this.btnMaintenance.Location = new System.Drawing.Point(29, 303);
+            this.btnMaintenance.Name = "btnMaintenance";
+            this.btnMaintenance.Size = new System.Drawing.Size(109, 46);
+            this.btnMaintenance.TabIndex = 17;
+            this.btnMaintenance.Text = "Set Maintenance";
+            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
+            // 
             // roomCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -146,7 +188,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.Name = "roomCard";
-            this.Size = new System.Drawing.Size(434, 366);
+            this.Size = new System.Drawing.Size(313, 366);
             this.Load += new System.EventHandler(this.roomCard_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
@@ -163,5 +205,7 @@
         private System.Windows.Forms.Label lblUnitSize;
         private System.Windows.Forms.Label lblUnitNo;
         public Guna.UI2.WinForms.Guna2Button btnStatus;
+        private Guna.UI2.WinForms.Guna2Button btnDeleteRoom;
+        private Guna.UI2.WinForms.Guna2Button btnMaintenance;
     }
 }

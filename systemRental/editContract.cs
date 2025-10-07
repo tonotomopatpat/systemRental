@@ -31,6 +31,8 @@ namespace systemRental
         private void editContract_Load(object sender, EventArgs e)
         {
             if (contractId == 0) { MessageBox.Show("Contract ID is 0!"); return; }
+            //dtpStartRent.Value = DateTime.Now;
+            //dtpEndOfRent.Value = DateTime.Now;
 
             try
             {

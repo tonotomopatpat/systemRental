@@ -56,6 +56,9 @@ namespace systemRental
                     dgvHistoryControl.AutoResizeColumns();
                     dgvHistoryControl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     dgvHistoryControl.ReadOnly = true;
+
+                    //hide here
+                    dgvHistoryControl.Columns["Payment ID"].Visible = false;
                 }
                 else
                 {
