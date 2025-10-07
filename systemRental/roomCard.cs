@@ -69,5 +69,10 @@ namespace systemRental
         {
 
         }
+
+        private void btnStatus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

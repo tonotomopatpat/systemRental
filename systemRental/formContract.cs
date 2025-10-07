@@ -140,7 +140,8 @@ namespace systemRental
                     $"'{mainOriginalForm.TenantLastName}', '{mainOriginalForm.TenantFirstName}', " +
                     $"'{mainOriginalForm.TenantMiddleName}', '{mainOriginalForm.TenantPhone}', " +
                     $"'{mainOriginalForm.TenantEmergency}', '{mainOriginalForm.TenantDocuments}', " +
-                    $"'{mainOriginalForm.AvatarPath.Replace("\\", "\\\\")}')";
+                    $"'{savedAvatarPath.Replace("\\", "\\\\")}')";
+
 
                 db.executeSQL(insertTenant);
 

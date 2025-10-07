@@ -29,10 +29,12 @@ namespace systemRental
 
         public void tenantsPage_Load(object sender, EventArgs e)
         {
-            //LoadControl(new overview()); //para default yung overview
             flowPeople.Controls.Clear();
 
-            DataTable dt = getTenants();
+            // Include photo_path in the query
+            string query = "SELECT tenant_id, first_name, last_name, phone_no, photo_path FROM tbl_tenants";
+            DataTable dt = db.GetData(query);
+
             foreach (DataRow row in dt.Rows)
             {
                 string fullName = $"{row["first_name"]} {row["last_name"]}";
@@ -52,20 +54,29 @@ namespace systemRental
                     ForeColor = Color.Gray,
                     Cursor = Cursors.Hand,
                     Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                    Image = Properties.Resources.user,
                 };
 
-                btn.Click += btnTenant_Click;
+                // Load the photo from photo_path
+                string photoPath = row["photo_path"].ToString();
+                if (!string.IsNullOrEmpty(photoPath) && System.IO.File.Exists(photoPath))
+                {
+                    btn.Image = Image.FromFile(photoPath);
+                }
+                else
+                {
+                    btn.Image = Properties.Resources.user; // fallback, optional
+                }
 
+                btn.Click += btnTenant_Click;
                 flowPeople.Controls.Add(btn);
             }
+
             if (dt.Rows.Count > 0)
             {
-                //not auto select tenants
                 lblName.Text = "Please select a tenant";
                 lblCompanyNumber.Text = "-";
                 selectedTenantID = null;
-                panelSecondContent.Controls.Clear(); //all empty
+                panelSecondContent.Controls.Clear();
             }
             else
             {
@@ -74,6 +85,7 @@ namespace systemRental
                 panelSecondContent.Controls.Clear();
             }
         }
+
         private Guna.UI2.WinForms.Guna2Button selectedTenantButton = null;
 
 
@@ -217,25 +229,47 @@ namespace systemRental
                 MessageBox.Show("Please select a tenant first.");
                 return;
             }
+
             try
             {
-                DialogResult dr = MessageBox.Show("Are you sure you want to delete thi account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
+                DialogResult dr = MessageBox.Show(
+                    "Are you sure you want to delete this tenant? This will also free up any occupied units.",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dr != DialogResult.Yes)
+                    return;
+
+                // 1. Get active contract for this tenant
+                string contractQuery = $"SELECT unit_id FROM tbl_contracts WHERE tenant_id={selectedTenantID.Value} AND contract_status='ACTIVE'";
+                DataTable dtContracts = db.GetData(contractQuery);
+
+                // 2. Update linked units to vacant
+                foreach (DataRow row in dtContracts.Rows)
                 {
-                    string query = $"DELETE FROM tbl_tenants WHERE tenant_id={selectedTenantID.Value}";
-                    db.executeSQL(query);
-
-                    MessageBox.Show("Tenant deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    //refresh tenants
-                    tenantsPage_Load(sender, e);
+                    int unitId = Convert.ToInt32(row["unit_id"]);
+                    string updateUnit = $"UPDATE tbl_units SET status='vacant' WHERE unit_id={unitId}";
+                    db.executeSQL(updateUnit);
                 }
+
+                // 3. Delete contracts for this tenant
+                string deleteContracts = $"DELETE FROM tbl_contracts WHERE tenant_id={selectedTenantID.Value}";
+                db.executeSQL(deleteContracts);
+
+                // 4. Delete the tenant
+                string deleteTenant = $"DELETE FROM tbl_tenants WHERE tenant_id={selectedTenantID.Value}";
+                db.executeSQL(deleteTenant);
+
+                MessageBox.Show("Tenant deleted successfully. All occupied units are now vacant.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Refresh tenants list
+                tenantsPage_Load(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error while deleting tenant: " + ex.Message);
+                MessageBox.Show("Error while deleting tenant: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {

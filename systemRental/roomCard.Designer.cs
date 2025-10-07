@@ -71,6 +71,7 @@
             this.btnStatus.Size = new System.Drawing.Size(93, 45);
             this.btnStatus.TabIndex = 15;
             this.btnStatus.Text = "Status";
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
             // lblTenant
             // 
