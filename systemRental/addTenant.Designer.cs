@@ -43,8 +43,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pictureBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cbVoter = new Guna.UI2.WinForms.Guna2CheckBox();
             this.cbNational = new Guna.UI2.WinForms.Guna2CheckBox();
             this.cbPassport = new Guna.UI2.WinForms.Guna2CheckBox();
             this.cbDriver = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -52,8 +53,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtMiddleName = new Guna.UI2.WinForms.Guna2TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cbVoter = new Guna.UI2.WinForms.Guna2CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,7 @@
             this.btnDeleteAvatar.Size = new System.Drawing.Size(120, 45);
             this.btnDeleteAvatar.TabIndex = 1;
             this.btnDeleteAvatar.Text = "Delete avatar";
+            this.btnDeleteAvatar.Click += new System.EventHandler(this.btnDeleteAvatar_Click);
             // 
             // btnAvatar
             // 
@@ -89,6 +90,7 @@
             this.btnAvatar.Size = new System.Drawing.Size(128, 45);
             this.btnAvatar.TabIndex = 2;
             this.btnAvatar.Text = "Upload Avatar";
+            this.btnAvatar.Click += new System.EventHandler(this.btnAvatar_Click);
             // 
             // txtSurname
             // 
@@ -253,16 +255,16 @@
             this.btnNext.Text = "Contract Filling";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // guna2CirclePictureBox1
+            // pictureBox
             // 
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Turquoise;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(36, 28);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(118, 112);
-            this.guna2CirclePictureBox1.TabIndex = 0;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.pictureBox.FillColor = System.Drawing.Color.Turquoise;
+            this.pictureBox.ImageRotate = 0F;
+            this.pictureBox.Location = new System.Drawing.Point(36, 28);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureBox.Size = new System.Drawing.Size(118, 112);
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
             // 
             // guna2Panel1
             // 
@@ -274,7 +276,7 @@
             this.guna2Panel1.Controls.Add(this.label6);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.txtMiddleName);
-            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2Panel1.Controls.Add(this.pictureBox);
             this.guna2Panel1.Controls.Add(this.guna2ControlBox1);
             this.guna2Panel1.Controls.Add(this.btnDeleteAvatar);
             this.guna2Panel1.Controls.Add(this.label3);
@@ -293,6 +295,24 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(628, 583);
             this.guna2Panel1.TabIndex = 15;
+            // 
+            // cbVoter
+            // 
+            this.cbVoter.AutoSize = true;
+            this.cbVoter.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbVoter.CheckedState.BorderRadius = 0;
+            this.cbVoter.CheckedState.BorderThickness = 0;
+            this.cbVoter.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbVoter.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVoter.Location = new System.Drawing.Point(363, 466);
+            this.cbVoter.Name = "cbVoter";
+            this.cbVoter.Size = new System.Drawing.Size(98, 30);
+            this.cbVoter.TabIndex = 24;
+            this.cbVoter.Text = "Voters ID";
+            this.cbVoter.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbVoter.UncheckedState.BorderRadius = 0;
+            this.cbVoter.UncheckedState.BorderThickness = 0;
+            this.cbVoter.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
             // cbNational
             // 
@@ -391,24 +411,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // cbVoter
-            // 
-            this.cbVoter.AutoSize = true;
-            this.cbVoter.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbVoter.CheckedState.BorderRadius = 0;
-            this.cbVoter.CheckedState.BorderThickness = 0;
-            this.cbVoter.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbVoter.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbVoter.Location = new System.Drawing.Point(363, 466);
-            this.cbVoter.Name = "cbVoter";
-            this.cbVoter.Size = new System.Drawing.Size(98, 30);
-            this.cbVoter.TabIndex = 24;
-            this.cbVoter.Text = "Voters ID";
-            this.cbVoter.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cbVoter.UncheckedState.BorderRadius = 0;
-            this.cbVoter.UncheckedState.BorderThickness = 0;
-            this.cbVoter.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            // 
             // addTenant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -420,7 +422,7 @@
             this.Name = "addTenant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addTenant";
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -430,7 +432,7 @@
 
         #endregion
 
-        public Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        public Guna.UI2.WinForms.Guna2CirclePictureBox pictureBox;
         public Guna.UI2.WinForms.Guna2Button btnDeleteAvatar;
         public Guna.UI2.WinForms.Guna2Button btnAvatar;
         public Guna.UI2.WinForms.Guna2TextBox txtSurname;

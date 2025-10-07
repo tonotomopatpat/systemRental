@@ -167,5 +167,33 @@ namespace systemRental
                 }
             }
         }
+        private string avatarPath = "";
+        private void btnAvatar_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                ofd.Title = "Select an Avatar";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    avatarPath = ofd.FileName;
+
+                    // Display image in PictureBox
+                    pictureBox.Image = Image.FromFile(avatarPath);
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage; // optional
+                }
+            }
+        }
+        public string AvatarPath
+        {
+            get { return avatarPath; }
+        }
+
+        private void btnDeleteAvatar_Click(object sender, EventArgs e)
+        {
+            pictureBox.Image = null;
+            avatarPath = ""; // clear the path
+        }
     }
 }

@@ -1,15 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace systemRental
@@ -18,8 +12,8 @@ namespace systemRental
     {
         private addTenant mainOriginalForm;
         private dimOverlayForm mainOverlay;
-        //private int errorcount;
-
+        private string avatarPath = "";
+        Class1 db = new Class1("localhost", "rentalsystem", "root", "manzano");
 
         public formContract(addTenant originalForm, dimOverlayForm overlay)
         {
@@ -27,22 +21,36 @@ namespace systemRental
             mainOriginalForm = originalForm;
             mainOverlay = overlay;
 
-            loadAvailableUnits();
+            // Pass avatar from addTenant
+            avatarPath = mainOriginalForm.AvatarPath;
 
+            loadAvailableUnits();
         }
-        Class1 db = new Class1("localhost", "rentalsystem", "root", "manzano");
+
+        private void loadAvailableUnits()
+        {
+            try
+            {
+                string sql = "SELECT unit_id, unit_number FROM tbl_units WHERE status = 'vacant'";
+                DataTable dt = db.GetData(sql);
+
+                cmbUnit.DataSource = dt;
+                cmbUnit.DisplayMember = "unit_number";
+                cmbUnit.ValueMember = "unit_id";
+                cmbUnit.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading units: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             mainOriginalForm.Show();
-            //mainOriginalForm.StartPosition = FormStartPosition.Manual;
-
-            // Position it off-screen left
-            //mainOriginalForm.Location = new Point(this.Location.X - this.Width, this.Location.Y);
 
             int targetXContractForm = this.Location.X + this.Width; //contract form slides right
             int targetXAddTenant = mainOriginalForm.Location.X;
-
 
             Timer timer = new Timer();
             timer.Interval = 10;
@@ -58,11 +66,12 @@ namespace systemRental
                     timer.Stop();
                     this.Hide();
 
-                    if(mainOverlay != null)
+                    if (mainOverlay != null)
                     {
                         mainOverlay.Close();
                         mainOverlay.Dispose();
                     }
+
                     mainOriginalForm.Left = (Screen.PrimaryScreen.WorkingArea.Width - mainOriginalForm.Width) / 2;
                     mainOriginalForm.LocationChanged -= mainOriginalForm.ParentForm_LocationOrSizeChanged;
                     mainOriginalForm.SizeChanged -= mainOriginalForm.ParentForm_LocationOrSizeChanged;
@@ -71,29 +80,11 @@ namespace systemRental
             timer.Start();
         }
 
-        private void loadAvailableUnits()
-        {
-            try
-            {
-                string sql = "SELECT unit_id, unit_number FROM tbl_units WHERE status = 'vacant'";
-                DataTable dt = db.GetData(sql);
-
-                cmbUnit.DataSource = dt;
-                cmbUnit.DisplayMember = "unit_number";
-                cmbUnit.ValueMember = "unit_id";
-                cmbUnit.SelectedIndex = -1;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("error loading units: " + ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnDone_Click(object sender, EventArgs e)
         {
             int errorcount = 0;
 
-            //need because nasa ibang form yung mga txtbox, so i public them, then did this.
+            // Validate fields from addTenant
             if (string.IsNullOrWhiteSpace(mainOriginalForm.TenantLastName))
             {
                 MessageBox.Show("Last name is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -124,94 +115,88 @@ namespace systemRental
 
             try
             {
-                DialogResult dr = MessageBox.Show("Are you sure you want to save this tenant and contract?",
-                                                  "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
+                DialogResult dr = MessageBox.Show(
+                    "Are you sure you want to save this tenant and contract?",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                );
+                if (dr != DialogResult.Yes) return;
+
+                // --- Copy avatar to central folder ---
+                string savedAvatarPath = "";
+                if (!string.IsNullOrEmpty(avatarPath) && File.Exists(avatarPath))
                 {
-                    // Insert tenant first
-                    string insertTenant = "INSERT INTO tbl_tenants " +
-                        "(last_name, first_name, middle_name, phone_no, emergency_no, document_type) VALUES (" +
-                        $"'{mainOriginalForm.TenantLastName}', '{mainOriginalForm.TenantFirstName}', " +
-                        $"'{mainOriginalForm.TenantMiddleName}', '{mainOriginalForm.TenantPhone}', " +
-                        $"'{mainOriginalForm.TenantEmergency}', '{mainOriginalForm.TenantDocuments}')";
+                    string targetFolder = Path.Combine(Application.StartupPath, "avatars");
+                    if (!Directory.Exists(targetFolder))
+                        Directory.CreateDirectory(targetFolder);
 
-                    db.executeSQL(insertTenant);
+                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(avatarPath);
+                    savedAvatarPath = Path.Combine(targetFolder, fileName);
+                    File.Copy(avatarPath, savedAvatarPath, true);
+                }
 
-                    if (db.rowAffected > 0)
-                    {
-                        // Get tenant ID
-                        DataTable dt = db.GetData("SELECT tenant_id FROM tbl_tenants " +
-                          $"WHERE last_name = '{mainOriginalForm.TenantLastName}' " +
-                          $"AND first_name = '{mainOriginalForm.TenantFirstName}' " +
-                          $"AND phone_no = '{mainOriginalForm.TenantPhone}' " +
-                          "ORDER BY tenant_id DESC LIMIT 1");
+                // --- Insert tenant ---
+                string insertTenant = "INSERT INTO tbl_tenants " +
+                    "(last_name, first_name, middle_name, phone_no, emergency_no, document_type, photo_path) VALUES (" +
+                    $"'{mainOriginalForm.TenantLastName}', '{mainOriginalForm.TenantFirstName}', " +
+                    $"'{mainOriginalForm.TenantMiddleName}', '{mainOriginalForm.TenantPhone}', " +
+                    $"'{mainOriginalForm.TenantEmergency}', '{mainOriginalForm.TenantDocuments}', " +
+                    $"'{mainOriginalForm.AvatarPath.Replace("\\", "\\\\")}')";
 
-                        int tenantId = Convert.ToInt32(dt.Rows[0]["tenant_id"]);
+                db.executeSQL(insertTenant);
 
-                        // 🔹 Determine duration from radio buttons
-                        string duration = "";
-                        if (rd1year.Checked)
-                            duration = "1 year";
-                        else if (rd2year.Checked)
-                            duration = "2 years";
-                        else if (rd3year.Checked)
-                            duration = "3 years";
-                        else if (rd4year.Checked)
-                            duration = "4 years";
-                        else
-                            duration = "Custom";
+                if (db.rowAffected <= 0)
+                {
+                    MessageBox.Show("Error inserting tenant.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                        // 🔹 Insert contract with duration
-                        string insertContract = "INSERT INTO tbl_contracts " +
-                            "(tenant_id, unit_id, start_date, end_date, deposit_amount, contract_status, contract_duration) VALUES (" +
-                            $"'{tenantId}', '{cmbUnit.SelectedValue}', " +
-                            $"'{dtpStartRent.Value:yyyy-MM-dd}', '{dtpEndOfRent.Value:yyyy-MM-dd}', " +
-                            $"'{txtDeposit.Text}', 'ACTIVE', '{duration}')";
+                // --- Get tenant ID ---
+                DataTable dtTenant = db.GetData("SELECT tenant_id FROM tbl_tenants " +
+                                               $"WHERE last_name = '{mainOriginalForm.TenantLastName}' " +
+                                               $"AND first_name = '{mainOriginalForm.TenantFirstName}' " +
+                                               $"AND phone_no = '{mainOriginalForm.TenantPhone}' " +
+                                               "ORDER BY tenant_id DESC LIMIT 1");
 
-                        db.executeSQL(insertContract);
+                int tenantId = Convert.ToInt32(dtTenant.Rows[0]["tenant_id"]);
 
-                        if (db.rowAffected > 0)
-                        {
-                            // Update unit to occupied
-                            string updateUnit = $"UPDATE tbl_units SET status = 'occupied' WHERE unit_id = '{cmbUnit.SelectedValue}'";
-                            db.executeSQL(updateUnit);
+                // --- Determine duration ---
+                string duration = rd1year.Checked ? "1 year" :
+                                  rd2year.Checked ? "2 years" :
+                                  rd3year.Checked ? "3 years" :
+                                  rd4year.Checked ? "4 years" : "Custom";
 
-                            MessageBox.Show("Tenant and contract saved successfully.",
-                                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // --- Insert contract ---
+                string insertContract = "INSERT INTO tbl_contracts " +
+                    "(tenant_id, unit_id, start_date, end_date, deposit_amount, contract_status, contract_duration) VALUES (" +
+                    $"'{tenantId}', '{cmbUnit.SelectedValue}', " +
+                    $"'{dtpStartRent.Value:yyyy-MM-dd}', '{dtpEndOfRent.Value:yyyy-MM-dd}', " +
+                    $"'{txtDeposit.Text}', 'ACTIVE', '{duration}')";
 
-                            Form mainForm = Application.OpenForms["frmMain"];
-                            
+                db.executeSQL(insertContract);
 
+                if (db.rowAffected <= 0)
+                {
+                    MessageBox.Show("Error inserting contract.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                            this.Close();
+                // --- Update unit to occupied ---
+                string updateUnit = $"UPDATE tbl_units SET status = 'occupied' WHERE unit_id = '{cmbUnit.SelectedValue}'";
+                db.executeSQL(updateUnit);
 
-                            if (mainOriginalForm != null && !mainOriginalForm.IsDisposed)
-                            {
-                                mainOriginalForm.Close();
-                            }
-                            //tenantsPage_Load(sender, e);
-                            if (mainForm != null)
-                            {
-                                var showUserControlMethod = mainForm.GetType().GetMethod("ShowUserControl");
-                                if (showUserControlMethod != null)
-                                {
-                                    var tenantsPage = new tenantsPage();
-                                    showUserControlMethod.Invoke(mainForm, new object[] { tenantsPage });
-                                }
-                            }
+                MessageBox.Show("Tenant and contract saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Close forms and show tenantsPage
+                Form mainForm = Application.OpenForms["frmMain"];
+                this.Close();
+                if (mainOriginalForm != null && !mainOriginalForm.IsDisposed)
+                    mainOriginalForm.Close();
 
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error inserting contract.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error inserting tenant.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                if (mainForm != null)
+                {
+                    var showUserControlMethod = mainForm.GetType().GetMethod("ShowUserControl");
+                    if (showUserControlMethod != null)
+                        showUserControlMethod.Invoke(mainForm, new object[] { new tenantsPage() });
                 }
             }
             catch (Exception ex)

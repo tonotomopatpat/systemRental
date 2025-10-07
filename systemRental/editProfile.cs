@@ -20,6 +20,14 @@ namespace systemRental
             InitializeComponent();
             this.tenantId = tenantId;
         }
+        private tenantsPage parentTenantsPage;
+
+        public editProfile(int tenantId, tenantsPage tenantsPage)
+        {
+            InitializeComponent();
+            this.tenantId = tenantId;
+            this.parentTenantsPage = tenantsPage;
+        }
 
         private void btnEditProfile_Click(object sender, EventArgs e)
         {
@@ -52,7 +60,12 @@ namespace systemRental
                 if (db.rowAffected > 0)
                 {
                     MessageBox.Show("Tenant profile updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    parentTenantsPage?.RefreshTenants(); //refresh the original tenantsPage
+
                     this.Close();
+
+
                 }
                 else
                 {
@@ -87,6 +100,7 @@ namespace systemRental
                     cbNational.Checked = docs.Contains("National ID");
                     cbVoter.Checked = docs.Contains("Voters ID");
                 }
+                
             }
             catch (Exception ex)
             {

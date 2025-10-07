@@ -172,28 +172,44 @@ namespace systemRental
                 MessageBox.Show("PDF exported successfully!");
             }
         }
-        
+
         private void btnPaid_Click(object sender, EventArgs e)
         {
             try
             {
-                DialogResult dr = MessageBox.Show("Are you sure you want to mark this bill as PAID?", "Confirmation", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                DialogResult dr = MessageBox.Show(
+                    "Are you sure you want to mark this bill as PAID?",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (dr == DialogResult.Yes)
                 {
-                    string query = $"UPDATE tbl_utilities SET status = 'paid' WHERE bill_id = '{BillId}'";
-                    db.executeSQL(query);
+                    string updateStatus = $"UPDATE tbl_utilities SET status = 'paid' WHERE bill_id = '{BillId}'";
+                    db.executeSQL(updateStatus);
 
                     if (db.rowAffected > 0)
                     {
-                        PaymentStatus = "paid"; //updates UI and disables button
-                        MessageBox.Show("Bill marked as PAID successfully!",
-                                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string insertPayment = $@"
+                            INSERT INTO tbl_payments 
+                            (bill_id, payment_date, amount_paid, payment_method, receipt_number)
+                            VALUES
+                            (
+                                '{BillId}', 
+                                NOW(), 
+                                (SELECT ut.total_fees + u.monthly_rate
+                                 FROM tbl_utilities ut
+                                 JOIN tbl_contracts c ON ut.contract_id = c.contract_id
+                                 JOIN tbl_units u ON c.unit_id = u.unit_id
+                                 WHERE ut.bill_id = '{BillId}'),
+                                'Cash', UUID()
+                            )";
+                        db.executeSQL(insertPayment);
+
+                        PaymentStatus = "paid"; // updates UI
+                        MessageBox.Show("Bill marked as PAID successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("No bill was updated. Please check BillId.",
-                                        "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("No bill was updated. Please check BillId.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }

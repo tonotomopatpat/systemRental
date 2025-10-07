@@ -76,13 +76,14 @@ namespace systemRental
         }
         private Guna.UI2.WinForms.Guna2Button selectedTenantButton = null;
 
+
         private void btnTenant_Click(object sender, EventArgs e)
         {
             var btn = sender as Guna.UI2.WinForms.Guna2Button;
             int tenantID = Convert.ToInt32(btn.Tag);
             selectedTenantID = tenantID;
 
-            
+            // --- HIGHLIGHT the selected button ---
             foreach (Control ctrl in flowPeople.Controls)
             {
                 if (ctrl is Guna.UI2.WinForms.Guna2Button tenantBtn)
@@ -91,19 +92,15 @@ namespace systemRental
                     tenantBtn.ForeColor = Color.Gray;
                 }
             }
-
-            // --- HIGHLIGHT the selected one ---
             btn.FillColor = Color.FromArgb(235, 234, 178); // light yellow highlight
             btn.ForeColor = Color.Black;
             selectedTenantButton = btn;
 
-            // --- Load overview ---
-            LoadControl(new overview(tenantID));
-
             try
             {
+                // Fetch tenant info including photo_path
                 string query = $@"
-            SELECT first_name, last_name, phone_no
+            SELECT first_name, last_name, phone_no, photo_path
             FROM tbl_tenants
             WHERE tenant_id = {tenantID}";
                 DataTable dt = db.GetData(query);
@@ -113,18 +110,36 @@ namespace systemRental
                     DataRow dr = dt.Rows[0];
                     lblName.Text = $"{dr["first_name"]} {dr["last_name"]}";
                     lblCompanyNumber.Text = dr["phone_no"].ToString();
+
+                    // --- Load avatar ---
+                    string photoPath = dr["photo_path"].ToString();
+                    if (!string.IsNullOrEmpty(photoPath) && System.IO.File.Exists(photoPath))
+                    {
+                        guna2PictureBox1.Image = Image.FromFile(photoPath);
+                        guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                    else
+                    {
+                        guna2PictureBox1.Image = Properties.Resources.user; // default image
+                        guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
                 }
                 else
                 {
                     lblName.Text = "N/A";
                     lblCompanyNumber.Text = "N/A";
+                    guna2PictureBox1.Image = Properties.Resources.user;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error on getting the tenant: " + ex.Message);
             }
+
+            // --- Load overview ---
+            LoadControl(new overview(tenantID));
         }
+
 
 
         private void LoadControl(UserControl uc)
@@ -136,8 +151,19 @@ namespace systemRental
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            LoadControl(new historyControl());
+            if (!selectedTenantID.HasValue)
+            {
+                MessageBox.Show("Please select a tenant first.");
+                return;
+            }
+
+            historyControl history = new historyControl();
+            history.TenantId = selectedTenantID.Value; // pass the selected tenant
+            history.LoadPaymentHistory();
+
+            LoadControl(history);
         }
+
 
         private void btnOverview_Click(object sender, EventArgs e)
         {
@@ -170,8 +196,12 @@ namespace systemRental
                 return;
             }
 
-            editProfile editProfileForm = new editProfile(selectedTenantID.Value);
+            editProfile editProfileForm = new editProfile(selectedTenantID.Value, this);
             editProfileForm.ShowDialog();
+        }
+        public void RefreshTenants()
+        {
+            tenantsPage_Load(this, EventArgs.Empty); // reload the flowPeople buttons and data
         }
 
         private void btnEditContract_Click(object sender, EventArgs e)
@@ -205,6 +235,11 @@ namespace systemRental
             {
                 MessageBox.Show("Error while deleting tenant: " + ex.Message);
             }
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
