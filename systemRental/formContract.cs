@@ -28,6 +28,7 @@ namespace systemRental
             mainOverlay = overlay;
 
             loadAvailableUnits();
+
         }
         Class1 db = new Class1("localhost", "rentalsystem", "root", "manzano");
 
@@ -127,18 +128,18 @@ namespace systemRental
                                                   "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    
+                    // Insert tenant first
                     string insertTenant = "INSERT INTO tbl_tenants " +
-                        "(last_name, first_name, middle_name, phone_no, emergency_no) VALUES (" +
+                        "(last_name, first_name, middle_name, phone_no, emergency_no, document_type) VALUES (" +
                         $"'{mainOriginalForm.TenantLastName}', '{mainOriginalForm.TenantFirstName}', " +
                         $"'{mainOriginalForm.TenantMiddleName}', '{mainOriginalForm.TenantPhone}', " +
-                        $"'{mainOriginalForm.TenantEmergency}')";
+                        $"'{mainOriginalForm.TenantEmergency}', '{mainOriginalForm.TenantDocuments}')";
 
                     db.executeSQL(insertTenant);
 
                     if (db.rowAffected > 0)
                     {
-                        
+                        // Get tenant ID
                         DataTable dt = db.GetData("SELECT tenant_id FROM tbl_tenants " +
                           $"WHERE last_name = '{mainOriginalForm.TenantLastName}' " +
                           $"AND first_name = '{mainOriginalForm.TenantFirstName}' " +
@@ -147,23 +148,40 @@ namespace systemRental
 
                         int tenantId = Convert.ToInt32(dt.Rows[0]["tenant_id"]);
 
-                        
+                        // 🔹 Determine duration from radio buttons
+                        string duration = "";
+                        if (rd1year.Checked)
+                            duration = "1 year";
+                        else if (rd2year.Checked)
+                            duration = "2 years";
+                        else if (rd3year.Checked)
+                            duration = "3 years";
+                        else if (rd4year.Checked)
+                            duration = "4 years";
+                        else
+                            duration = "Custom";
+
+                        // 🔹 Insert contract with duration
                         string insertContract = "INSERT INTO tbl_contracts " +
-                            "(tenant_id, unit_id, start_date, end_date, deposit_amount, contract_status) VALUES (" +
+                            "(tenant_id, unit_id, start_date, end_date, deposit_amount, contract_status, contract_duration) VALUES (" +
                             $"'{tenantId}', '{cmbUnit.SelectedValue}', " +
                             $"'{dtpStartRent.Value:yyyy-MM-dd}', '{dtpEndOfRent.Value:yyyy-MM-dd}', " +
-                            $"'{txtDeposit.Text}', 'ACTIVE')";
+                            $"'{txtDeposit.Text}', 'ACTIVE', '{duration}')";
 
                         db.executeSQL(insertContract);
 
                         if (db.rowAffected > 0)
                         {
-                            //update unit status to occupied
+                            // Update unit to occupied
                             string updateUnit = $"UPDATE tbl_units SET status = 'occupied' WHERE unit_id = '{cmbUnit.SelectedValue}'";
                             db.executeSQL(updateUnit);
 
                             MessageBox.Show("Tenant and contract saved successfully.",
                                             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            Form mainForm = Application.OpenForms["frmMain"];
+                            
+
 
                             this.Close();
 
@@ -171,6 +189,19 @@ namespace systemRental
                             {
                                 mainOriginalForm.Close();
                             }
+                            //tenantsPage_Load(sender, e);
+                            if (mainForm != null)
+                            {
+                                var showUserControlMethod = mainForm.GetType().GetMethod("ShowUserControl");
+                                if (showUserControlMethod != null)
+                                {
+                                    var tenantsPage = new tenantsPage();
+                                    showUserControlMethod.Invoke(mainForm, new object[] { tenantsPage });
+                                }
+                            }
+
+
+
                         }
                         else
                         {

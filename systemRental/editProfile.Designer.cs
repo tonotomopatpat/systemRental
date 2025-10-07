@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editProfile));
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMiddleName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,21 +38,15 @@
             this.txtFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtPhoneNo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtEmergencyNo = new Guna.UI2.WinForms.Guna2TextBox();
             this.rdFemale = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rdMale = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.btnNext = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditProfile = new Guna.UI2.WinForms.Guna2Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbVoter = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.cbNational = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.cbPassport = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.cbDriver = new Guna.UI2.WinForms.Guna2CheckBox();
             this.SuspendLayout();
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(326, 198);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 26);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Phone no:";
             // 
             // label4
             // 
@@ -181,25 +174,6 @@
             this.txtPhoneNo.Size = new System.Drawing.Size(141, 36);
             this.txtPhoneNo.TabIndex = 20;
             // 
-            // txtEmergencyNo
-            // 
-            this.txtEmergencyNo.BorderRadius = 10;
-            this.txtEmergencyNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEmergencyNo.DefaultText = "";
-            this.txtEmergencyNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtEmergencyNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtEmergencyNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmergencyNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmergencyNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmergencyNo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtEmergencyNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmergencyNo.Location = new System.Drawing.Point(320, 238);
-            this.txtEmergencyNo.Name = "txtEmergencyNo";
-            this.txtEmergencyNo.PlaceholderText = "";
-            this.txtEmergencyNo.SelectedText = "";
-            this.txtEmergencyNo.Size = new System.Drawing.Size(224, 36);
-            this.txtEmergencyNo.TabIndex = 21;
-            // 
             // rdFemale
             // 
             this.rdFemale.AutoSize = true;
@@ -240,23 +214,106 @@
             this.rdMale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdMale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
-            // btnNext
+            // btnEditProfile
             // 
-            this.btnNext.BorderRadius = 15;
-            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNext.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnNext.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnNext.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnNext.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnNext.FillColor = System.Drawing.Color.Gray;
-            this.btnNext.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
-            this.btnNext.Location = new System.Drawing.Point(424, 393);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(141, 45);
-            this.btnNext.TabIndex = 31;
-            this.btnNext.Text = "&Done";
+            this.btnEditProfile.BorderRadius = 15;
+            this.btnEditProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditProfile.FillColor = System.Drawing.Color.Gray;
+            this.btnEditProfile.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditProfile.ForeColor = System.Drawing.Color.White;
+            this.btnEditProfile.Image = ((System.Drawing.Image)(resources.GetObject("btnEditProfile.Image")));
+            this.btnEditProfile.Location = new System.Drawing.Point(424, 393);
+            this.btnEditProfile.Name = "btnEditProfile";
+            this.btnEditProfile.Size = new System.Drawing.Size(141, 45);
+            this.btnEditProfile.TabIndex = 31;
+            this.btnEditProfile.Text = "&Done";
+            this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(303, 160);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 26);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Documents:";
+            // 
+            // cbVoter
+            // 
+            this.cbVoter.AutoSize = true;
+            this.cbVoter.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbVoter.CheckedState.BorderRadius = 0;
+            this.cbVoter.CheckedState.BorderThickness = 0;
+            this.cbVoter.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbVoter.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVoter.Location = new System.Drawing.Point(358, 301);
+            this.cbVoter.Name = "cbVoter";
+            this.cbVoter.Size = new System.Drawing.Size(98, 30);
+            this.cbVoter.TabIndex = 36;
+            this.cbVoter.Text = "Voters ID";
+            this.cbVoter.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbVoter.UncheckedState.BorderRadius = 0;
+            this.cbVoter.UncheckedState.BorderThickness = 0;
+            this.cbVoter.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // cbNational
+            // 
+            this.cbNational.AutoSize = true;
+            this.cbNational.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbNational.CheckedState.BorderRadius = 0;
+            this.cbNational.CheckedState.BorderThickness = 0;
+            this.cbNational.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbNational.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNational.Location = new System.Drawing.Point(358, 265);
+            this.cbNational.Name = "cbNational";
+            this.cbNational.Size = new System.Drawing.Size(114, 30);
+            this.cbNational.TabIndex = 35;
+            this.cbNational.Text = "National ID";
+            this.cbNational.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbNational.UncheckedState.BorderRadius = 0;
+            this.cbNational.UncheckedState.BorderThickness = 0;
+            this.cbNational.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // cbPassport
+            // 
+            this.cbPassport.AutoSize = true;
+            this.cbPassport.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbPassport.CheckedState.BorderRadius = 0;
+            this.cbPassport.CheckedState.BorderThickness = 0;
+            this.cbPassport.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbPassport.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPassport.Location = new System.Drawing.Point(358, 225);
+            this.cbPassport.Name = "cbPassport";
+            this.cbPassport.Size = new System.Drawing.Size(116, 30);
+            this.cbPassport.TabIndex = 34;
+            this.cbPassport.Text = "Passport ID";
+            this.cbPassport.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbPassport.UncheckedState.BorderRadius = 0;
+            this.cbPassport.UncheckedState.BorderThickness = 0;
+            this.cbPassport.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // cbDriver
+            // 
+            this.cbDriver.AutoSize = true;
+            this.cbDriver.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbDriver.CheckedState.BorderRadius = 0;
+            this.cbDriver.CheckedState.BorderThickness = 0;
+            this.cbDriver.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbDriver.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDriver.Location = new System.Drawing.Point(358, 189);
+            this.cbDriver.Name = "cbDriver";
+            this.cbDriver.Size = new System.Drawing.Size(149, 30);
+            this.cbDriver.TabIndex = 33;
+            this.cbDriver.Text = "Driverse license";
+            this.cbDriver.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbDriver.UncheckedState.BorderRadius = 0;
+            this.cbDriver.UncheckedState.BorderThickness = 0;
+            this.cbDriver.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
             // editProfile
             // 
@@ -264,8 +321,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(594, 450);
-            this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbVoter);
+            this.Controls.Add(this.cbNational);
+            this.Controls.Add(this.cbPassport);
+            this.Controls.Add(this.cbDriver);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnEditProfile);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMiddleName);
             this.Controls.Add(this.label3);
@@ -275,21 +336,19 @@
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtPhoneNo);
-            this.Controls.Add(this.txtEmergencyNo);
             this.Controls.Add(this.rdFemale);
             this.Controls.Add(this.rdMale);
             this.MaximizeBox = false;
             this.Name = "editProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Profile";
+            this.Load += new System.EventHandler(this.editProfile_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         public Guna.UI2.WinForms.Guna2TextBox txtMiddleName;
         private System.Windows.Forms.Label label3;
@@ -299,9 +358,13 @@
         public Guna.UI2.WinForms.Guna2TextBox txtFirstName;
         private System.Windows.Forms.Label lblName;
         public Guna.UI2.WinForms.Guna2TextBox txtPhoneNo;
-        public Guna.UI2.WinForms.Guna2TextBox txtEmergencyNo;
         public Guna.UI2.WinForms.Guna2RadioButton rdFemale;
         public Guna.UI2.WinForms.Guna2RadioButton rdMale;
-        private Guna.UI2.WinForms.Guna2Button btnNext;
+        private Guna.UI2.WinForms.Guna2Button btnEditProfile;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2CheckBox cbVoter;
+        private Guna.UI2.WinForms.Guna2CheckBox cbNational;
+        private Guna.UI2.WinForms.Guna2CheckBox cbPassport;
+        private Guna.UI2.WinForms.Guna2CheckBox cbDriver;
     }
 }

@@ -256,6 +256,7 @@
             this.btnNext.Size = new System.Drawing.Size(141, 45);
             this.btnNext.TabIndex = 57;
             this.btnNext.Text = "&Done";
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // editContract
             // 

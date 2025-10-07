@@ -59,23 +59,53 @@ namespace systemRental
             get => btnStatus.Text;
             set
             {
-                btnStatus.Text = value;
+                string status = value;
 
-                if (value == "unpaid")
+                //check for overdue if status is unpaid
+                if (status.ToLower() == "unpaid" && !string.IsNullOrEmpty(BillId))
                 {
-                    btnStatus.FillColor = Color.Red;       // background
-                    btnStatus.ForeColor = Color.White;     // text color
+                    try
+                    {
+                        //query billing_month or due_date for this bill
+                        string sql = $"SELECT billing_month FROM tbl_utilities WHERE bill_id = '{BillId}'";
+                        DataTable dt = db.GetData(sql);
+                        if (dt.Rows.Count > 0)
+                        {
+                            DateTime bm = DateTime.ParseExact(dt.Rows[0]["billing_month"].ToString(), "yyyy-MM", null);
+                            DateTime now = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
+                            if (bm < now)
+                            {
+                                status = "overdue"; // 👈 override to overdue
+                            }
+                        }
+                    }
+                    catch {}
+                }
+
+                btnStatus.Text = status;
+
+                if (status == "unpaid")
+                {
+                    btnStatus.FillColor = Color.Red;
+                    btnStatus.ForeColor = Color.White;
                     btnPaid.Enabled = true;
                 }
-                else if (value == "paid")
+                else if (status == "paid")
                 {
                     btnStatus.FillColor = Color.Green;
                     btnStatus.ForeColor = Color.White;
-                    btnPaid.Enabled = false;               //disable if the status is paid
+                    btnPaid.Enabled = false;
+                }
+                else if (status == "overdue")
+                {
+                    btnStatus.FillColor = Color.Orange;
+                    btnStatus.ForeColor = Color.White;
+                    btnPaid.Enabled = true;
                 }
                 else
                 {
-                    btnStatus.FillColor = Color.Gray;      // default fallback
+                    btnStatus.FillColor = Color.Gray;
                     btnStatus.ForeColor = Color.Black;
                     btnPaid.Enabled = true;
                 }
@@ -147,9 +177,7 @@ namespace systemRental
         {
             try
             {
-                DialogResult dr = MessageBox.Show("Are you sure you want to mark this bill as PAID?",
-                                                  "Confirmation", MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
+                DialogResult dr = MessageBox.Show("Are you sure you want to mark this bill as PAID?", "Confirmation", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
                 if (dr == DialogResult.Yes)
                 {
@@ -158,7 +186,7 @@ namespace systemRental
 
                     if (db.rowAffected > 0)
                     {
-                        PaymentStatus = "paid"; // ✅ updates UI & disables button
+                        PaymentStatus = "paid"; //updates UI and disables button
                         MessageBox.Show("Bill marked as PAID successfully!",
                                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

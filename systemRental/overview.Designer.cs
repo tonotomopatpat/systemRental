@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelBackground = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lblUnitType = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblContract = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -79,6 +79,15 @@
             this.panelBackground.Size = new System.Drawing.Size(1348, 328);
             this.panelBackground.TabIndex = 0;
             this.panelBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBackground_Paint);
+            // 
+            // guna2PictureBox6
+            // 
+            this.guna2PictureBox6.ImageRotate = 0F;
+            this.guna2PictureBox6.Location = new System.Drawing.Point(134, 621);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.Size = new System.Drawing.Size(186, 152);
+            this.guna2PictureBox6.TabIndex = 37;
+            this.guna2PictureBox6.TabStop = false;
             // 
             // label11
             // 
@@ -189,6 +198,7 @@
             this.lblContract.Size = new System.Drawing.Size(74, 34);
             this.lblContract.TabIndex = 21;
             this.lblContract.Text = "label2";
+            this.lblContract.Click += new System.EventHandler(this.lblContract_Click);
             // 
             // label10
             // 
@@ -199,15 +209,6 @@
             this.label10.Size = new System.Drawing.Size(100, 34);
             this.label10.TabIndex = 20;
             this.label10.Text = "Contract";
-            // 
-            // guna2PictureBox6
-            // 
-            this.guna2PictureBox6.ImageRotate = 0F;
-            this.guna2PictureBox6.Location = new System.Drawing.Point(134, 621);
-            this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.Size = new System.Drawing.Size(186, 152);
-            this.guna2PictureBox6.TabIndex = 37;
-            this.guna2PictureBox6.TabStop = false;
             // 
             // guna2PictureBox5
             // 

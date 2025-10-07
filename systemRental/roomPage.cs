@@ -90,9 +90,10 @@ namespace systemRental
             loadRooms();
         }
 
-        private void btnCompute_Click(object sender, EventArgs e)
+        private void btnAddRoom_Click(object sender, EventArgs e)
         {
-
+            addroom addroom = new addroom();
+            addroom.Show();
         }
     }
 }

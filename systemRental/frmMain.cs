@@ -59,5 +59,24 @@ namespace systemRental
             ShowUserControl(new roomPage());
         }
 
+        private void btnGoToRooms_Click(object sender, EventArgs e)
+        {
+            var parentForm = this.FindForm() as frmMain;
+            if (parentForm != null)
+            {
+                parentForm.ShowUserControl(new roomPage());
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                frmLogin loginform = new frmLogin();
+                loginform.Show();
+                this.Close();
+            }
+        }
     }
 }

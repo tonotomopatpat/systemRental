@@ -27,7 +27,7 @@ namespace systemRental
             return db.GetData(query);
         }
 
-        private void tenantsPage_Load(object sender, EventArgs e)
+        public void tenantsPage_Load(object sender, EventArgs e)
         {
             //LoadControl(new overview()); //para default yung overview
             flowPeople.Controls.Clear();
@@ -74,31 +74,43 @@ namespace systemRental
                 panelSecondContent.Controls.Clear();
             }
         }
-
+        private Guna.UI2.WinForms.Guna2Button selectedTenantButton = null;
 
         private void btnTenant_Click(object sender, EventArgs e)
         {
             var btn = sender as Guna.UI2.WinForms.Guna2Button;
             int tenantID = Convert.ToInt32(btn.Tag);
-
             selectedTenantID = tenantID;
-            //load control is only for UserControls created
-            LoadControl(new overview(tenantID));
 
-            //for every click hope it works
+            
+            foreach (Control ctrl in flowPeople.Controls)
+            {
+                if (ctrl is Guna.UI2.WinForms.Guna2Button tenantBtn)
+                {
+                    tenantBtn.FillColor = Color.White;
+                    tenantBtn.ForeColor = Color.Gray;
+                }
+            }
+
+            // --- HIGHLIGHT the selected one ---
+            btn.FillColor = Color.FromArgb(235, 234, 178); // light yellow highlight
+            btn.ForeColor = Color.Black;
+            selectedTenantButton = btn;
+
+            // --- Load overview ---
+            LoadControl(new overview(tenantID));
 
             try
             {
                 string query = $@"
-                    SELECT first_name, last_name, phone_no
-                    FROM tbl_tenants
-                    WHERE tenant_id = {tenantID}";
-
+            SELECT first_name, last_name, phone_no
+            FROM tbl_tenants
+            WHERE tenant_id = {tenantID}";
                 DataTable dt = db.GetData(query);
+
                 if (dt.Rows.Count > 0)
                 {
                     DataRow dr = dt.Rows[0];
-
                     lblName.Text = $"{dr["first_name"]} {dr["last_name"]}";
                     lblCompanyNumber.Text = dr["phone_no"].ToString();
                 }
@@ -110,9 +122,10 @@ namespace systemRental
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error on getting the tenant", ex.Message);
+                MessageBox.Show("Error on getting the tenant: " + ex.Message);
             }
         }
+
 
         private void LoadControl(UserControl uc)
         {
@@ -151,8 +164,14 @@ namespace systemRental
 
         private void btnEditProfile_Click(object sender, EventArgs e)
         {
-            editProfile editProfile = new editProfile();
-            editProfile.Show();
+            if (!selectedTenantID.HasValue)
+            {
+                MessageBox.Show("Please select a tenant first.");
+                return;
+            }
+
+            editProfile editProfileForm = new editProfile(selectedTenantID.Value);
+            editProfileForm.ShowDialog();
         }
 
         private void btnEditContract_Click(object sender, EventArgs e)

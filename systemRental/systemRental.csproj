@@ -167,6 +167,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addroom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addroom.Designer.cs">
+      <DependentUpon>addroom.cs</DependentUpon>
+    </Compile>
     <Compile Include="addTenant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +278,9 @@
     <Compile Include="tenantsPage.Designer.cs">
       <DependentUpon>tenantsPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addroom.resx">
+      <DependentUpon>addroom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addTenant.resx">
       <DependentUpon>addTenant.cs</DependentUpon>
     </EmbeddedResource>

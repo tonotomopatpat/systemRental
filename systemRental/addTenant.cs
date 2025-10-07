@@ -73,6 +73,23 @@ namespace systemRental
         }
         private int errorcount;
 
+        public string TenantDocuments
+        {
+            get
+            {
+                List<string> docs = new List<string>();
+                if (cbDriver.Checked)
+                    docs.Add("Drivers License");
+                if (cbPassport.Checked)
+                    docs.Add("Passport");
+                if (cbNational.Checked)
+                    docs.Add("National ID");
+                if (cbVoter.Checked)
+                    docs.Add("Voters ID");
+
+                return string.Join(", ", docs);
+            }
+        }
         private void btnNext_Click(object sender, EventArgs e)
         {
 

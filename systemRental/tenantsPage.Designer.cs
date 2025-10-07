@@ -37,7 +37,6 @@
             this.btnTenant = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.mainInfo = new Guna.UI2.WinForms.Guna2Panel();
@@ -55,7 +54,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnGoToRooms = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddTenants = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panelMainBackground.SuspendLayout();
@@ -145,6 +143,7 @@
             // btnTenant
             // 
             this.btnTenant.BorderRadius = 12;
+            this.btnTenant.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.btnTenant.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTenant.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnTenant.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -169,7 +168,6 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.btnOverview);
-            this.guna2Panel1.Controls.Add(this.guna2Button6);
             this.guna2Panel1.Controls.Add(this.guna2Button5);
             this.guna2Panel1.Controls.Add(this.btnHistory);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -198,25 +196,6 @@
             this.btnOverview.TabIndex = 14;
             this.btnOverview.Text = "Overview";
             this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
-            // 
-            // guna2Button6
-            // 
-            this.guna2Button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button6.BorderRadius = 8;
-            this.guna2Button6.CustomizableEdges.BottomLeft = false;
-            this.guna2Button6.CustomizableEdges.BottomRight = false;
-            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button6.FillColor = System.Drawing.SystemColors.ActiveBorder;
-            this.guna2Button6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button6.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button6.Location = new System.Drawing.Point(1187, 0);
-            this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.Size = new System.Drawing.Size(111, 65);
-            this.guna2Button6.TabIndex = 13;
-            this.guna2Button6.Text = "Edit Profile";
             // 
             // guna2Button5
             // 
@@ -440,7 +419,6 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panelTop.Controls.Add(this.btnGoToRooms);
             this.panelTop.Controls.Add(this.btnAddTenants);
             this.panelTop.Controls.Add(this.guna2HtmlLabel1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -448,24 +426,6 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1753, 98);
             this.panelTop.TabIndex = 0;
-            // 
-            // btnGoToRooms
-            // 
-            this.btnGoToRooms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGoToRooms.BorderRadius = 8;
-            this.btnGoToRooms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGoToRooms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGoToRooms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGoToRooms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGoToRooms.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnGoToRooms.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoToRooms.ForeColor = System.Drawing.Color.DimGray;
-            this.btnGoToRooms.Location = new System.Drawing.Point(1621, 42);
-            this.btnGoToRooms.Name = "btnGoToRooms";
-            this.btnGoToRooms.Size = new System.Drawing.Size(111, 41);
-            this.btnGoToRooms.TabIndex = 9;
-            this.btnGoToRooms.Text = "Go To Rooms";
-            this.btnGoToRooms.Click += new System.EventHandler(this.btnGoToRooms_Click);
             // 
             // btnAddTenants
             // 
@@ -544,11 +504,9 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnDeleteProfile;
         private Guna.UI2.WinForms.Guna2Button btnEditProfile;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
         private Guna.UI2.WinForms.Guna2Button btnOverview;
-        private Guna.UI2.WinForms.Guna2Button btnGoToRooms;
         private Guna.UI2.WinForms.Guna2Button btnEditContract;
     }
 }

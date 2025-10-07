@@ -28,7 +28,7 @@ namespace systemRental
         private string currentFilter = "All";
         private void billingsPage_Load(object sender, EventArgs e)
         {
-            // ✅ Setup Year ComboBox if empty
+            //setup Year ComboBox if empty
             if (cmbYear.Items.Count == 0)
             {
                 int currentYear = DateTime.Now.Year;
@@ -38,13 +38,13 @@ namespace systemRental
                 }
             }
 
-            // ✅ Set default current month
+            //set default current month
             if (cmbMonth.SelectedIndex == -1)
             {
                 cmbMonth.SelectedIndex = DateTime.Now.Month - 1;
             }
 
-            // ✅ Set default current year
+            //set default current year
             if (cmbYear.SelectedIndex == -1)
             {
                 cmbYear.SelectedItem = DateTime.Now.Year.ToString();
@@ -95,12 +95,12 @@ namespace systemRental
 
             foreach (DataRow row in dt.Rows)
             {
-                string billingMonth = row["billing_month"].ToString(); // you’ll need to SELECT this in query
+                string billingMonth = row["billing_month"].ToString();
                 string status = row["status"].ToString();
 
                 ContractCard card = new ContractCard
                 {
-                    BillId = row["bill_id"].ToString(),   // ✅ Make sure this is assigned!
+                    BillId = row["bill_id"].ToString(),   
                     TenantName = row["first_name"].ToString() + " " + row["last_name"].ToString(),
                     ContractInfo = "Contract: " +
                    Convert.ToDateTime(row["start_date"]).ToShortDateString() +
@@ -112,7 +112,7 @@ namespace systemRental
                     Margin = new Padding(20)
                 };
 
-                // ✅ Filtering logic
+                //fltering logic
                 bool addCard = true;
 
                 if (currentFilter == "paid" && status != "paid")

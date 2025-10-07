@@ -36,7 +36,7 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnCompute = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddRoom = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowRooms = new System.Windows.Forms.FlowLayoutPanel();
@@ -142,7 +142,7 @@
             // 
             this.guna2Panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.guna2Panel3.BorderRadius = 10;
-            this.guna2Panel3.Controls.Add(this.btnCompute);
+            this.guna2Panel3.Controls.Add(this.btnAddRoom);
             this.guna2Panel3.Controls.Add(this.guna2TextBox1);
             this.guna2Panel3.Controls.Add(this.label1);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -152,23 +152,23 @@
             this.guna2Panel3.Size = new System.Drawing.Size(1703, 60);
             this.guna2Panel3.TabIndex = 2;
             // 
-            // btnCompute
+            // btnAddRoom
             // 
-            this.btnCompute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCompute.BorderRadius = 8;
-            this.btnCompute.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCompute.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCompute.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCompute.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCompute.FillColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCompute.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompute.ForeColor = System.Drawing.Color.DimGray;
-            this.btnCompute.Location = new System.Drawing.Point(295, 21);
-            this.btnCompute.Name = "btnCompute";
-            this.btnCompute.Size = new System.Drawing.Size(180, 33);
-            this.btnCompute.TabIndex = 4;
-            this.btnCompute.Text = "Add Rooms";
-            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
+            this.btnAddRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddRoom.BorderRadius = 8;
+            this.btnAddRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddRoom.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAddRoom.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddRoom.ForeColor = System.Drawing.Color.DimGray;
+            this.btnAddRoom.Location = new System.Drawing.Point(295, 21);
+            this.btnAddRoom.Name = "btnAddRoom";
+            this.btnAddRoom.Size = new System.Drawing.Size(180, 33);
+            this.btnAddRoom.TabIndex = 4;
+            this.btnAddRoom.Text = "Add Rooms";
+            this.btnAddRoom.Click += new System.EventHandler(this.btnAddRoom_Click);
             // 
             // guna2TextBox1
             // 
@@ -235,7 +235,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Button btnCompute;
+        private Guna.UI2.WinForms.Guna2Button btnAddRoom;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label label1;
     }
