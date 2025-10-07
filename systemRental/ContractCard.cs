@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Guna.UI2.WinForms;
 
 namespace systemRental
 {
@@ -22,6 +23,55 @@ namespace systemRental
             InitializeComponent();
         }
         public string BillId { get; set; }
+        private int tenantId;
+        public int TenantId
+        {
+            get => tenantId;
+            set
+            {
+                tenantId = value;
+                LoadTenantPhoto();
+            }
+        }
+        private void LoadTenantPhoto()
+        {
+            if (tenantId == 0) return;
+
+            try
+            {
+                string query = $"SELECT photo_path FROM tbl_tenants WHERE tenant_id = {tenantId}";
+                DataTable dt = db.GetData(query);
+
+                if (dt.Rows.Count > 0)
+                {
+                    string photoPath = dt.Rows[0]["photo_path"].ToString();
+                    if (!string.IsNullOrEmpty(photoPath) && File.Exists(photoPath))
+                    {
+                        // Use Bitmap to safely load the image
+                        using (var bmpTemp = new Bitmap(photoPath))
+                        {
+                            pictureBox1.Image = new Bitmap(bmpTemp);
+                        }
+                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                    else
+                    {
+                        pictureBox1.Image = Properties.Resources.user;
+                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                }
+                else
+                {
+                    pictureBox1.Image = Properties.Resources.user;
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch
+            {
+                pictureBox1.Image = Properties.Resources.user;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
 
         public string TenantName
         {
@@ -128,52 +178,12 @@ namespace systemRental
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PDF file (*.pdf)|*.pdf";
-            saveFileDialog.FileName = TenantName.Replace(" ", "_") + "_Bill.pdf";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                
-                Document doc = new Document(PageSize.A4, 40, 40, 40, 40);
-                PdfWriter.GetInstance(doc, new FileStream(saveFileDialog.FileName, FileMode.Create));
-                doc.Open();
-
-                Paragraph title = new Paragraph("Tenant Billing Statement");
-                title.Alignment = Element.ALIGN_CENTER;
-                doc.Add(title);
-                doc.Add(new Paragraph("Date: " + DateTime.Now.ToShortDateString()));
-                doc.Add(new Paragraph("\n"));
-
-                PdfPTable table = new PdfPTable(2);
-                table.WidthPercentage = 100;
-
-                table.AddCell("Tenant Name");
-                table.AddCell(TenantName);
-
-                table.AddCell("Contract Info");
-                table.AddCell(ContractInfo);
-
-                table.AddCell("Room");
-                table.AddCell(Room);
-
-                table.AddCell("Unit Type");
-                table.AddCell(UnitType);
-
-                table.AddCell("Total Balance");
-                table.AddCell(TotalUtilities);
-
-                table.AddCell("Payment Status");
-                table.AddCell(PaymentStatus);
-
-                doc.Add(table);
-                doc.Close();
-
-                MessageBox.Show("PDF exported successfully!");
-            }
+            
         }
+        
 
-        private void btnPaid_Click(object sender, EventArgs e)
+
+        private void btnPaid_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -216,6 +226,53 @@ namespace systemRental
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnPrint_Click_1(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF file (*.pdf)|*.pdf";
+            saveFileDialog.FileName = TenantName.Replace(" ", "_") + "_Bill.pdf";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                Document doc = new Document(PageSize.A4, 40, 40, 40, 40);
+                PdfWriter.GetInstance(doc, new FileStream(saveFileDialog.FileName, FileMode.Create));
+                doc.Open();
+
+                Paragraph title = new Paragraph("Tenant Billing Statement");
+                title.Alignment = Element.ALIGN_CENTER;
+                doc.Add(title);
+                doc.Add(new Paragraph("Date: " + DateTime.Now.ToShortDateString()));
+                doc.Add(new Paragraph("\n"));
+
+                PdfPTable table = new PdfPTable(2);
+                table.WidthPercentage = 100;
+
+                table.AddCell("Tenant Name");
+                table.AddCell(TenantName);
+
+                table.AddCell("Contract Info");
+                table.AddCell(ContractInfo);
+
+                table.AddCell("Room");
+                table.AddCell(Room);
+
+                table.AddCell("Unit Type");
+                table.AddCell(UnitType);
+
+                table.AddCell("Total Balance");
+                table.AddCell(TotalUtilities);
+
+                table.AddCell("Payment Status");
+                table.AddCell(PaymentStatus);
+
+                doc.Add(table);
+                doc.Close();
+
+                MessageBox.Show("PDF exported successfully!");
             }
         }
     }

@@ -12,27 +12,29 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
-using System.Web.UI.WebControls;
 
 namespace systemRental
 {
     public partial class billingsPage : UserControl
     {
         Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+
         public billingsPage()
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.AutoSize = true;
         }
+
         private string currentFilter = "All";
-        private void billingsPage_Load(object sender, EventArgs e)
+
+        public void billingsPage_Load(object sender, EventArgs e)
         {
             //setup Year ComboBox if empty
             if (cmbYear.Items.Count == 0)
             {
                 int currentYear = DateTime.Now.Year;
-                for (int y = currentYear - 5; y <= currentYear + 1; y++) // show range: last 5 years + next year
+                for (int y = currentYear - 5; y <= currentYear + 1; y++) // last 5 years + next year
                 {
                     cmbYear.Items.Add(y.ToString());
                 }
@@ -55,40 +57,41 @@ namespace systemRental
                 return;
 
             string query = $@"
-                    SELECT 
-                        ut.bill_id,
-                        c.contract_id,
-                        c.start_date,
-                        c.end_date,
-                        t.first_name,
-                        t.last_name,
-                        u.unit_number,
-                        u.floor,
-                        u.unit_type,
-                        u.monthly_rate,
-                        ut.billing_month,
-                        ut.status,   -- ✅ get actual status from DB
-                        COALESCE(SUM(ut.total_fees), 0) AS total_utilities,
-                        (u.monthly_rate + COALESCE(SUM(ut.total_fees), 0)) AS total_amount
-                    FROM tbl_contracts c
-                    JOIN tbl_tenants t ON c.tenant_id = t.tenant_id
-                    JOIN tbl_units u ON c.unit_id = u.unit_id
-                    JOIN tbl_utilities ut ON c.contract_id = ut.contract_id
-                    WHERE ut.billing_month = '{selectedMonth}'
-                    GROUP BY 
-                        ut.bill_id,
-                        c.contract_id, 
-                        c.start_date, 
-                        c.end_date, 
-                        t.first_name, 
-                        t.last_name, 
-                        u.unit_number, 
-                        u.floor, 
-                        u.unit_type, 
-                        u.monthly_rate,
-                        ut.status;
-
-                        ";
+                SELECT 
+                    ut.bill_id,
+                    c.contract_id,
+                    c.start_date,
+                    c.end_date,
+                    t.tenant_id,       
+                    t.first_name,
+                    t.last_name,
+                    u.unit_number,
+                    u.floor,
+                    u.unit_type,
+                    u.monthly_rate,
+                    ut.billing_month,
+                    ut.status,
+                    COALESCE(SUM(ut.total_fees), 0) AS total_utilities,
+                    (u.monthly_rate + COALESCE(SUM(ut.total_fees), 0)) AS total_amount
+                FROM tbl_contracts c
+                JOIN tbl_tenants t ON c.tenant_id = t.tenant_id
+                JOIN tbl_units u ON c.unit_id = u.unit_id
+                JOIN tbl_utilities ut ON c.contract_id = ut.contract_id
+                WHERE ut.billing_month = '{selectedMonth}'
+                GROUP BY 
+                    ut.bill_id,
+                    c.contract_id, 
+                    c.start_date, 
+                    c.end_date, 
+                    t.tenant_id,      
+                    t.first_name, 
+                    t.last_name, 
+                    u.unit_number, 
+                    u.floor, 
+                    u.unit_type, 
+                    u.monthly_rate,
+                    ut.status;
+            ";
 
             DataTable dt = db.GetData(query);
             flowLayoutPanelContents.Controls.Clear();
@@ -100,11 +103,12 @@ namespace systemRental
 
                 ContractCard card = new ContractCard
                 {
-                    BillId = row["bill_id"].ToString(),   
+                    BillId = row["bill_id"].ToString(),
+                    TenantId = Convert.ToInt32(row["tenant_id"]),  // SET TenantId so photo loads
                     TenantName = row["first_name"].ToString() + " " + row["last_name"].ToString(),
                     ContractInfo = "Contract: " +
-                   Convert.ToDateTime(row["start_date"]).ToShortDateString() +
-                   " - " + Convert.ToDateTime(row["end_date"]).ToShortDateString(),
+                                   Convert.ToDateTime(row["start_date"]).ToShortDateString() +
+                                   " - " + Convert.ToDateTime(row["end_date"]).ToShortDateString(),
                     Room = "Room: " + row["unit_number"] + " (" + row["unit_type"] + "), Floor " + row["floor"],
                     UnitType = "Type: " + row["unit_type"],
                     TotalUtilities = "Total Balance: ₱" + row["total_amount"],
@@ -112,7 +116,7 @@ namespace systemRental
                     Margin = new Padding(20)
                 };
 
-                //fltering logic
+                // Filtering logic
                 bool addCard = true;
 
                 if (currentFilter == "paid" && status != "paid")
@@ -125,7 +129,6 @@ namespace systemRental
                         addCard = false;
                     else
                     {
-                        // check if billing_month < today
                         DateTime bm = DateTime.ParseExact(billingMonth, "yyyy-MM", null);
                         DateTime now = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
                         if (bm >= now) addCard = false;
@@ -135,19 +138,15 @@ namespace systemRental
                 if (addCard)
                     flowLayoutPanelContents.Controls.Add(card);
             }
-
         }
 
         private string GetSelectedMonthYear()
         {
             if (cmbMonth.SelectedIndex == -1 || cmbYear.SelectedIndex == -1)
-            {
                 return null;
-            }
 
             int month = cmbMonth.SelectedIndex + 1;
             string year = cmbYear.SelectedItem.ToString();
-
             return $"{year}-{month:D2}";
         }
 
@@ -193,5 +192,14 @@ namespace systemRental
             billingsPage_Load(sender, e);
         }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string search = txtSearch.Text.Trim().ToLower().Replace(" ", ""); // normalize input
+            foreach (ContractCard card in flowLayoutPanelContents.Controls.OfType<ContractCard>())
+            {
+                string tenantName = card.TenantName.ToLower().Replace(" ", ""); // normalize card name
+                card.Visible = tenantName.Contains(search); // show/hide based on match
+            }
+        }
     }
 }

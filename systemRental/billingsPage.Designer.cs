@@ -32,6 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanelContents = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbYear = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbMonth = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnUnPaid = new Guna.UI2.WinForms.Guna2Button();
@@ -40,11 +43,8 @@
             this.btnAll = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnCompute = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbYear = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -88,6 +88,44 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1703, 53);
             this.guna2Panel2.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(746, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 16);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Month:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(502, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "Year: ";
+            // 
+            // cmbYear
+            // 
+            this.cmbYear.BackColor = System.Drawing.Color.Transparent;
+            this.cmbYear.BorderRadius = 5;
+            this.cmbYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbYear.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbYear.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbYear.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbYear.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbYear.ItemHeight = 30;
+            this.cmbYear.Location = new System.Drawing.Point(553, 6);
+            this.cmbYear.Name = "cmbYear";
+            this.cmbYear.Size = new System.Drawing.Size(182, 36);
+            this.cmbYear.TabIndex = 42;
+            this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -207,7 +245,7 @@
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.Controls.Add(this.btnCompute);
-            this.guna2Panel1.Controls.Add(this.guna2TextBox1);
+            this.guna2Panel1.Controls.Add(this.txtSearch);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.Transparent;
@@ -234,25 +272,26 @@
             this.btnCompute.Text = "Calculate Utilities";
             this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click_1);
             // 
-            // guna2TextBox1
+            // txtSearch
             // 
-            this.guna2TextBox1.BorderRadius = 10;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBox1.IconLeft")));
-            this.guna2TextBox1.Location = new System.Drawing.Point(1259, 18);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "Search";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(340, 33);
-            this.guna2TextBox1.TabIndex = 5;
+            this.txtSearch.BorderRadius = 10;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtSearch.IconLeft")));
+            this.txtSearch.Location = new System.Drawing.Point(1259, 18);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceholderText = "Search";
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.Size = new System.Drawing.Size(340, 33);
+            this.txtSearch.TabIndex = 5;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label1
             // 
@@ -263,44 +302,6 @@
             this.label1.Size = new System.Drawing.Size(116, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "We are Group 10";
-            // 
-            // cmbYear
-            // 
-            this.cmbYear.BackColor = System.Drawing.Color.Transparent;
-            this.cmbYear.BorderRadius = 5;
-            this.cmbYear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbYear.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbYear.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbYear.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbYear.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbYear.ItemHeight = 30;
-            this.cmbYear.Location = new System.Drawing.Point(553, 6);
-            this.cmbYear.Name = "cmbYear";
-            this.cmbYear.Size = new System.Drawing.Size(182, 36);
-            this.cmbYear.TabIndex = 42;
-            this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(502, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Year: ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(746, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 16);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "Month:";
             // 
             // billingsPage
             // 
@@ -325,7 +326,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button btnCompute;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelContents;
         private Guna.UI2.WinForms.Guna2Button btnAll;

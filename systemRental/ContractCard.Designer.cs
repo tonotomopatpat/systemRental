@@ -69,7 +69,6 @@
             this.guna2Panel1.ShadowDecoration.BorderRadius = 10;
             this.guna2Panel1.Size = new System.Drawing.Size(358, 384);
             this.guna2Panel1.TabIndex = 0;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // lblOther
             // 
@@ -135,7 +134,6 @@
             this.lblTotal.Size = new System.Drawing.Size(96, 16);
             this.lblTotal.TabIndex = 14;
             this.lblTotal.Text = "Total Balance";
-            this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
             // 
             // pictureBox1
             // 
@@ -162,7 +160,7 @@
             this.btnPaid.Size = new System.Drawing.Size(93, 32);
             this.btnPaid.TabIndex = 12;
             this.btnPaid.Text = "Paid";
-            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
+            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click_1);
             // 
             // btnPrint
             // 
@@ -179,7 +177,7 @@
             this.btnPrint.Size = new System.Drawing.Size(88, 32);
             this.btnPrint.TabIndex = 11;
             this.btnPrint.Text = "Print";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click_1);
             // 
             // lblUnitType
             // 
@@ -238,7 +236,6 @@
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ContractCard";
             this.Size = new System.Drawing.Size(358, 384);
-            this.Load += new System.EventHandler(this.ContractCard_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

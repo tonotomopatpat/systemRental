@@ -281,6 +281,7 @@
             this.Name = "editContract";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "editContract";
+            this.Load += new System.EventHandler(this.editContract_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

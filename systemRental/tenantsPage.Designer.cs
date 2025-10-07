@@ -32,7 +32,7 @@
             this.panelMainBackground = new Guna.UI2.WinForms.Guna2Panel();
             this.mainTable = new System.Windows.Forms.TableLayoutPanel();
             this.flowSearch = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.flowPeople = new System.Windows.Forms.FlowLayoutPanel();
             this.btnTenant = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -99,35 +99,36 @@
             // flowSearch
             // 
             this.flowSearch.BackColor = System.Drawing.Color.FloralWhite;
-            this.flowSearch.Controls.Add(this.guna2TextBox6);
+            this.flowSearch.Controls.Add(this.txtSearch);
             this.flowSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowSearch.Location = new System.Drawing.Point(3, 3);
             this.flowSearch.Name = "flowSearch";
             this.flowSearch.Size = new System.Drawing.Size(393, 54);
             this.flowSearch.TabIndex = 0;
             // 
-            // guna2TextBox6
+            // txtSearch
             // 
-            this.guna2TextBox6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2TextBox6.BorderRadius = 10;
-            this.guna2TextBox6.BorderThickness = 2;
-            this.guna2TextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox6.DefaultText = "";
-            this.guna2TextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox6.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBox6.IconLeft")));
-            this.guna2TextBox6.Location = new System.Drawing.Point(15, 15);
-            this.guna2TextBox6.Margin = new System.Windows.Forms.Padding(15, 15, 3, 3);
-            this.guna2TextBox6.Name = "guna2TextBox6";
-            this.guna2TextBox6.PlaceholderText = "Search";
-            this.guna2TextBox6.SelectedText = "";
-            this.guna2TextBox6.Size = new System.Drawing.Size(340, 33);
-            this.guna2TextBox6.TabIndex = 7;
+            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSearch.BorderRadius = 10;
+            this.txtSearch.BorderThickness = 2;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtSearch.IconLeft")));
+            this.txtSearch.Location = new System.Drawing.Point(15, 15);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(15, 15, 3, 3);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceholderText = "Search";
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.Size = new System.Drawing.Size(340, 33);
+            this.txtSearch.TabIndex = 7;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // flowPeople
             // 
@@ -487,7 +488,7 @@
         private System.Windows.Forms.TableLayoutPanel mainTable;
         private System.Windows.Forms.FlowLayoutPanel flowSearch;
         private System.Windows.Forms.FlowLayoutPanel flowPeople;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox6;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2Button btnTenant;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Button btnAddTenants;

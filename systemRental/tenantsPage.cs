@@ -218,8 +218,24 @@ namespace systemRental
 
         private void btnEditContract_Click(object sender, EventArgs e)
         {
-            editContract editContract = new editContract();
-            editContract.Show();
+            if (!selectedTenantID.HasValue)
+            {
+                MessageBox.Show("Please select a tenant first.");
+                return;
+            }
+
+            string query = $"SELECT contract_id FROM tbl_contracts WHERE tenant_id={selectedTenantID.Value} AND contract_status='ACTIVE'";
+            DataTable dt = db.GetData(query);
+
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("No active contract found for this tenant.");
+                return;
+            }
+
+            int contractId = Convert.ToInt32(dt.Rows[0]["contract_id"]);
+            editContract editContractForm = new editContract(contractId);
+            editContractForm.Show();
         }
 
         private void btnDeleteProfile_Click(object sender, EventArgs e)
@@ -274,6 +290,69 @@ namespace systemRental
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtSearch.Text.Trim().ToLower().Replace("'", "''");
+
+                string query = @"
+            SELECT tenant_id, first_name, last_name, phone_no, photo_path
+            FROM tbl_tenants
+            WHERE REPLACE(LOWER(first_name), ' ', '') LIKE '%" + searchText.Replace(" ", "") + @"%'
+               OR REPLACE(LOWER(last_name), ' ', '') LIKE '%" + searchText.Replace(" ", "") + @"%'";
+
+                DataTable dt = db.GetData(query);
+
+                flowPeople.Controls.Clear();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string fullName = $"{row["first_name"]} {row["last_name"]}";
+
+                    var btn = new Guna.UI2.WinForms.Guna2Button
+                    {
+                        Text = fullName,
+                        Tag = row["tenant_id"],
+                        Width = flowPeople.ClientSize.Width - 30,
+                        Height = 60,
+                        Margin = new Padding(5),
+                        BorderRadius = 12,
+                        TextAlign = HorizontalAlignment.Left,
+                        ImageAlign = HorizontalAlignment.Left,
+                        ImageSize = new Size(40, 40),
+                        FillColor = Color.White,
+                        ForeColor = Color.Gray,
+                        Cursor = Cursors.Hand,
+                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                    };
+
+                    string photoPath = row["photo_path"].ToString();
+                    if (!string.IsNullOrEmpty(photoPath) && System.IO.File.Exists(photoPath))
+                    {
+                        btn.Image = Image.FromFile(photoPath);
+                    }
+                    else
+                    {
+                        btn.Image = Properties.Resources.user;
+                    }
+
+                    btn.Click += btnTenant_Click;
+                    flowPeople.Controls.Add(btn);
+                }
+
+                // Reset selection
+                selectedTenantID = null;
+                lblName.Text = dt.Rows.Count > 0 ? "Please select a tenant" : "N/A";
+                lblCompanyNumber.Text = dt.Rows.Count > 0 ? "-" : "N/A";
+                panelSecondContent.Controls.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching tenants: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

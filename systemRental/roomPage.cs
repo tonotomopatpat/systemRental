@@ -95,5 +95,24 @@ namespace systemRental
             addroom addroom = new addroom();
             addroom.Show();
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string search = txtSearch.Text.Trim().ToLower().Replace(" ", ""); // normalize input
+
+            foreach (roomCard card in flowRooms.Controls.OfType<roomCard>())
+            {
+                // Normalize the fields we want to search
+                string tenantName = card.tenant.ToLower().Replace(" ", "");
+                string unitNumber = card.unitNo.ToLower().Replace(" ", "");
+                string unitType = card.unitType.ToLower().Replace(" ", "");
+
+                // Check if any of them contains the search string
+                bool match = tenantName.Contains(search) || unitNumber.Contains(search) || unitType.Contains(search);
+
+                // Show or hide the card
+                card.Visible = match;
+            }
+        }
     }
 }
