@@ -39,19 +39,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2ShadowPanel4 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.lblTenantCount = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.lblTenantCount = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblavailable = new System.Windows.Forms.Label();
-            this.lblAvailableUnits = new System.Windows.Forms.Label();
-            this.lblOccupiedLabel = new System.Windows.Forms.Label();
-            this.lblOccupiedUnits = new System.Windows.Forms.Label();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.lblTotalUnitsLabel = new System.Windows.Forms.Label();
             this.lblTotalUnits = new System.Windows.Forms.Label();
+            this.lblTotalUnitsLabel = new System.Windows.Forms.Label();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblOccupiedUnits = new System.Windows.Forms.Label();
+            this.lblOccupiedLabel = new System.Windows.Forms.Label();
+            this.lblAvailableUnits = new System.Windows.Forms.Label();
+            this.lblavailable = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.utilities = new System.Windows.Forms.DataGridView();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).BeginInit();
             this.guna2ShadowPanel4.SuspendLayout();
@@ -59,6 +61,8 @@
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            this.guna2ShadowPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.utilities)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -128,6 +132,17 @@
             this.guna2ShadowPanel4.Size = new System.Drawing.Size(378, 320);
             this.guna2ShadowPanel4.TabIndex = 2;
             // 
+            // lblTenantCount
+            // 
+            this.lblTenantCount.AutoSize = true;
+            this.lblTenantCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.lblTenantCount.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTenantCount.Location = new System.Drawing.Point(177, 190);
+            this.lblTenantCount.Name = "lblTenantCount";
+            this.lblTenantCount.Size = new System.Drawing.Size(29, 35);
+            this.lblTenantCount.TabIndex = 2;
+            this.lblTenantCount.Text = "0";
+            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
@@ -155,6 +170,7 @@
             this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.Black;
             this.guna2CustomGradientPanel1.BorderRadius = 5;
             this.guna2CustomGradientPanel1.BorderThickness = 1;
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2ShadowPanel3);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2ShadowPanel2);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2ShadowPanel1);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2ShadowPanel4);
@@ -165,17 +181,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1690, 820);
             this.guna2CustomGradientPanel1.TabIndex = 0;
-            // 
-            // lblTenantCount
-            // 
-            this.lblTenantCount.AutoSize = true;
-            this.lblTenantCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.lblTenantCount.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTenantCount.Location = new System.Drawing.Point(177, 190);
-            this.lblTenantCount.Name = "lblTenantCount";
-            this.lblTenantCount.Size = new System.Drawing.Size(29, 35);
-            this.lblTenantCount.TabIndex = 2;
-            this.lblTenantCount.Text = "0";
             // 
             // guna2ShadowPanel2
             // 
@@ -196,71 +201,16 @@
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(498, 320);
             this.guna2ShadowPanel2.TabIndex = 3;
             // 
-            // label2
+            // lblTotalUnits
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(177, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 35);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Unit Status";
-            // 
-            // lblavailable
-            // 
-            this.lblavailable.AutoSize = true;
-            this.lblavailable.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblavailable.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblavailable.Location = new System.Drawing.Point(23, 183);
-            this.lblavailable.Name = "lblavailable";
-            this.lblavailable.Size = new System.Drawing.Size(89, 23);
-            this.lblavailable.TabIndex = 7;
-            this.lblavailable.Text = "Available:";
-            // 
-            // lblAvailableUnits
-            // 
-            this.lblAvailableUnits.AutoSize = true;
-            this.lblAvailableUnits.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblAvailableUnits.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblAvailableUnits.Location = new System.Drawing.Point(118, 183);
-            this.lblAvailableUnits.Name = "lblAvailableUnits";
-            this.lblAvailableUnits.Size = new System.Drawing.Size(20, 23);
-            this.lblAvailableUnits.TabIndex = 8;
-            this.lblAvailableUnits.Text = "0";
-            // 
-            // lblOccupiedLabel
-            // 
-            this.lblOccupiedLabel.AutoSize = true;
-            this.lblOccupiedLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblOccupiedLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblOccupiedLabel.Location = new System.Drawing.Point(179, 183);
-            this.lblOccupiedLabel.Name = "lblOccupiedLabel";
-            this.lblOccupiedLabel.Size = new System.Drawing.Size(90, 23);
-            this.lblOccupiedLabel.TabIndex = 9;
-            this.lblOccupiedLabel.Text = "Occupied:";
-            // 
-            // lblOccupiedUnits
-            // 
-            this.lblOccupiedUnits.AutoSize = true;
-            this.lblOccupiedUnits.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblOccupiedUnits.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblOccupiedUnits.Location = new System.Drawing.Point(275, 183);
-            this.lblOccupiedUnits.Name = "lblOccupiedUnits";
-            this.lblOccupiedUnits.Size = new System.Drawing.Size(20, 23);
-            this.lblOccupiedUnits.TabIndex = 10;
-            this.lblOccupiedUnits.Text = "0";
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(157, 47);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(180, 127);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 11;
-            this.guna2PictureBox2.TabStop = false;
+            this.lblTotalUnits.AutoSize = true;
+            this.lblTotalUnits.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTotalUnits.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTotalUnits.Location = new System.Drawing.Point(422, 183);
+            this.lblTotalUnits.Name = "lblTotalUnits";
+            this.lblTotalUnits.Size = new System.Drawing.Size(20, 23);
+            this.lblTotalUnits.TabIndex = 13;
+            this.lblTotalUnits.Text = "0";
             // 
             // lblTotalUnitsLabel
             // 
@@ -273,16 +223,95 @@
             this.lblTotalUnitsLabel.TabIndex = 12;
             this.lblTotalUnitsLabel.Text = "Total Units:";
             // 
-            // lblTotalUnits
+            // guna2PictureBox2
             // 
-            this.lblTotalUnits.AutoSize = true;
-            this.lblTotalUnits.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblTotalUnits.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTotalUnits.Location = new System.Drawing.Point(422, 183);
-            this.lblTotalUnits.Name = "lblTotalUnits";
-            this.lblTotalUnits.Size = new System.Drawing.Size(20, 23);
-            this.lblTotalUnits.TabIndex = 13;
-            this.lblTotalUnits.Text = "0";
+            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(157, 47);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(180, 127);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 11;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // lblOccupiedUnits
+            // 
+            this.lblOccupiedUnits.AutoSize = true;
+            this.lblOccupiedUnits.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblOccupiedUnits.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblOccupiedUnits.Location = new System.Drawing.Point(275, 183);
+            this.lblOccupiedUnits.Name = "lblOccupiedUnits";
+            this.lblOccupiedUnits.Size = new System.Drawing.Size(20, 23);
+            this.lblOccupiedUnits.TabIndex = 10;
+            this.lblOccupiedUnits.Text = "0";
+            // 
+            // lblOccupiedLabel
+            // 
+            this.lblOccupiedLabel.AutoSize = true;
+            this.lblOccupiedLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblOccupiedLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblOccupiedLabel.Location = new System.Drawing.Point(179, 183);
+            this.lblOccupiedLabel.Name = "lblOccupiedLabel";
+            this.lblOccupiedLabel.Size = new System.Drawing.Size(90, 23);
+            this.lblOccupiedLabel.TabIndex = 9;
+            this.lblOccupiedLabel.Text = "Occupied:";
+            // 
+            // lblAvailableUnits
+            // 
+            this.lblAvailableUnits.AutoSize = true;
+            this.lblAvailableUnits.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAvailableUnits.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblAvailableUnits.Location = new System.Drawing.Point(118, 183);
+            this.lblAvailableUnits.Name = "lblAvailableUnits";
+            this.lblAvailableUnits.Size = new System.Drawing.Size(20, 23);
+            this.lblAvailableUnits.TabIndex = 8;
+            this.lblAvailableUnits.Text = "0";
+            // 
+            // lblavailable
+            // 
+            this.lblavailable.AutoSize = true;
+            this.lblavailable.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblavailable.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblavailable.Location = new System.Drawing.Point(23, 183);
+            this.lblavailable.Name = "lblavailable";
+            this.lblavailable.Size = new System.Drawing.Size(89, 23);
+            this.lblavailable.TabIndex = 7;
+            this.lblavailable.Text = "Available:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(177, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 35);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Unit Status";
+            // 
+            // guna2ShadowPanel3
+            // 
+            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.Controls.Add(this.utilities);
+            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.SeaGreen;
+            this.guna2ShadowPanel3.Location = new System.Drawing.Point(728, 23);
+            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
+            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel3.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
+            this.guna2ShadowPanel3.Size = new System.Drawing.Size(681, 320);
+            this.guna2ShadowPanel3.TabIndex = 14;
+            // 
+            // utilities
+            // 
+            this.utilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.utilities.Location = new System.Drawing.Point(22, 45);
+            this.utilities.Name = "utilities";
+            this.utilities.RowHeadersVisible = false;
+            this.utilities.RowHeadersWidth = 51;
+            this.utilities.RowTemplate.Height = 24;
+            this.utilities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.utilities.Size = new System.Drawing.Size(626, 246);
+            this.utilities.TabIndex = 0;
             // 
             // dashboardPage
             // 
@@ -305,6 +334,8 @@
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            this.guna2ShadowPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.utilities)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,5 +361,7 @@
         private System.Windows.Forms.Label lblAvailableUnits;
         private System.Windows.Forms.Label lblTotalUnits;
         private System.Windows.Forms.Label lblTotalUnitsLabel;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel3;
+        private System.Windows.Forms.DataGridView utilities;
     }
 }
