@@ -78,5 +78,26 @@ namespace systemRental
                 this.Close();
             }
         }
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            using (frmLoginPrompt loginPrompt = new frmLoginPrompt())
+            {
+                var loginResult = loginPrompt.ShowDialog();
+
+                if (loginResult == DialogResult.OK)
+                {
+                    // Step 2: If login successful, open Add Account form
+                    using (frmAddAccount addAccountForm = new frmAddAccount())
+                    {
+                        addAccountForm.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You must login to add a new account.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
     }
 }

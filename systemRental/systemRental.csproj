@@ -234,11 +234,23 @@
     <Compile Include="formContract.Designer.cs">
       <DependentUpon>formContract.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddAccount.Designer.cs">
+      <DependentUpon>frmAddAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoginPrompt.Designer.cs">
+      <DependentUpon>frmLoginPrompt.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -311,8 +323,14 @@
     <EmbeddedResource Include="formContract.resx">
       <DependentUpon>formContract.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddAccount.resx">
+      <DependentUpon>frmAddAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoginPrompt.resx">
+      <DependentUpon>frmLoginPrompt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
