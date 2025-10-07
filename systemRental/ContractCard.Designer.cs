@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractCard));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblOther = new System.Windows.Forms.Label();
-            this.lblElectricity = new System.Windows.Forms.Label();
-            this.lblWater = new System.Windows.Forms.Label();
+            this.lblOtherCharges = new System.Windows.Forms.Label();
+            this.lblElectricityBill = new System.Windows.Forms.Label();
+            this.lblWaterBill = new System.Windows.Forms.Label();
             this.btnStatus = new Guna.UI2.WinForms.Guna2Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,9 +50,9 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 30;
-            this.guna2Panel1.Controls.Add(this.lblOther);
-            this.guna2Panel1.Controls.Add(this.lblElectricity);
-            this.guna2Panel1.Controls.Add(this.lblWater);
+            this.guna2Panel1.Controls.Add(this.lblOtherCharges);
+            this.guna2Panel1.Controls.Add(this.lblElectricityBill);
+            this.guna2Panel1.Controls.Add(this.lblWaterBill);
             this.guna2Panel1.Controls.Add(this.btnStatus);
             this.guna2Panel1.Controls.Add(this.lblTotal);
             this.guna2Panel1.Controls.Add(this.pictureBox1);
@@ -70,41 +70,41 @@
             this.guna2Panel1.Size = new System.Drawing.Size(358, 384);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // lblOther
+            // lblOtherCharges
             // 
-            this.lblOther.AutoSize = true;
-            this.lblOther.BackColor = System.Drawing.Color.Transparent;
-            this.lblOther.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOther.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblOther.Location = new System.Drawing.Point(19, 263);
-            this.lblOther.Name = "lblOther";
-            this.lblOther.Size = new System.Drawing.Size(67, 16);
-            this.lblOther.TabIndex = 18;
-            this.lblOther.Text = "Other Bill";
+            this.lblOtherCharges.AutoSize = true;
+            this.lblOtherCharges.BackColor = System.Drawing.Color.Transparent;
+            this.lblOtherCharges.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOtherCharges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblOtherCharges.Location = new System.Drawing.Point(19, 263);
+            this.lblOtherCharges.Name = "lblOtherCharges";
+            this.lblOtherCharges.Size = new System.Drawing.Size(67, 16);
+            this.lblOtherCharges.TabIndex = 18;
+            this.lblOtherCharges.Text = "Other Bill";
             // 
-            // lblElectricity
+            // lblElectricityBill
             // 
-            this.lblElectricity.AutoSize = true;
-            this.lblElectricity.BackColor = System.Drawing.Color.Transparent;
-            this.lblElectricity.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblElectricity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblElectricity.Location = new System.Drawing.Point(19, 234);
-            this.lblElectricity.Name = "lblElectricity";
-            this.lblElectricity.Size = new System.Drawing.Size(95, 16);
-            this.lblElectricity.TabIndex = 17;
-            this.lblElectricity.Text = "Electricity Bill";
+            this.lblElectricityBill.AutoSize = true;
+            this.lblElectricityBill.BackColor = System.Drawing.Color.Transparent;
+            this.lblElectricityBill.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblElectricityBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblElectricityBill.Location = new System.Drawing.Point(19, 234);
+            this.lblElectricityBill.Name = "lblElectricityBill";
+            this.lblElectricityBill.Size = new System.Drawing.Size(95, 16);
+            this.lblElectricityBill.TabIndex = 17;
+            this.lblElectricityBill.Text = "Electricity Bill";
             // 
-            // lblWater
+            // lblWaterBill
             // 
-            this.lblWater.AutoSize = true;
-            this.lblWater.BackColor = System.Drawing.Color.Transparent;
-            this.lblWater.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblWater.Location = new System.Drawing.Point(19, 199);
-            this.lblWater.Name = "lblWater";
-            this.lblWater.Size = new System.Drawing.Size(70, 16);
-            this.lblWater.TabIndex = 16;
-            this.lblWater.Text = "Water bill";
+            this.lblWaterBill.AutoSize = true;
+            this.lblWaterBill.BackColor = System.Drawing.Color.Transparent;
+            this.lblWaterBill.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaterBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblWaterBill.Location = new System.Drawing.Point(19, 199);
+            this.lblWaterBill.Name = "lblWaterBill";
+            this.lblWaterBill.Size = new System.Drawing.Size(70, 16);
+            this.lblWaterBill.TabIndex = 16;
+            this.lblWaterBill.Text = "Water bill";
             // 
             // btnStatus
             // 
@@ -255,8 +255,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTotal;
         private Guna.UI2.WinForms.Guna2Button btnStatus;
-        private System.Windows.Forms.Label lblOther;
-        private System.Windows.Forms.Label lblElectricity;
-        private System.Windows.Forms.Label lblWater;
+        private System.Windows.Forms.Label lblOtherCharges;
+        private System.Windows.Forms.Label lblElectricityBill;
+        private System.Windows.Forms.Label lblWaterBill;
     }
 }

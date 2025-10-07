@@ -44,9 +44,9 @@
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnDone = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtDeposit = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblDeposit = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -277,10 +277,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(735, 400);
             this.guna2Panel1.TabIndex = 42;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // txtDeposit
             // 
             this.txtDeposit.BorderRadius = 10;
@@ -310,6 +306,10 @@
             this.lblDeposit.TabIndex = 43;
             this.lblDeposit.Text = "Deposit Amount:";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // formContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -320,6 +320,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formContract";
             this.Text = "formContract";
+            this.Load += new System.EventHandler(this.formContract_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

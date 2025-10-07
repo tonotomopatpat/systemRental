@@ -30,12 +30,10 @@
         {
             this.txtKWH = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtWater = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtRent = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbTenants = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.resComputedWater = new Guna.UI2.WinForms.Guna2TextBox();
             this.resComputedKWH = new Guna.UI2.WinForms.Guna2TextBox();
@@ -45,7 +43,6 @@
             this.totalBill = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCompute = new Guna.UI2.WinForms.Guna2Button();
             this.labelMessage = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
             this.dtpMonthOf = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.SuspendLayout();
             // 
@@ -88,26 +85,6 @@
             this.txtWater.SelectedText = "";
             this.txtWater.Size = new System.Drawing.Size(200, 32);
             this.txtWater.TabIndex = 1;
-            // 
-            // txtRent
-            // 
-            this.txtRent.BorderRadius = 10;
-            this.txtRent.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtRent.DefaultText = "";
-            this.txtRent.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtRent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtRent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtRent.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtRent.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtRent.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtRent.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtRent.Location = new System.Drawing.Point(29, 271);
-            this.txtRent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtRent.Name = "txtRent";
-            this.txtRent.PlaceholderText = "Rent";
-            this.txtRent.SelectedText = "";
-            this.txtRent.Size = new System.Drawing.Size(200, 32);
-            this.txtRent.TabIndex = 2;
             // 
             // cmbTenants
             // 
@@ -155,21 +132,11 @@
             this.guna2HtmlLabel3.TabIndex = 8;
             this.guna2HtmlLabel3.Text = "Electricity in (KWH)";
             // 
-            // guna2HtmlLabel4
-            // 
-            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(29, 245);
-            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(39, 28);
-            this.guna2HtmlLabel4.TabIndex = 9;
-            this.guna2HtmlLabel4.Text = "Rent:";
-            // 
             // guna2HtmlLabel5
             // 
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(29, 310);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(29, 265);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(73, 28);
             this.guna2HtmlLabel5.TabIndex = 10;
@@ -272,10 +239,10 @@
             this.btnCompute.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCompute.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCompute.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCompute.FillColor = System.Drawing.Color.Blue;
+            this.btnCompute.FillColor = System.Drawing.Color.DarkTurquoise;
             this.btnCompute.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCompute.ForeColor = System.Drawing.Color.White;
-            this.btnCompute.Location = new System.Drawing.Point(29, 442);
+            this.btnCompute.Location = new System.Drawing.Point(573, 442);
             this.btnCompute.Name = "btnCompute";
             this.btnCompute.Size = new System.Drawing.Size(180, 45);
             this.btnCompute.TabIndex = 25;
@@ -292,28 +259,12 @@
             this.labelMessage.TabIndex = 26;
             this.labelMessage.Text = null;
             // 
-            // btnPrint
-            // 
-            this.btnPrint.BorderRadius = 10;
-            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrint.FillColor = System.Drawing.Color.Blue;
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(573, 442);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(180, 45);
-            this.btnPrint.TabIndex = 27;
-            this.btnPrint.Text = "&Print";
-            // 
             // dtpMonthOf
             // 
             this.dtpMonthOf.Checked = true;
             this.dtpMonthOf.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpMonthOf.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpMonthOf.Location = new System.Drawing.Point(29, 354);
+            this.dtpMonthOf.Location = new System.Drawing.Point(29, 312);
             this.dtpMonthOf.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpMonthOf.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpMonthOf.Name = "dtpMonthOf";
@@ -327,7 +278,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 499);
             this.Controls.Add(this.dtpMonthOf);
-            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.btnCompute);
             this.Controls.Add(this.totalBill);
@@ -337,12 +287,10 @@
             this.Controls.Add(this.resComputedKWH);
             this.Controls.Add(this.resComputedWater);
             this.Controls.Add(this.guna2HtmlLabel5);
-            this.Controls.Add(this.guna2HtmlLabel4);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.cmbTenants);
-            this.Controls.Add(this.txtRent);
             this.Controls.Add(this.txtWater);
             this.Controls.Add(this.txtKWH);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -361,12 +309,10 @@
 
         private Guna.UI2.WinForms.Guna2TextBox txtKWH;
         private Guna.UI2.WinForms.Guna2TextBox txtWater;
-        private Guna.UI2.WinForms.Guna2TextBox txtRent;
         private Guna.UI2.WinForms.Guna2ComboBox cmbTenants;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2TextBox resComputedWater;
         private Guna.UI2.WinForms.Guna2TextBox resComputedKWH;
@@ -376,7 +322,6 @@
         private Guna.UI2.WinForms.Guna2TextBox totalBill;
         private Guna.UI2.WinForms.Guna2Button btnCompute;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelMessage;
-        private Guna.UI2.WinForms.Guna2Button btnPrint;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpMonthOf;
     }
 }

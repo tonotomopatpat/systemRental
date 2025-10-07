@@ -42,18 +42,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblContract = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.chkPassport = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkNational = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkVoter = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkDriver = new Guna.UI2.WinForms.Guna2CheckBox();
             this.panelBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -210,65 +205,91 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "Contract";
             // 
-            // guna2PictureBox5
-            // 
-            this.guna2PictureBox5.ImageRotate = 0F;
-            this.guna2PictureBox5.Location = new System.Drawing.Point(913, 66);
-            this.guna2PictureBox5.Name = "guna2PictureBox5";
-            this.guna2PictureBox5.Size = new System.Drawing.Size(186, 152);
-            this.guna2PictureBox5.TabIndex = 36;
-            this.guna2PictureBox5.TabStop = false;
-            // 
-            // guna2PictureBox4
-            // 
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(673, 66);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(186, 152);
-            this.guna2PictureBox4.TabIndex = 35;
-            this.guna2PictureBox4.TabStop = false;
-            // 
-            // guna2PictureBox3
-            // 
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(427, 66);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(186, 152);
-            this.guna2PictureBox3.TabIndex = 34;
-            this.guna2PictureBox3.TabStop = false;
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(192, 66);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(186, 152);
-            this.guna2PictureBox2.TabIndex = 32;
-            this.guna2PictureBox2.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(106, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(262, 23);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Attachments / Documents";
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox5);
-            this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox4);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox2);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox3);
+            this.guna2Panel1.Controls.Add(this.chkDriver);
+            this.guna2Panel1.Controls.Add(this.chkVoter);
+            this.guna2Panel1.Controls.Add(this.chkNational);
+            this.guna2Panel1.Controls.Add(this.chkPassport);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 328);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1348, 291);
             this.guna2Panel1.TabIndex = 1;
+            // 
+            // chkPassport
+            // 
+            this.chkPassport.AutoSize = true;
+            this.chkPassport.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkPassport.CheckedState.BorderRadius = 0;
+            this.chkPassport.CheckedState.BorderThickness = 0;
+            this.chkPassport.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkPassport.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPassport.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.chkPassport.Location = new System.Drawing.Point(71, 32);
+            this.chkPassport.Name = "chkPassport";
+            this.chkPassport.Size = new System.Drawing.Size(142, 46);
+            this.chkPassport.TabIndex = 0;
+            this.chkPassport.Text = "Passport";
+            this.chkPassport.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkPassport.UncheckedState.BorderRadius = 0;
+            this.chkPassport.UncheckedState.BorderThickness = 0;
+            this.chkPassport.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkNational
+            // 
+            this.chkNational.AutoSize = true;
+            this.chkNational.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkNational.CheckedState.BorderRadius = 0;
+            this.chkNational.CheckedState.BorderThickness = 0;
+            this.chkNational.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkNational.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkNational.Location = new System.Drawing.Point(71, 103);
+            this.chkNational.Name = "chkNational";
+            this.chkNational.Size = new System.Drawing.Size(166, 46);
+            this.chkNational.TabIndex = 1;
+            this.chkNational.Text = "National ID";
+            this.chkNational.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkNational.UncheckedState.BorderRadius = 0;
+            this.chkNational.UncheckedState.BorderThickness = 0;
+            this.chkNational.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkVoter
+            // 
+            this.chkVoter.AutoSize = true;
+            this.chkVoter.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkVoter.CheckedState.BorderRadius = 0;
+            this.chkVoter.CheckedState.BorderThickness = 0;
+            this.chkVoter.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkVoter.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkVoter.Location = new System.Drawing.Point(71, 181);
+            this.chkVoter.Name = "chkVoter";
+            this.chkVoter.Size = new System.Drawing.Size(147, 46);
+            this.chkVoter.TabIndex = 2;
+            this.chkVoter.Text = "Voter\'s ID";
+            this.chkVoter.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkVoter.UncheckedState.BorderRadius = 0;
+            this.chkVoter.UncheckedState.BorderThickness = 0;
+            this.chkVoter.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkDriver
+            // 
+            this.chkDriver.AutoSize = true;
+            this.chkDriver.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkDriver.CheckedState.BorderRadius = 0;
+            this.chkDriver.CheckedState.BorderThickness = 0;
+            this.chkDriver.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkDriver.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDriver.Location = new System.Drawing.Point(329, 32);
+            this.chkDriver.Name = "chkDriver";
+            this.chkDriver.Size = new System.Drawing.Size(218, 46);
+            this.chkDriver.TabIndex = 3;
+            this.chkDriver.Text = "Driver\'s License";
+            this.chkDriver.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkDriver.UncheckedState.BorderRadius = 0;
+            this.chkDriver.UncheckedState.BorderThickness = 0;
+            this.chkDriver.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
             // overview
             // 
@@ -282,10 +303,6 @@
             this.panelBackground.ResumeLayout(false);
             this.panelBackground.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -308,11 +325,10 @@
         private System.Windows.Forms.Label lblContract;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2CheckBox chkNational;
+        private Guna.UI2.WinForms.Guna2CheckBox chkPassport;
+        private Guna.UI2.WinForms.Guna2CheckBox chkDriver;
+        private Guna.UI2.WinForms.Guna2CheckBox chkVoter;
     }
 }

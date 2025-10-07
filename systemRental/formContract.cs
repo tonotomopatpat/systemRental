@@ -205,5 +205,11 @@ namespace systemRental
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void formContract_Load(object sender, EventArgs e)
+        {
+            dtpStartRent.Value = DateTime.Now;
+            dtpEndOfRent.Value = DateTime.Now;
+        }
     }
 }

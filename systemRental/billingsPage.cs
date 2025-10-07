@@ -1,17 +1,10 @@
 ﻿using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System.IO;
 
 namespace systemRental
 {
@@ -30,32 +23,27 @@ namespace systemRental
 
         public void billingsPage_Load(object sender, EventArgs e)
         {
-            //setup Year ComboBox if empty
+            // Setup Year ComboBox if empty
             if (cmbYear.Items.Count == 0)
             {
                 int currentYear = DateTime.Now.Year;
-                for (int y = currentYear - 5; y <= currentYear + 1; y++) // last 5 years + next year
-                {
+                for (int y = currentYear - 5; y <= currentYear + 1; y++)
                     cmbYear.Items.Add(y.ToString());
-                }
             }
 
-            //set default current month
+            // Set default current month
             if (cmbMonth.SelectedIndex == -1)
-            {
                 cmbMonth.SelectedIndex = DateTime.Now.Month - 1;
-            }
 
-            //set default current year
+            // Set default current year
             if (cmbYear.SelectedIndex == -1)
-            {
                 cmbYear.SelectedItem = DateTime.Now.Year.ToString();
-            }
 
             string selectedMonth = GetSelectedMonthYear();
             if (string.IsNullOrEmpty(selectedMonth))
                 return;
 
+            // Fixed query to fetch individual utility bills
             string query = $@"
                 SELECT 
                     ut.bill_id,
@@ -71,26 +59,15 @@ namespace systemRental
                     u.monthly_rate,
                     ut.billing_month,
                     ut.status,
-                    COALESCE(SUM(ut.total_fees), 0) AS total_utilities,
-                    (u.monthly_rate + COALESCE(SUM(ut.total_fees), 0)) AS total_amount
+                    ut.water_bill,
+                    ut.electricity_bill,
+                    ut.other_charges,
+                    (u.monthly_rate + ut.water_bill + ut.electricity_bill + ut.other_charges) AS total_amount
                 FROM tbl_contracts c
                 JOIN tbl_tenants t ON c.tenant_id = t.tenant_id
                 JOIN tbl_units u ON c.unit_id = u.unit_id
                 JOIN tbl_utilities ut ON c.contract_id = ut.contract_id
-                WHERE ut.billing_month = '{selectedMonth}'
-                GROUP BY 
-                    ut.bill_id,
-                    c.contract_id, 
-                    c.start_date, 
-                    c.end_date, 
-                    t.tenant_id,      
-                    t.first_name, 
-                    t.last_name, 
-                    u.unit_number, 
-                    u.floor, 
-                    u.unit_type, 
-                    u.monthly_rate,
-                    ut.status;
+                WHERE ut.billing_month = '{selectedMonth}';
             ";
 
             DataTable dt = db.GetData(query);
@@ -104,16 +81,21 @@ namespace systemRental
                 ContractCard card = new ContractCard
                 {
                     BillId = row["bill_id"].ToString(),
-                    TenantId = Convert.ToInt32(row["tenant_id"]),  // SET TenantId so photo loads
+                    TenantId = Convert.ToInt32(row["tenant_id"]),
                     TenantName = row["first_name"].ToString() + " " + row["last_name"].ToString(),
                     ContractInfo = "Contract: " +
                                    Convert.ToDateTime(row["start_date"]).ToShortDateString() +
                                    " - " + Convert.ToDateTime(row["end_date"]).ToShortDateString(),
                     Room = "Room: " + row["unit_number"] + " (" + row["unit_type"] + "), Floor " + row["floor"],
                     UnitType = "Type: " + row["unit_type"],
-                    TotalUtilities = "Total Balance: ₱" + row["total_amount"],
-                    PaymentStatus = row["status"].ToString(),
-                    Margin = new Padding(20)
+                    TotalUtilities = "Total Balance: ₱ " + Convert.ToDecimal(row["total_amount"]).ToString("0.00") + " (including the Rent)",
+                    PaymentStatus = status,
+                    Margin = new Padding(20),
+
+                    // Assign individual bills
+                    WaterBill = Convert.ToDecimal(row["water_bill"]).ToString("0.00"),
+                    ElectricityBill = Convert.ToDecimal(row["electricity_bill"]).ToString("0.00"),
+                    OtherCharges = Convert.ToDecimal(row["other_charges"]).ToString("0.00")
                 };
 
                 // Filtering logic
@@ -154,7 +136,9 @@ namespace systemRental
         {
             using (calculate calcForm = new calculate())
             {
-                calcForm.ShowDialog();
+                var result = calcForm.ShowDialog();
+                if (result == DialogResult.OK)
+                    billingsPage_Load(sender, e); // Refresh after compute
             }
         }
 
@@ -194,11 +178,11 @@ namespace systemRental
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string search = txtSearch.Text.Trim().ToLower().Replace(" ", ""); // normalize input
+            string search = txtSearch.Text.Trim().ToLower().Replace(" ", "");
             foreach (ContractCard card in flowLayoutPanelContents.Controls.OfType<ContractCard>())
             {
-                string tenantName = card.TenantName.ToLower().Replace(" ", ""); // normalize card name
-                card.Visible = tenantName.Contains(search); // show/hide based on match
+                string tenantName = card.TenantName.ToLower().Replace(" ", "");
+                card.Visible = tenantName.Contains(search);
             }
         }
     }

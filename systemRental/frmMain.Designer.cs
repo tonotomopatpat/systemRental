@@ -39,11 +39,12 @@
             this.btnTenants = new Guna.UI2.WinForms.Guna2Button();
             this.btnBilling = new Guna.UI2.WinForms.Guna2Button();
             this.panelSideBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnGoToRooms = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnGoToRooms = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddAccount = new Guna.UI2.WinForms.Guna2Button();
             this.panelHeader.SuspendLayout();
             this.panelSideBar.SuspendLayout();
             this.SuspendLayout();
@@ -184,6 +185,7 @@
             this.panelSideBar.AutoSize = true;
             this.panelSideBar.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panelSideBar.BorderRadius = 25;
+            this.panelSideBar.Controls.Add(this.btnAddAccount);
             this.panelSideBar.Controls.Add(this.btnGoToRooms);
             this.panelSideBar.Controls.Add(this.btnLogout);
             this.panelSideBar.Controls.Add(this.lblDate);
@@ -198,6 +200,36 @@
             this.panelSideBar.Name = "panelSideBar";
             this.panelSideBar.Size = new System.Drawing.Size(172, 1080);
             this.panelSideBar.TabIndex = 0;
+            // 
+            // btnGoToRooms
+            // 
+            this.btnGoToRooms.BorderRadius = 25;
+            this.btnGoToRooms.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnGoToRooms.CheckedState.FillColor = System.Drawing.Color.Silver;
+            this.btnGoToRooms.CheckedState.ForeColor = System.Drawing.Color.Black;
+            this.btnGoToRooms.CustomizableEdges.BottomRight = false;
+            this.btnGoToRooms.CustomizableEdges.TopRight = false;
+            this.btnGoToRooms.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnGoToRooms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGoToRooms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGoToRooms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGoToRooms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGoToRooms.FillColor = System.Drawing.Color.Transparent;
+            this.btnGoToRooms.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToRooms.ForeColor = System.Drawing.Color.DimGray;
+            this.btnGoToRooms.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnGoToRooms.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnGoToRooms.Image = ((System.Drawing.Image)(resources.GetObject("btnGoToRooms.Image")));
+            this.btnGoToRooms.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGoToRooms.Location = new System.Drawing.Point(-1, 506);
+            this.btnGoToRooms.Name = "btnGoToRooms";
+            this.btnGoToRooms.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGoToRooms.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(30)))));
+            this.btnGoToRooms.Size = new System.Drawing.Size(169, 43);
+            this.btnGoToRooms.TabIndex = 14;
+            this.btnGoToRooms.Text = "Rooms";
+            this.btnGoToRooms.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGoToRooms.Click += new System.EventHandler(this.btnGoToRooms_Click);
             // 
             // btnLogout
             // 
@@ -254,35 +286,35 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnGoToRooms
+            // btnAddAccount
             // 
-            this.btnGoToRooms.BorderRadius = 25;
-            this.btnGoToRooms.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnGoToRooms.CheckedState.FillColor = System.Drawing.Color.Silver;
-            this.btnGoToRooms.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.btnGoToRooms.CustomizableEdges.BottomRight = false;
-            this.btnGoToRooms.CustomizableEdges.TopRight = false;
-            this.btnGoToRooms.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnGoToRooms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGoToRooms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGoToRooms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGoToRooms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGoToRooms.FillColor = System.Drawing.Color.Transparent;
-            this.btnGoToRooms.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoToRooms.ForeColor = System.Drawing.Color.DimGray;
-            this.btnGoToRooms.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnGoToRooms.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnGoToRooms.Image = ((System.Drawing.Image)(resources.GetObject("btnGoToRooms.Image")));
-            this.btnGoToRooms.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnGoToRooms.Location = new System.Drawing.Point(-1, 506);
-            this.btnGoToRooms.Name = "btnGoToRooms";
-            this.btnGoToRooms.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnGoToRooms.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(30)))));
-            this.btnGoToRooms.Size = new System.Drawing.Size(169, 43);
-            this.btnGoToRooms.TabIndex = 14;
-            this.btnGoToRooms.Text = "Rooms";
-            this.btnGoToRooms.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnGoToRooms.Click += new System.EventHandler(this.btnGoToRooms_Click);
+            this.btnAddAccount.BorderRadius = 25;
+            this.btnAddAccount.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnAddAccount.CheckedState.FillColor = System.Drawing.Color.Silver;
+            this.btnAddAccount.CheckedState.ForeColor = System.Drawing.Color.Black;
+            this.btnAddAccount.CustomizableEdges.BottomRight = false;
+            this.btnAddAccount.CustomizableEdges.TopRight = false;
+            this.btnAddAccount.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAddAccount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddAccount.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddAccount.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAccount.ForeColor = System.Drawing.Color.DimGray;
+            this.btnAddAccount.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnAddAccount.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnAddAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAccount.Image")));
+            this.btnAddAccount.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddAccount.Location = new System.Drawing.Point(-1, 986);
+            this.btnAddAccount.Name = "btnAddAccount";
+            this.btnAddAccount.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAddAccount.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(30)))));
+            this.btnAddAccount.Size = new System.Drawing.Size(169, 43);
+            this.btnAddAccount.TabIndex = 15;
+            this.btnAddAccount.Text = "Add Account";
+            this.btnAddAccount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // frmMain
             // 
@@ -324,5 +356,6 @@
         private System.Windows.Forms.Timer timer1;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         private Guna.UI2.WinForms.Guna2Button btnGoToRooms;
+        private Guna.UI2.WinForms.Guna2Button btnAddAccount;
     }
 }

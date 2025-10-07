@@ -17,8 +17,9 @@ namespace systemRental
             InitializeComponent();
         }
 
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
-
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+        //event for reloading the roomPage
+        
         private void btnDone_Click(object sender, EventArgs e)
         {
             int errorcount = 0;
