@@ -24,6 +24,37 @@ namespace systemRental
             setPaymentChart();
             loadTenantCount();
             loadUnitStats();
+            setUtitityChart();
+
+        }
+
+        private void setUtitityChart()
+        {
+            try
+            {
+                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=0902;";
+                using (MySqlConnection conn = new MySqlConnection(connectToDB))
+                {
+                    string query = @"
+                    SELECT *
+                    FROM tbl_utilities
+                    WHERE status = 'unpaid' OR status = 'paid'";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    utilities.DataSource = dt;
+
+                    utilities.Columns[1].HeaderText = "Contact";
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading chart: " + ex.Message);
+            }
         }
         private void setPaymentChart()
         {
@@ -128,5 +159,7 @@ namespace systemRental
                 MessageBox.Show("Error loading unit stats: " + ex.Message);
             }
         }
+
+
     }
  }

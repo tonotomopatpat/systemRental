@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashboardPage));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -53,6 +53,7 @@
             this.lblavailable = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.utilities = new System.Windows.Forms.DataGridView();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).BeginInit();
             this.guna2ShadowPanel4.SuspendLayout();
@@ -60,6 +61,8 @@
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            this.guna2ShadowPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.utilities)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -89,17 +92,17 @@
             this.chartRevenue.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
             this.chartRevenue.BorderlineColor = System.Drawing.Color.Black;
             this.chartRevenue.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea1.Name = "ChartArea1";
-            this.chartRevenue.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartRevenue.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chartRevenue.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartRevenue.Legends.Add(legend2);
             this.chartRevenue.Location = new System.Drawing.Point(20, 42);
             this.chartRevenue.Name = "chartRevenue";
             this.chartRevenue.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartRevenue.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartRevenue.Series.Add(series2);
             this.chartRevenue.Size = new System.Drawing.Size(588, 249);
             this.chartRevenue.TabIndex = 4;
             this.chartRevenue.Text = "chart1";
@@ -289,13 +292,26 @@
             // guna2ShadowPanel3
             // 
             this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.Controls.Add(this.utilities);
             this.guna2ShadowPanel3.FillColor = System.Drawing.Color.SeaGreen;
-            this.guna2ShadowPanel3.Location = new System.Drawing.Point(758, 23);
+            this.guna2ShadowPanel3.Location = new System.Drawing.Point(728, 23);
             this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
             this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel3.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
-            this.guna2ShadowPanel3.Size = new System.Drawing.Size(498, 320);
+            this.guna2ShadowPanel3.Size = new System.Drawing.Size(681, 320);
             this.guna2ShadowPanel3.TabIndex = 14;
+            // 
+            // utilities
+            // 
+            this.utilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.utilities.Location = new System.Drawing.Point(22, 45);
+            this.utilities.Name = "utilities";
+            this.utilities.RowHeadersVisible = false;
+            this.utilities.RowHeadersWidth = 51;
+            this.utilities.RowTemplate.Height = 24;
+            this.utilities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.utilities.Size = new System.Drawing.Size(626, 246);
+            this.utilities.TabIndex = 0;
             // 
             // dashboardPage
             // 
@@ -318,6 +334,8 @@
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            this.guna2ShadowPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.utilities)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -344,5 +362,6 @@
         private System.Windows.Forms.Label lblTotalUnits;
         private System.Windows.Forms.Label lblTotalUnitsLabel;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel3;
+        private System.Windows.Forms.DataGridView utilities;
     }
 }
