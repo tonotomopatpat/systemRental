@@ -17,7 +17,7 @@ namespace systemRental
 {
     public partial class billingsPage : UserControl
     {
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
 
         public billingsPage()
         {

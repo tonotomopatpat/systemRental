@@ -8,7 +8,7 @@ namespace systemRental
     public partial class calculate : Form
     {
         public int errorcount;
-        Class1 newBilling = new Class1("localhost", "rentalSystem", "root", "manzano");
+        Class1 newBilling = new Class1("localhost", "rentalSystem", "root", "0902");
 
         public calculate()
         {
@@ -24,7 +24,7 @@ namespace systemRental
         {
             try
             {
-                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=manzano;";
+                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=0902;";
                 using (MySqlConnection conn = new MySqlConnection(connectToDB))
                 {
                     conn.Open();

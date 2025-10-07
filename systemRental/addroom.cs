@@ -17,7 +17,7 @@ namespace systemRental
             InitializeComponent();
         }
 
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
 
         private void btnDone_Click(object sender, EventArgs e)
         {

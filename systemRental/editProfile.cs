@@ -13,7 +13,7 @@ namespace systemRental
     public partial class editProfile : Form
     {
         private int tenantId;
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
 
         public editProfile(int tenantId)
         {

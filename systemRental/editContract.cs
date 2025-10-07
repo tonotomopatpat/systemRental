@@ -8,7 +8,7 @@ namespace systemRental
     {
         private int contractId;
         private billingsPage parentBillingsPage;
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
 
         public editContract()
         {

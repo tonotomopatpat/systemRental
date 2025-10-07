@@ -13,7 +13,7 @@ namespace systemRental
         private addTenant mainOriginalForm;
         private dimOverlayForm mainOverlay;
         private string avatarPath = "";
-        Class1 db = new Class1("localhost", "rentalsystem", "root", "manzano");
+        Class1 db = new Class1("localhost", "rentalsystem", "root", "0902");
 
         public formContract(addTenant originalForm, dimOverlayForm overlay)
         {
