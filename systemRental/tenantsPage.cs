@@ -14,7 +14,7 @@ namespace systemRental
 {
     public partial class tenantsPage : UserControl
     {
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
         private int? selectedTenantID = null;
         public tenantsPage()
         {
