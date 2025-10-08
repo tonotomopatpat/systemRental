@@ -25,6 +25,45 @@ namespace systemRental
             setPaymentChart();
             loadTenantCount();
             loadUnitStats();
+            setUtitityChart();
+
+        }
+
+        private void setUtitityChart()
+        {
+            try
+            {
+                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=0902;";
+                using (MySqlConnection conn = new MySqlConnection(connectToDB))
+                {
+                    string query = @"
+                    SELECT *
+                    FROM tbl_utilities
+                    WHERE status = 'unpaid' OR status = 'paid'";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    utilities.DataSource = dt;
+
+                    utilities.Columns["tenant_id"].Visible = false;
+                    utilities.Columns["bill_id"].Visible = false;
+                    utilities.Columns["contract_id"].Visible = false;
+                    utilities.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    utilities.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 73, 94);
+                    utilities.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    utilities.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    utilities.ColumnHeadersDefaultCellStyle.Padding = new Padding(5);
+                    utilities.ColumnHeadersHeight = 40;
+                    utilities.EnableHeadersVisualStyles = false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading chart: " + ex.Message);
+            }
         }
         private void setPaymentChart()
         {
@@ -129,5 +168,7 @@ namespace systemRental
                 MessageBox.Show("Error loading unit stats: " + ex.Message);
             }
         }
+
+
     }
  }
