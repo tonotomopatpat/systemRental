@@ -47,6 +47,8 @@
             this.txtDeposit = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblDeposit = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCompanyName = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +59,7 @@
             this.dtpStartRent.FillColor = System.Drawing.Color.Cyan;
             this.dtpStartRent.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpStartRent.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpStartRent.Location = new System.Drawing.Point(512, 99);
+            this.dtpStartRent.Location = new System.Drawing.Point(484, 213);
             this.dtpStartRent.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpStartRent.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpStartRent.Name = "dtpStartRent";
@@ -159,7 +161,7 @@
             // 
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(512, 65);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(484, 179);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(94, 28);
             this.guna2HtmlLabel7.TabIndex = 30;
@@ -188,7 +190,7 @@
             this.dtpEndOfRent.FillColor = System.Drawing.Color.Cyan;
             this.dtpEndOfRent.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpEndOfRent.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpEndOfRent.Location = new System.Drawing.Point(512, 225);
+            this.dtpEndOfRent.Location = new System.Drawing.Point(484, 283);
             this.dtpEndOfRent.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpEndOfRent.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpEndOfRent.Name = "dtpEndOfRent";
@@ -210,7 +212,7 @@
             // 
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(512, 191);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(484, 249);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(87, 28);
             this.guna2HtmlLabel8.TabIndex = 37;
@@ -255,6 +257,8 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Controls.Add(this.label5);
+            this.guna2Panel1.Controls.Add(this.txtCompanyName);
             this.guna2Panel1.Controls.Add(this.txtDeposit);
             this.guna2Panel1.Controls.Add(this.lblDeposit);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel9);
@@ -310,6 +314,35 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(479, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(139, 26);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "Company Name:";
+            // 
+            // txtCompanyName
+            // 
+            this.txtCompanyName.BorderRadius = 10;
+            this.txtCompanyName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCompanyName.DefaultText = "";
+            this.txtCompanyName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCompanyName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCompanyName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCompanyName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCompanyName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCompanyName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCompanyName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCompanyName.Location = new System.Drawing.Point(472, 43);
+            this.txtCompanyName.Name = "txtCompanyName";
+            this.txtCompanyName.PlaceholderText = "Company Name";
+            this.txtCompanyName.SelectedText = "";
+            this.txtCompanyName.Size = new System.Drawing.Size(245, 36);
+            this.txtCompanyName.TabIndex = 44;
+            // 
             // formContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -347,5 +380,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         public Guna.UI2.WinForms.Guna2TextBox txtDeposit;
         private System.Windows.Forms.Label lblDeposit;
+        private System.Windows.Forms.Label label5;
+        public Guna.UI2.WinForms.Guna2TextBox txtCompanyName;
     }
 }

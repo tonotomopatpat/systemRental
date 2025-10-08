@@ -9,7 +9,8 @@ namespace systemRental
 {
     public partial class overview : UserControl
     {
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+
         private int tenantID;
 
         public overview(int tenantID)

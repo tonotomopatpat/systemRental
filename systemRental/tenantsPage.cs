@@ -14,7 +14,7 @@ namespace systemRental
 {
     public partial class tenantsPage : UserControl
     {
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
         private int? selectedTenantID = null;
         public tenantsPage()
         {
@@ -112,9 +112,9 @@ namespace systemRental
             {
                 // Fetch tenant info including photo_path
                 string query = $@"
-            SELECT first_name, last_name, phone_no, photo_path
-            FROM tbl_tenants
-            WHERE tenant_id = {tenantID}";
+                    SELECT first_name, last_name, phone_no, photo_path, company_name
+                    FROM tbl_tenants
+                    WHERE tenant_id = {tenantID}";
                 DataTable dt = db.GetData(query);
 
                 if (dt.Rows.Count > 0)
@@ -123,7 +123,10 @@ namespace systemRental
                     lblName.Text = $"{dr["first_name"]} {dr["last_name"]}";
                     lblCompanyNumber.Text = dr["phone_no"].ToString();
 
-                    // --- Load avatar ---
+                    
+                    lblCompanyName.Text = dr["company_name"].ToString();
+
+                    
                     string photoPath = dr["photo_path"].ToString();
                     if (!string.IsNullOrEmpty(photoPath) && System.IO.File.Exists(photoPath))
                     {
@@ -140,6 +143,7 @@ namespace systemRental
                 {
                     lblName.Text = "N/A";
                     lblCompanyNumber.Text = "N/A";
+
                     guna2PictureBox1.Image = Properties.Resources.user;
                 }
             }
@@ -148,7 +152,7 @@ namespace systemRental
                 MessageBox.Show("Error on getting the tenant: " + ex.Message);
             }
 
-            // --- Load overview ---
+            
             LoadControl(new overview(tenantID));
         }
 
@@ -224,19 +228,30 @@ namespace systemRental
                 return;
             }
 
-            string query = $"SELECT contract_id FROM tbl_contracts WHERE tenant_id={selectedTenantID.Value} AND contract_status='ACTIVE'";
-            DataTable dt = db.GetData(query);
-
-            if (dt.Rows.Count == 0)
+            try
             {
-                MessageBox.Show("No active contract found for this tenant.");
-                return;
-            }
+                // Get active contract for the selected tenant
+                string query = $"SELECT contract_id FROM tbl_contracts WHERE tenant_id={selectedTenantID.Value} AND contract_status='ACTIVE'";
+                DataTable dt = db.GetData(query);
 
-            int contractId = Convert.ToInt32(dt.Rows[0]["contract_id"]);
-            editContract editContractForm = new editContract(contractId);
-            editContractForm.Show();
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No active contract found for this tenant.");
+                    return;
+                }
+
+                int contractId = Convert.ToInt32(dt.Rows[0]["contract_id"]);
+
+                // Pass 'this' as parent for automatic refresh
+                editContract editForm = new editContract(contractId, this);
+                editForm.ShowDialog(); // Use ShowDialog so code waits until form is closed
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening contract editor: " + ex.Message);
+            }
         }
+
 
         private void btnDeleteProfile_Click(object sender, EventArgs e)
         {

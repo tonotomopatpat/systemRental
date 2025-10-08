@@ -13,7 +13,7 @@ namespace systemRental
         private addTenant mainOriginalForm;
         private dimOverlayForm mainOverlay;
         private string avatarPath = "";
-        Class1 db = new Class1("localhost", "rentalsystem", "root", "0902");
+        Class1 db = new Class1("localhost", "rentalsystem", "root", "manzano");
 
         public formContract(addTenant originalForm, dimOverlayForm overlay)
         {
@@ -110,6 +110,11 @@ namespace systemRental
                 MessageBox.Show("Deposit is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 errorcount++;
             }
+            if (string.IsNullOrWhiteSpace(txtCompanyName.Text))
+            {
+                MessageBox.Show("Company name is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (errorcount > 0) return;
 
@@ -136,11 +141,11 @@ namespace systemRental
 
                 // --- Insert tenant ---
                 string insertTenant = "INSERT INTO tbl_tenants " +
-                    "(last_name, first_name, middle_name, phone_no, emergency_no, document_type, photo_path) VALUES (" +
+                    "(last_name, first_name, middle_name, phone_no, emergency_no, document_type, photo_path, company_name) VALUES (" +
                     $"'{mainOriginalForm.TenantLastName}', '{mainOriginalForm.TenantFirstName}', " +
                     $"'{mainOriginalForm.TenantMiddleName}', '{mainOriginalForm.TenantPhone}', " +
                     $"'{mainOriginalForm.TenantEmergency}', '{mainOriginalForm.TenantDocuments}', " +
-                    $"'{savedAvatarPath.Replace("\\", "\\\\")}')";
+                    $"'{savedAvatarPath.Replace("\\", "\\\\")}', '{txtCompanyName.Text.Trim()}')";
 
 
                 db.executeSQL(insertTenant);
