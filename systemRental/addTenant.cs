@@ -179,7 +179,7 @@ namespace systemRental
                 {
                     avatarPath = ofd.FileName;
 
-                    //display image in PictureBox
+                    // Display image in PictureBox
                     pictureBox.Image = Image.FromFile(avatarPath);
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage; // optional
                 }

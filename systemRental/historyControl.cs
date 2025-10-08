@@ -6,8 +6,7 @@ namespace systemRental
 {
     public partial class historyControl : UserControl
     {
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
-
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
 
         public historyControl()
         {
@@ -60,7 +59,6 @@ namespace systemRental
 
                     //hide here
                     dgvHistoryControl.Columns["Payment ID"].Visible = false;
-                    dgvHistoryControl.Columns["Receipt Number"].Visible = false;
                 }
                 else
                 {

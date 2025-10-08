@@ -9,7 +9,7 @@ namespace systemRental
     public partial class calculate : Form
     {
         public int errorcount;
-        Class1 newBilling = new Class1("localhost", "rentalSystem", "root", "manzano");
+        Class1 newBilling = new Class1("localhost", "rentalSystem", "root", "0902");
 
         public calculate()
         {
@@ -19,7 +19,7 @@ namespace systemRental
         private void calculate_Load(object sender, EventArgs e)
         {
             loadTenants();
-            dtpMonthOf.Value = DateTime.Now; //automatically pick current date code c
+            dtpMonthOf.Value = DateTime.Now; // Automatically pick current date
         }
 
         private void loadTenants()
@@ -86,13 +86,13 @@ namespace systemRental
                 string tenantId = selectedRow["tenant_id"].ToString();
                 string contractId = cmbTenants.SelectedValue.ToString();
 
-                // check if billing already exists
+                // Check if billing already exists
                 string checkSql = $"SELECT * FROM tbl_utilities WHERE contract_id = {contractId} AND billing_month = '{dbMonth}'";
                 DataTable dtCheck = newBilling.GetData(checkSql);
 
                 if (dtCheck.Rows.Count > 0)
                 {
-                    // ask if user wants to override?? is this ok
+                    // Ask if user wants to override
                     DialogResult drOverride = MessageBox.Show(
                         $"A bill for this tenant for {dbMonth} already exists. Do you want to override it?",
                         "Duplicate Billing",
@@ -102,7 +102,7 @@ namespace systemRental
 
                     if (drOverride == DialogResult.Yes)
                     {
-                        // update existing billing
+                        // Update existing billing
                         string updateSql = $"UPDATE tbl_utilities SET water_bill = {waterBill}, electricity_bill = {kwhBill}, total_fees = {total} " +
                                            $"WHERE contract_id = {contractId} AND billing_month = '{dbMonth}'";
                         newBilling.executeSQL(updateSql);
@@ -119,13 +119,13 @@ namespace systemRental
                     }
                     else
                     {
-                        // user chose not to override
+                        // User chose not to override
                         return;
                     }
                 }
                 else
                 {
-                    //inserting new billing
+                    // Insert new billing
                     string insertSql = "INSERT INTO tbl_utilities " +
                                        "(tenant_id, contract_id, billing_month, water_bill, electricity_bill, total_fees) " +
                                        $"VALUES ({tenantId}, {contractId}, '{dbMonth}', {waterBill}, {kwhBill}, {total})";

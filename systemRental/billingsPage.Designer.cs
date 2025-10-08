@@ -44,6 +44,7 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnCompute = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -245,6 +246,7 @@
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.Controls.Add(this.btnCompute);
             this.guna2Panel1.Controls.Add(this.txtSearch);
+            this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.Location = new System.Drawing.Point(25, 50);
@@ -263,7 +265,7 @@
             this.btnCompute.FillColor = System.Drawing.Color.LightSkyBlue;
             this.btnCompute.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompute.ForeColor = System.Drawing.Color.DimGray;
-            this.btnCompute.Location = new System.Drawing.Point(32, 18);
+            this.btnCompute.Location = new System.Drawing.Point(198, 18);
             this.btnCompute.Name = "btnCompute";
             this.btnCompute.Size = new System.Drawing.Size(180, 33);
             this.btnCompute.TabIndex = 4;
@@ -291,6 +293,16 @@
             this.txtSearch.TabIndex = 5;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(62, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "We are Group 10";
+            // 
             // billingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -303,6 +315,7 @@
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -314,6 +327,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button btnCompute;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelContents;
         private Guna.UI2.WinForms.Guna2Button btnAll;
         private Guna.UI2.WinForms.Guna2Button btnUnPaid;
