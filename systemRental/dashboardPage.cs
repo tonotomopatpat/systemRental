@@ -46,8 +46,16 @@ namespace systemRental
 
                     utilities.DataSource = dt;
 
-                    utilities.Columns[1].HeaderText = "Contact";
-
+                    utilities.Columns["tenant_id"].Visible = false;
+                    utilities.Columns["bill_id"].Visible = false;
+                    utilities.Columns["contract_id"].Visible = false;
+                    utilities.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    utilities.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 73, 94);
+                    utilities.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    utilities.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    utilities.ColumnHeadersDefaultCellStyle.Padding = new Padding(5);
+                    utilities.ColumnHeadersHeight = 40;
+                    utilities.EnableHeadersVisualStyles = false;
 
                 }
             }

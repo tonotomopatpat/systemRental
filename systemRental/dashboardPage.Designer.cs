@@ -43,6 +43,8 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.utilities = new System.Windows.Forms.DataGridView();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.lblTotalUnits = new System.Windows.Forms.Label();
             this.lblTotalUnitsLabel = new System.Windows.Forms.Label();
@@ -52,17 +54,15 @@
             this.lblAvailableUnits = new System.Windows.Forms.Label();
             this.lblavailable = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.utilities = new System.Windows.Forms.DataGridView();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).BeginInit();
             this.guna2ShadowPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            this.guna2ShadowPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2ShadowPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.utilities)).BeginInit();
+            this.guna2ShadowPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -125,7 +125,7 @@
             this.guna2ShadowPanel4.Controls.Add(this.guna2PictureBox1);
             this.guna2ShadowPanel4.Controls.Add(this.label3);
             this.guna2ShadowPanel4.FillColor = System.Drawing.Color.SeaGreen;
-            this.guna2ShadowPanel4.Location = new System.Drawing.Point(24, 393);
+            this.guna2ShadowPanel4.Location = new System.Drawing.Point(733, 23);
             this.guna2ShadowPanel4.Name = "guna2ShadowPanel4";
             this.guna2ShadowPanel4.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel4.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
@@ -137,7 +137,7 @@
             this.lblTenantCount.AutoSize = true;
             this.lblTenantCount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.lblTenantCount.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTenantCount.Location = new System.Drawing.Point(177, 190);
+            this.lblTenantCount.Location = new System.Drawing.Point(169, 214);
             this.lblTenantCount.Name = "lblTenantCount";
             this.lblTenantCount.Size = new System.Drawing.Size(29, 35);
             this.lblTenantCount.TabIndex = 2;
@@ -147,7 +147,7 @@
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(122, 28);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(113, 33);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(144, 133);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -159,7 +159,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(116, 155);
+            this.label3.Location = new System.Drawing.Point(105, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(171, 35);
             this.label3.TabIndex = 0;
@@ -182,6 +182,30 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1690, 820);
             this.guna2CustomGradientPanel1.TabIndex = 0;
             // 
+            // guna2ShadowPanel3
+            // 
+            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.Controls.Add(this.utilities);
+            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.SeaGreen;
+            this.guna2ShadowPanel3.Location = new System.Drawing.Point(389, 370);
+            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
+            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel3.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
+            this.guna2ShadowPanel3.Size = new System.Drawing.Size(1004, 404);
+            this.guna2ShadowPanel3.TabIndex = 14;
+            // 
+            // utilities
+            // 
+            this.utilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.utilities.Location = new System.Drawing.Point(17, 18);
+            this.utilities.Name = "utilities";
+            this.utilities.RowHeadersVisible = false;
+            this.utilities.RowHeadersWidth = 51;
+            this.utilities.RowTemplate.Height = 24;
+            this.utilities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.utilities.Size = new System.Drawing.Size(968, 363);
+            this.utilities.TabIndex = 0;
+            // 
             // guna2ShadowPanel2
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
@@ -194,7 +218,7 @@
             this.guna2ShadowPanel2.Controls.Add(this.lblavailable);
             this.guna2ShadowPanel2.Controls.Add(this.label2);
             this.guna2ShadowPanel2.FillColor = System.Drawing.Color.SeaGreen;
-            this.guna2ShadowPanel2.Location = new System.Drawing.Point(479, 393);
+            this.guna2ShadowPanel2.Location = new System.Drawing.Point(1163, 23);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel2.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
@@ -289,30 +313,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Unit Status";
             // 
-            // guna2ShadowPanel3
-            // 
-            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel3.Controls.Add(this.utilities);
-            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.SeaGreen;
-            this.guna2ShadowPanel3.Location = new System.Drawing.Point(728, 23);
-            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
-            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel3.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
-            this.guna2ShadowPanel3.Size = new System.Drawing.Size(681, 320);
-            this.guna2ShadowPanel3.TabIndex = 14;
-            // 
-            // utilities
-            // 
-            this.utilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.utilities.Location = new System.Drawing.Point(22, 45);
-            this.utilities.Name = "utilities";
-            this.utilities.RowHeadersVisible = false;
-            this.utilities.RowHeadersWidth = 51;
-            this.utilities.RowTemplate.Height = 24;
-            this.utilities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.utilities.Size = new System.Drawing.Size(626, 246);
-            this.utilities.TabIndex = 0;
-            // 
             // dashboardPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -322,7 +322,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "dashboardPage";
-            this.Size = new System.Drawing.Size(1427, 811);
+            this.Size = new System.Drawing.Size(1753, 1080);
             this.Load += new System.EventHandler(this.dashboardPage_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
@@ -331,11 +331,11 @@
             this.guna2ShadowPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2ShadowPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.utilities)).EndInit();
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            this.guna2ShadowPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.utilities)).EndInit();
             this.ResumeLayout(false);
 
         }
