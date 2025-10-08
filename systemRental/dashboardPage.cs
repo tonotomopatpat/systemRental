@@ -13,7 +13,8 @@ namespace systemRental
 {
     public partial class dashboardPage : UserControl
     {
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+
         public dashboardPage()
         {
             InitializeComponent();
@@ -68,7 +69,7 @@ namespace systemRental
         {
             try
             {
-                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=0902;";
+                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=manzano;";
                 using (MySqlConnection conn = new MySqlConnection(connectToDB))
                 {
                     string query = @"
@@ -111,7 +112,7 @@ namespace systemRental
         {
             try
             {
-                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=0902;";
+                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=manzano;";
                 using (MySqlConnection conn = new MySqlConnection(connectToDB))
                 {
                     conn.Open();
@@ -133,7 +134,7 @@ namespace systemRental
         {
             try
             {
-                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=0902;";
+                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=manzano;";
                 using (MySqlConnection conn = new MySqlConnection(connectToDB))
                 {
                     conn.Open();

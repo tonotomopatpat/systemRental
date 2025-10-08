@@ -10,7 +10,9 @@ namespace systemRental
 {
     public partial class billingsPage : UserControl
     {
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
+
+        //Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
 
         public billingsPage()
         {
@@ -23,7 +25,7 @@ namespace systemRental
 
         public void billingsPage_Load(object sender, EventArgs e)
         {
-            // Setup Year ComboBox if empty
+            //setup Year ComboBox if empty
             if (cmbYear.Items.Count == 0)
             {
                 int currentYear = DateTime.Now.Year;
@@ -31,11 +33,11 @@ namespace systemRental
                     cmbYear.Items.Add(y.ToString());
             }
 
-            // Set default current month
+            //set default current month
             if (cmbMonth.SelectedIndex == -1)
                 cmbMonth.SelectedIndex = DateTime.Now.Month - 1;
 
-            // Set default current year
+            //set default current year
             if (cmbYear.SelectedIndex == -1)
                 cmbYear.SelectedItem = DateTime.Now.Year.ToString();
 
@@ -43,7 +45,7 @@ namespace systemRental
             if (string.IsNullOrEmpty(selectedMonth))
                 return;
 
-            // Fixed query to fetch individual utility bills
+            //fixed query to fetch individual utility bills
             string query = $@"
                 SELECT 
                     ut.bill_id,
@@ -92,13 +94,13 @@ namespace systemRental
                     PaymentStatus = status,
                     Margin = new Padding(20),
 
-                    // Assign individual bills
+                    //assign individual bills
                     WaterBill = Convert.ToDecimal(row["water_bill"]).ToString("0.00"),
                     ElectricityBill = Convert.ToDecimal(row["electricity_bill"]).ToString("0.00"),
                     OtherCharges = Convert.ToDecimal(row["other_charges"]).ToString("0.00")
                 };
 
-                // Filtering logic
+                //filtering logiccccc
                 bool addCard = true;
 
                 if (currentFilter == "paid" && status != "paid")
@@ -138,7 +140,7 @@ namespace systemRental
             {
                 var result = calcForm.ShowDialog();
                 if (result == DialogResult.OK)
-                    billingsPage_Load(sender, e); // Refresh after compute
+                    billingsPage_Load(sender, e); //refresh after compute
             }
         }
 

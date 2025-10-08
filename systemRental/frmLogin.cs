@@ -19,7 +19,7 @@ namespace systemRental
         }
         
         //mysql database
-        Class1 login = new Class1("localhost", "rentalsystem", "root", "0902");
+        Class1 login = new Class1("localhost", "rentalsystem", "root", "manzano");
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
