@@ -47,6 +47,8 @@
             this.txtDeposit = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblDeposit = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtCompanyName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +59,7 @@
             this.dtpStartRent.FillColor = System.Drawing.Color.Cyan;
             this.dtpStartRent.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpStartRent.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpStartRent.Location = new System.Drawing.Point(512, 99);
+            this.dtpStartRent.Location = new System.Drawing.Point(512, 149);
             this.dtpStartRent.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpStartRent.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpStartRent.Name = "dtpStartRent";
@@ -159,7 +161,7 @@
             // 
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(512, 65);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(512, 115);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(94, 28);
             this.guna2HtmlLabel7.TabIndex = 30;
@@ -255,6 +257,8 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Controls.Add(this.txtCompanyName);
+            this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.txtDeposit);
             this.guna2Panel1.Controls.Add(this.lblDeposit);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel9);
@@ -310,6 +314,35 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // txtCompanyName
+            // 
+            this.txtCompanyName.BorderRadius = 10;
+            this.txtCompanyName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCompanyName.DefaultText = "";
+            this.txtCompanyName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCompanyName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCompanyName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCompanyName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCompanyName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCompanyName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCompanyName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCompanyName.Location = new System.Drawing.Point(458, 43);
+            this.txtCompanyName.Name = "txtCompanyName";
+            this.txtCompanyName.PlaceholderText = "Company name";
+            this.txtCompanyName.SelectedText = "";
+            this.txtCompanyName.Size = new System.Drawing.Size(251, 36);
+            this.txtCompanyName.TabIndex = 44;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(463, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 26);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Company name";
+            // 
             // formContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -347,5 +380,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         public Guna.UI2.WinForms.Guna2TextBox txtDeposit;
         private System.Windows.Forms.Label lblDeposit;
+        public Guna.UI2.WinForms.Guna2TextBox txtCompanyName;
+        private System.Windows.Forms.Label label1;
     }
 }

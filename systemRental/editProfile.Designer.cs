@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editProfile));
             this.label4 = new System.Windows.Forms.Label();
             this.txtMiddleName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,6 +47,8 @@
             this.cbNational = new Guna.UI2.WinForms.Guna2CheckBox();
             this.cbPassport = new Guna.UI2.WinForms.Guna2CheckBox();
             this.cbDriver = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -315,6 +318,10 @@
             this.cbDriver.UncheckedState.BorderThickness = 0;
             this.cbDriver.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // editProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -343,6 +350,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Profile";
             this.Load += new System.EventHandler(this.editProfile_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,5 +374,6 @@
         private Guna.UI2.WinForms.Guna2CheckBox cbNational;
         private Guna.UI2.WinForms.Guna2CheckBox cbPassport;
         private Guna.UI2.WinForms.Guna2CheckBox cbDriver;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

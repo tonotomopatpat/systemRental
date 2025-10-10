@@ -9,7 +9,7 @@ namespace systemRental
     public partial class calculate : Form
     {
         public int errorcount;
-        Class1 newBilling = new Class1("localhost", "rentalSystem", "root", "0902");
+        Class1 newBilling = new Class1("localhost", "rentalSystem", "root", "manzano");
 
         public calculate()
         {
@@ -26,7 +26,7 @@ namespace systemRental
         {
             try
             {
-                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=0902;";
+                string connectToDB = "Server=localhost;Database=rentalSystem;Uid=root;Pwd=manzano;";
                 using (MySqlConnection conn = new MySqlConnection(connectToDB))
                 {
                     conn.Open();
@@ -57,6 +57,7 @@ namespace systemRental
 
         private void btnCompute_Click(object sender, EventArgs e)
         {
+
             try
             {
                 if (cmbTenants.SelectedIndex < 0)
@@ -64,6 +65,9 @@ namespace systemRental
                     MessageBox.Show("Please select a tenant.");
                     return;
                 }
+
+
+               
 
                 double water = double.Parse(txtWater.Text);
                 double KWH = double.Parse(txtKWH.Text);

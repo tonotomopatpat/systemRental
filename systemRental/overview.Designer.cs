@@ -30,8 +30,6 @@
         {
             this.panelBackground = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.lblUnitType = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
@@ -43,10 +41,10 @@
             this.lblContract = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.chkPassport = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chkNational = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chkVoter = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chkDriver = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkVoter = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkNational = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkPassport = new Guna.UI2.WinForms.Guna2CheckBox();
             this.panelBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -56,8 +54,6 @@
             // 
             this.panelBackground.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelBackground.Controls.Add(this.guna2PictureBox6);
-            this.panelBackground.Controls.Add(this.label11);
-            this.panelBackground.Controls.Add(this.label12);
             this.panelBackground.Controls.Add(this.lblUnitType);
             this.panelBackground.Controls.Add(this.label14);
             this.panelBackground.Controls.Add(this.lblDuration);
@@ -83,26 +79,6 @@
             this.guna2PictureBox6.Size = new System.Drawing.Size(186, 152);
             this.guna2PictureBox6.TabIndex = 37;
             this.guna2PictureBox6.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(801, 24);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 34);
-            this.label11.TabIndex = 31;
-            this.label11.Text = "label5";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(557, 24);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(165, 34);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "Contract Status";
             // 
             // lblUnitType
             // 
@@ -218,42 +194,23 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1348, 291);
             this.guna2Panel1.TabIndex = 1;
             // 
-            // chkPassport
+            // chkDriver
             // 
-            this.chkPassport.AutoSize = true;
-            this.chkPassport.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chkPassport.CheckedState.BorderRadius = 0;
-            this.chkPassport.CheckedState.BorderThickness = 0;
-            this.chkPassport.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chkPassport.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPassport.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.chkPassport.Location = new System.Drawing.Point(71, 32);
-            this.chkPassport.Name = "chkPassport";
-            this.chkPassport.Size = new System.Drawing.Size(142, 46);
-            this.chkPassport.TabIndex = 0;
-            this.chkPassport.Text = "Passport";
-            this.chkPassport.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chkPassport.UncheckedState.BorderRadius = 0;
-            this.chkPassport.UncheckedState.BorderThickness = 0;
-            this.chkPassport.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            // 
-            // chkNational
-            // 
-            this.chkNational.AutoSize = true;
-            this.chkNational.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chkNational.CheckedState.BorderRadius = 0;
-            this.chkNational.CheckedState.BorderThickness = 0;
-            this.chkNational.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chkNational.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkNational.Location = new System.Drawing.Point(71, 103);
-            this.chkNational.Name = "chkNational";
-            this.chkNational.Size = new System.Drawing.Size(166, 46);
-            this.chkNational.TabIndex = 1;
-            this.chkNational.Text = "National ID";
-            this.chkNational.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chkNational.UncheckedState.BorderRadius = 0;
-            this.chkNational.UncheckedState.BorderThickness = 0;
-            this.chkNational.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkDriver.AutoSize = true;
+            this.chkDriver.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkDriver.CheckedState.BorderRadius = 0;
+            this.chkDriver.CheckedState.BorderThickness = 0;
+            this.chkDriver.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkDriver.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDriver.Location = new System.Drawing.Point(329, 32);
+            this.chkDriver.Name = "chkDriver";
+            this.chkDriver.Size = new System.Drawing.Size(218, 46);
+            this.chkDriver.TabIndex = 3;
+            this.chkDriver.Text = "Driver\'s License";
+            this.chkDriver.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkDriver.UncheckedState.BorderRadius = 0;
+            this.chkDriver.UncheckedState.BorderThickness = 0;
+            this.chkDriver.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
             // chkVoter
             // 
@@ -273,23 +230,42 @@
             this.chkVoter.UncheckedState.BorderThickness = 0;
             this.chkVoter.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
-            // chkDriver
+            // chkNational
             // 
-            this.chkDriver.AutoSize = true;
-            this.chkDriver.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chkDriver.CheckedState.BorderRadius = 0;
-            this.chkDriver.CheckedState.BorderThickness = 0;
-            this.chkDriver.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chkDriver.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDriver.Location = new System.Drawing.Point(329, 32);
-            this.chkDriver.Name = "chkDriver";
-            this.chkDriver.Size = new System.Drawing.Size(218, 46);
-            this.chkDriver.TabIndex = 3;
-            this.chkDriver.Text = "Driver\'s License";
-            this.chkDriver.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chkDriver.UncheckedState.BorderRadius = 0;
-            this.chkDriver.UncheckedState.BorderThickness = 0;
-            this.chkDriver.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkNational.AutoSize = true;
+            this.chkNational.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkNational.CheckedState.BorderRadius = 0;
+            this.chkNational.CheckedState.BorderThickness = 0;
+            this.chkNational.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkNational.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkNational.Location = new System.Drawing.Point(71, 103);
+            this.chkNational.Name = "chkNational";
+            this.chkNational.Size = new System.Drawing.Size(166, 46);
+            this.chkNational.TabIndex = 1;
+            this.chkNational.Text = "National ID";
+            this.chkNational.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkNational.UncheckedState.BorderRadius = 0;
+            this.chkNational.UncheckedState.BorderThickness = 0;
+            this.chkNational.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkPassport
+            // 
+            this.chkPassport.AutoSize = true;
+            this.chkPassport.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkPassport.CheckedState.BorderRadius = 0;
+            this.chkPassport.CheckedState.BorderThickness = 0;
+            this.chkPassport.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkPassport.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPassport.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.chkPassport.Location = new System.Drawing.Point(71, 32);
+            this.chkPassport.Name = "chkPassport";
+            this.chkPassport.Size = new System.Drawing.Size(142, 46);
+            this.chkPassport.TabIndex = 0;
+            this.chkPassport.Text = "Passport";
+            this.chkPassport.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkPassport.UncheckedState.BorderRadius = 0;
+            this.chkPassport.UncheckedState.BorderThickness = 0;
+            this.chkPassport.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
             // overview
             // 
@@ -312,8 +288,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel panelBackground;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblUnitType;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblDuration;

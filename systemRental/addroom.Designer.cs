@@ -51,9 +51,9 @@
             this.label4.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(338, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 26);
+            this.label4.Size = new System.Drawing.Size(128, 26);
             this.label4.TabIndex = 22;
-            this.label4.Text = "Unit Size:";
+            this.label4.Text = "Unit Size: (sqm)";
             // 
             // txtSize
             // 
@@ -146,8 +146,7 @@
             this.cmbUnitType.Items.AddRange(new object[] {
             "studio",
             "double",
-            "apartment",
-            "merge"});
+            "apartment"});
             this.cmbUnitType.Location = new System.Drawing.Point(332, 174);
             this.cmbUnitType.Name = "cmbUnitType";
             this.cmbUnitType.Size = new System.Drawing.Size(284, 36);
@@ -230,6 +229,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFloor);
             this.Controls.Add(this.lblName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addroom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addroom";

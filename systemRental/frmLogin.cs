@@ -16,10 +16,11 @@ namespace systemRental
         public frmLogin()
         {
             InitializeComponent();
+            this.AcceptButton = btnLogin;//enter key
         }
         
         //mysql database
-        Class1 login = new Class1("localhost", "rentalsystem", "root", "0902");
+        Class1 login = new Class1("localhost", "rentalSystem", "root", "manzano");
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -91,6 +92,14 @@ namespace systemRental
 
         }
 
-        
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

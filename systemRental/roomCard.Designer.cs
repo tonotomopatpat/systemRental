@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnMaintenance = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDeleteRoom = new Guna.UI2.WinForms.Guna2Button();
             this.btnStatus = new Guna.UI2.WinForms.Guna2Button();
             this.lblTenant = new System.Windows.Forms.Label();
             this.lblUnitRate = new System.Windows.Forms.Label();
             this.lblUnitType = new System.Windows.Forms.Label();
             this.lblUnitSize = new System.Windows.Forms.Label();
             this.lblUnitNo = new System.Windows.Forms.Label();
-            this.btnDeleteRoom = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMaintenance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,44 @@
             this.guna2Panel1.Size = new System.Drawing.Size(313, 366);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // btnMaintenance
+            // 
+            this.btnMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaintenance.BorderRadius = 8;
+            this.btnMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaintenance.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMaintenance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMaintenance.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMaintenance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMaintenance.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnMaintenance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaintenance.ForeColor = System.Drawing.Color.DimGray;
+            this.btnMaintenance.Location = new System.Drawing.Point(29, 303);
+            this.btnMaintenance.Name = "btnMaintenance";
+            this.btnMaintenance.Size = new System.Drawing.Size(109, 46);
+            this.btnMaintenance.TabIndex = 17;
+            this.btnMaintenance.Text = "Set Maintenance";
+            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
+            // 
+            // btnDeleteRoom
+            // 
+            this.btnDeleteRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteRoom.BorderRadius = 8;
+            this.btnDeleteRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDeleteRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDeleteRoom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDeleteRoom.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteRoom.ForeColor = System.Drawing.Color.DimGray;
+            this.btnDeleteRoom.Location = new System.Drawing.Point(197, 303);
+            this.btnDeleteRoom.Name = "btnDeleteRoom";
+            this.btnDeleteRoom.Size = new System.Drawing.Size(73, 46);
+            this.btnDeleteRoom.TabIndex = 16;
+            this.btnDeleteRoom.Text = "Delete Room";
+            this.btnDeleteRoom.Click += new System.EventHandler(this.btnDeleteRoom_Click);
             // 
             // btnStatus
             // 
@@ -102,6 +140,7 @@
             this.lblUnitRate.Size = new System.Drawing.Size(64, 16);
             this.lblUnitRate.TabIndex = 12;
             this.lblUnitRate.Text = "Unit Rate";
+            this.lblUnitRate.Click += new System.EventHandler(this.lblUnitRate_Click);
             // 
             // lblUnitType
             // 
@@ -141,44 +180,6 @@
             this.lblUnitNo.Size = new System.Drawing.Size(57, 16);
             this.lblUnitNo.TabIndex = 9;
             this.lblUnitNo.Text = "Unit No:";
-            // 
-            // btnDeleteRoom
-            // 
-            this.btnDeleteRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteRoom.BorderRadius = 8;
-            this.btnDeleteRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDeleteRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDeleteRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDeleteRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDeleteRoom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnDeleteRoom.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteRoom.ForeColor = System.Drawing.Color.DimGray;
-            this.btnDeleteRoom.Location = new System.Drawing.Point(197, 303);
-            this.btnDeleteRoom.Name = "btnDeleteRoom";
-            this.btnDeleteRoom.Size = new System.Drawing.Size(73, 46);
-            this.btnDeleteRoom.TabIndex = 16;
-            this.btnDeleteRoom.Text = "Delete Room";
-            this.btnDeleteRoom.Click += new System.EventHandler(this.btnDeleteRoom_Click);
-            // 
-            // btnMaintenance
-            // 
-            this.btnMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaintenance.BorderRadius = 8;
-            this.btnMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaintenance.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMaintenance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMaintenance.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMaintenance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMaintenance.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnMaintenance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaintenance.ForeColor = System.Drawing.Color.DimGray;
-            this.btnMaintenance.Location = new System.Drawing.Point(29, 303);
-            this.btnMaintenance.Name = "btnMaintenance";
-            this.btnMaintenance.Size = new System.Drawing.Size(109, 46);
-            this.btnMaintenance.TabIndex = 17;
-            this.btnMaintenance.Text = "Set Maintenance";
-            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
             // 
             // roomCard
             // 

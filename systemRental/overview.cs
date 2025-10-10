@@ -9,7 +9,7 @@ namespace systemRental
 {
     public partial class overview : UserControl
     {
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
         private int tenantID;
 
         public overview(int tenantID)
@@ -135,7 +135,7 @@ namespace systemRental
                 string query = $"SELECT document_type FROM tbl_tenants WHERE tenant_id = {tenantID}";
                 DataTable dt = db.GetData(query);
 
-                // Reset all checkboxes
+                //reset all checkboxes
                 chkPassport.Checked = false;
                 chkVoter.Checked = false;
                 chkNational.Checked = false;

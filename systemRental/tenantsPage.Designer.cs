@@ -37,7 +37,6 @@
             this.btnTenant = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.mainInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.panelSecondContent = new Guna.UI2.WinForms.Guna2Panel();
@@ -45,8 +44,6 @@
             this.btnEditContract = new Guna.UI2.WinForms.Guna2Button();
             this.btnDeleteProfile = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditProfile = new Guna.UI2.WinForms.Guna2Button();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.lblCompanyNumber = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblCompanyName = new System.Windows.Forms.Label();
@@ -169,7 +166,6 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.btnOverview);
-            this.guna2Panel1.Controls.Add(this.guna2Button5);
             this.guna2Panel1.Controls.Add(this.btnHistory);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(402, 3);
@@ -197,26 +193,6 @@
             this.btnOverview.TabIndex = 14;
             this.btnOverview.Text = "Overview";
             this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
-            // 
-            // guna2Button5
-            // 
-            this.guna2Button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button5.BorderRadius = 30;
-            this.guna2Button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button5.CustomizableEdges.BottomLeft = false;
-            this.guna2Button5.CustomizableEdges.BottomRight = false;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.SystemColors.ActiveBorder;
-            this.guna2Button5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button5.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button5.Location = new System.Drawing.Point(326, 0);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(111, 54);
-            this.guna2Button5.TabIndex = 12;
-            this.guna2Button5.Text = "Documents";
             // 
             // btnHistory
             // 
@@ -266,8 +242,6 @@
             this.panelFirstContent.Controls.Add(this.btnEditContract);
             this.panelFirstContent.Controls.Add(this.btnDeleteProfile);
             this.panelFirstContent.Controls.Add(this.btnEditProfile);
-            this.panelFirstContent.Controls.Add(this.lblEmail);
-            this.panelFirstContent.Controls.Add(this.label6);
             this.panelFirstContent.Controls.Add(this.lblCompanyNumber);
             this.panelFirstContent.Controls.Add(this.label4);
             this.panelFirstContent.Controls.Add(this.lblCompanyName);
@@ -338,31 +312,11 @@
             this.btnEditProfile.Text = "Edit Profile";
             this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
             // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(595, 236);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(75, 34);
-            this.lblEmail.TabIndex = 7;
-            this.lblEmail.Text = "label5";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(351, 236);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 34);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Email:";
-            // 
             // lblCompanyNumber
             // 
             this.lblCompanyNumber.AutoSize = true;
             this.lblCompanyNumber.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyNumber.Location = new System.Drawing.Point(595, 170);
+            this.lblCompanyNumber.Location = new System.Drawing.Point(595, 191);
             this.lblCompanyNumber.Name = "lblCompanyNumber";
             this.lblCompanyNumber.Size = new System.Drawing.Size(74, 34);
             this.lblCompanyNumber.TabIndex = 5;
@@ -372,7 +326,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(352, 170);
+            this.label4.Location = new System.Drawing.Point(352, 191);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(197, 34);
             this.label4.TabIndex = 4;
@@ -496,8 +450,6 @@
         private Guna.UI2.WinForms.Guna2Panel mainInfo;
         private Guna.UI2.WinForms.Guna2Panel panelSecondContent;
         private Guna.UI2.WinForms.Guna2Panel panelFirstContent;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblCompanyNumber;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblCompanyName;
@@ -506,7 +458,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnDeleteProfile;
         private Guna.UI2.WinForms.Guna2Button btnEditProfile;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
         private Guna.UI2.WinForms.Guna2Button btnOverview;
         private Guna.UI2.WinForms.Guna2Button btnEditContract;

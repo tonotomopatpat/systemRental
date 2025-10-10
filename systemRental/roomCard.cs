@@ -88,5 +88,10 @@ namespace systemRental
         {
             MaintenanceClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void lblUnitRate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

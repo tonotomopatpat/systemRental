@@ -6,7 +6,7 @@ namespace systemRental
 {
     public partial class historyControl : UserControl
     {
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
 
         public historyControl()
         {

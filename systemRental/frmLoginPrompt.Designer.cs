@@ -152,7 +152,7 @@
             this.MaximizeBox = false;
             this.Name = "frmLoginPrompt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLoginPrompt";
+            this.Text = "User confirmation";
             this.ResumeLayout(false);
 
         }

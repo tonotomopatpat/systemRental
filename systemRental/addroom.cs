@@ -19,12 +19,12 @@ namespace systemRental
 
         Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
         //event for reloading the roomPage
-        
+
         private void btnDone_Click(object sender, EventArgs e)
         {
             int errorcount = 0;
 
-            //validation
+            // Required field validation
             if (string.IsNullOrWhiteSpace(txtUnitNumber.Text))
             {
                 MessageBox.Show("Unit number is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -51,7 +51,31 @@ namespace systemRental
                 errorcount++;
             }
 
+            
             if (errorcount > 0) return;
+
+            //numeric validation for non integer inputted character
+            if (!int.TryParse(txtFloor.Text, out _))
+            {
+                MessageBox.Show("Floor must be a valid number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtFloor.Focus();
+                return;
+            }
+
+            if (!double.TryParse(txtSize.Text, out _))
+            {
+                MessageBox.Show("Size must be a valid number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSize.Focus();
+                return;
+            }
+
+            if (!double.TryParse(txtMonthlyRate.Text, out _))
+            {
+                MessageBox.Show("Monthly rate must be a valid number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMonthlyRate.Focus();
+                return;
+            }
+
             try
             {
                 DialogResult dr = MessageBox.Show("Are you sure you want to save this tenant and contract?",
@@ -60,9 +84,9 @@ namespace systemRental
                 if (dr == DialogResult.Yes)
                 {
                     string insertRoom = "INSERT INTO tbl_units " +
-                "(unit_number, floor, size, unit_type, monthly_rate, status) VALUES (" +
-                $"'{txtUnitNumber.Text}', '{txtFloor.Text}', '{txtSize.Text}', " +
-                $"'{cmbUnitType.SelectedItem.ToString()}', '{txtMonthlyRate.Text}', 'vacant')";
+                    "(unit_number, floor, size, unit_type, monthly_rate, status) VALUES (" +
+                    $"'{txtUnitNumber.Text}', '{txtFloor.Text}', '{txtSize.Text}', " +
+                    $"'{cmbUnitType.SelectedItem.ToString()}', '{txtMonthlyRate.Text}', 'vacant')";
 
                     db.executeSQL(insertRoom);
 
@@ -82,5 +106,6 @@ namespace systemRental
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

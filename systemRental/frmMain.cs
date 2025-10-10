@@ -87,7 +87,7 @@ namespace systemRental
 
                 if (loginResult == DialogResult.OK)
                 {
-                    // Step 2: If login successful, open Add Account form
+                    //ff login successful, open Add Account form
                     using (frmAddAccount addAccountForm = new frmAddAccount())
                     {
                         addAccountForm.ShowDialog();

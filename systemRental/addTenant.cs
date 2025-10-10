@@ -99,19 +99,46 @@ namespace systemRental
                 errorProvider1.Clear();
                 errorcount = 0;
 
+                
                 if (string.IsNullOrEmpty(txtFirstName.Text))
                 {
                     errorProvider1.SetError(txtFirstName, "First Name is required.");
                     errorcount++;
                 }
+                else if (txtFirstName.Text.Any(char.IsDigit))
+                {
+                    errorProvider1.SetError(txtFirstName, "First Name cannot contain numbers.");
+                    errorcount++;
+                }
+
+                
+                if (!string.IsNullOrEmpty(txtMiddleName.Text) && txtMiddleName.Text.Any(char.IsDigit))
+                {
+                    errorProvider1.SetError(txtMiddleName, "Middle Name cannot contain numbers.");
+                    errorcount++;
+                }
+
+                
                 if (string.IsNullOrEmpty(txtSurname.Text))
                 {
                     errorProvider1.SetError(txtSurname, "Surname is required.");
                     errorcount++;
                 }
+                else if (txtSurname.Text.Any(char.IsDigit))
+                {
+                    errorProvider1.SetError(txtSurname, "Surname cannot contain numbers.");
+                    errorcount++;
+                }
+
+                
                 if (string.IsNullOrEmpty(txtPhoneNo.Text))
                 {
                     errorProvider1.SetError(txtPhoneNo, "Phone number is required.");
+                    errorcount++;
+                }
+                else if (!txtPhoneNo.Text.All(char.IsDigit))
+                {
+                    errorProvider1.SetError(txtPhoneNo, "Phone number must contain only numbers.");
                     errorcount++;
                 }
 

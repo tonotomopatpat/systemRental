@@ -13,7 +13,7 @@ namespace systemRental
     public partial class editProfile : Form
     {
         private int tenantId;
-        Class1 db = new Class1("localhost", "rentalSystem", "root", "0902");
+        Class1 db = new Class1("localhost", "rentalSystem", "root", "manzano");
 
         public editProfile(int tenantId)
         {
@@ -33,6 +33,56 @@ namespace systemRental
         {
             try
             {
+                errorProvider1.Clear();
+                int errorcount = 0;
+
+                // First Name
+                if (string.IsNullOrEmpty(txtFirstName.Text))
+                {
+                    errorProvider1.SetError(txtFirstName, "First Name is required.");
+                    errorcount++;
+                }
+                else if (txtFirstName.Text.Any(char.IsDigit))
+                {
+                    errorProvider1.SetError(txtFirstName, "First Name cannot contain numbers.");
+                    errorcount++;
+                }
+
+                // Middle Name (optional)
+                if (!string.IsNullOrEmpty(txtMiddleName.Text) && txtMiddleName.Text.Any(char.IsDigit))
+                {
+                    errorProvider1.SetError(txtMiddleName, "Middle Name cannot contain numbers.");
+                    errorcount++;
+                }
+
+                
+                if (string.IsNullOrEmpty(txtSurname.Text))
+                {
+                    errorProvider1.SetError(txtSurname, "Surname is required.");
+                    errorcount++;
+                }
+                else if (txtSurname.Text.Any(char.IsDigit))
+                {
+                    errorProvider1.SetError(txtSurname, "Surname cannot contain numbers.");
+                    errorcount++;
+                }
+
+                
+                if (string.IsNullOrEmpty(txtPhoneNo.Text))
+                {
+                    errorProvider1.SetError(txtPhoneNo, "Phone number is required.");
+                    errorcount++;
+                }
+                else if (!txtPhoneNo.Text.All(char.IsDigit))
+                {
+                    errorProvider1.SetError(txtPhoneNo, "Phone number must contain only numbers.");
+                    errorcount++;
+                }
+
+                if (errorcount > 0)
+                {
+                    return;
+                }
                 List<string> docs = new List<string>();
                 if (cbDriver.Checked)
                     docs.Add("Drivers License");

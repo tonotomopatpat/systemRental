@@ -43,6 +43,8 @@
             this.dtpStartRent = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.rd4year = new Guna.UI2.WinForms.Guna2RadioButton();
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
+            this.txtCompanyName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtDeposit
@@ -105,7 +107,7 @@
             // 
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(511, 92);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(511, 138);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(94, 28);
             this.guna2HtmlLabel7.TabIndex = 44;
@@ -211,7 +213,7 @@
             this.dtpStartRent.FillColor = System.Drawing.Color.Cyan;
             this.dtpStartRent.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpStartRent.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpStartRent.Location = new System.Drawing.Point(511, 126);
+            this.dtpStartRent.Location = new System.Drawing.Point(511, 172);
             this.dtpStartRent.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpStartRent.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpStartRent.Name = "dtpStartRent";
@@ -258,12 +260,43 @@
             this.btnNext.Text = "&Done";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // txtCompanyName
+            // 
+            this.txtCompanyName.BorderRadius = 10;
+            this.txtCompanyName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCompanyName.DefaultText = "";
+            this.txtCompanyName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCompanyName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCompanyName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCompanyName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCompanyName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCompanyName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCompanyName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCompanyName.Location = new System.Drawing.Point(465, 50);
+            this.txtCompanyName.Name = "txtCompanyName";
+            this.txtCompanyName.PlaceholderText = "Company name";
+            this.txtCompanyName.SelectedText = "";
+            this.txtCompanyName.Size = new System.Drawing.Size(251, 36);
+            this.txtCompanyName.TabIndex = 58;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(470, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 26);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "Company name";
+            // 
             // editContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(730, 393);
+            this.Controls.Add(this.txtCompanyName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.txtDeposit);
             this.Controls.Add(this.lblDeposit);
@@ -280,7 +313,7 @@
             this.Controls.Add(this.rd4year);
             this.Name = "editContract";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "editContract";
+            this.Text = "Edit Contract";
             this.Load += new System.EventHandler(this.editContract_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -303,5 +336,7 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpStartRent;
         private Guna.UI2.WinForms.Guna2RadioButton rd4year;
         private Guna.UI2.WinForms.Guna2Button btnNext;
+        public Guna.UI2.WinForms.Guna2TextBox txtCompanyName;
+        private System.Windows.Forms.Label label1;
     }
 }

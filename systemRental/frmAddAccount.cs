@@ -15,7 +15,7 @@ namespace systemRental
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Basic validation
+            
             if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
                 MessageBox.Show("Username is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -36,7 +36,7 @@ namespace systemRental
 
             try
             {
-                // Check if username already exists
+                //check if username already exists
                 string checkSql = $"SELECT * FROM tbl_accounts WHERE username = '{txtUsername.Text}'";
                 DataTable dt = db.GetData(checkSql);
 
@@ -46,7 +46,7 @@ namespace systemRental
                     return;
                 }
 
-                // Insert new account
+                //insert new account
                 string insertSql = $"INSERT INTO tbl_accounts (username, password) VALUES ('{txtUsername.Text}', '{txtPassword.Text}')";
                 db.executeSQL(insertSql);
 

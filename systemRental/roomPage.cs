@@ -22,7 +22,7 @@ namespace systemRental
         {
             try
             {
-                // Detach old event handlers
+                //detaching
                 foreach (roomCard oldCard in flowRooms.Controls.OfType<roomCard>())
                 {
                     oldCard.DeleteClicked -= Card_DeleteClicked;
@@ -52,7 +52,7 @@ namespace systemRental
                     card.tenant = string.IsNullOrEmpty(row["tenant_name"].ToString()) ? "-" : row["tenant_name"].ToString();
                     card.Margin = new Padding(20);
 
-                    // Color status
+                    
                     switch (card.unitStatus.ToLower())
                     {
                         case "vacant": card.StatusButton.FillColor = Color.LimeGreen; break;
@@ -61,7 +61,7 @@ namespace systemRental
                         default: card.StatusButton.FillColor = Color.Gray; break;
                     }
 
-                    // Attach Delete handler
+                    
                     card.DeleteClicked += Card_DeleteClicked;
                     card.MaintenanceClicked += Card_MaintenanceClicked;
 
@@ -95,7 +95,7 @@ namespace systemRental
                 {
                     MessageBox.Show($"{card.unitNo} status updated to Maintenance.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Update card UI immediately
+                    //update card UI immediately
                     card.unitStatus = "maintenance";
                     card.StatusButton.FillColor = Color.Orange;
                 }
@@ -139,18 +139,18 @@ namespace systemRental
 
             foreach (roomCard card in flowRooms.Controls.OfType<roomCard>())
             {
-                // Normalize fields
+                //convert fields so it is normal
                 string tenantName = card.tenant.ToLower().Replace(" ", "");
                 string unitNumber = card.unitNo.ToLower().Replace(" ", "");
                 string unitType = card.unitType.ToLower().Replace(" ", "");
 
-                // Match search text
+                // search matching
                 bool searchMatch = tenantName.Contains(search) || unitNumber.Contains(search) || unitType.Contains(search);
 
-                // Match status filter
+                
                 bool statusMatch = currentFilter == "all" || card.unitStatus.ToLower() == currentFilter;
 
-                // Show card if both match
+                
                 card.Visible = searchMatch && statusMatch;
             }
         }
@@ -166,7 +166,7 @@ namespace systemRental
             {
                 addroomForm.ShowDialog();  // show as modal dialog
 
-                // After the dialog closes, reload rooms
+                //after the dialog closes, reload rooms
                 loadRooms();
             }
         }
