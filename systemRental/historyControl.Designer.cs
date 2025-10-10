@@ -77,9 +77,9 @@
             this.lblName.Font = new System.Drawing.Font("Poppins", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(438, 7);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(466, 70);
+            this.lblName.Size = new System.Drawing.Size(552, 70);
             this.lblName.TabIndex = 11;
-            this.lblName.Text = "Payments History asd";
+            this.lblName.Text = "Payments History asd asd";
             // 
             // historyControl
             // 
