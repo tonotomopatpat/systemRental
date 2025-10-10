@@ -44,5 +44,21 @@ namespace systemRental
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+        private bool isPasswordVisible = false;
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            if (isPasswordVisible)
+            {
+                txtPassword.UseSystemPasswordChar = true;
+                btnShow.Image = Properties.Resources.hide;
+                isPasswordVisible = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = false;
+                btnShow.Image = Properties.Resources.view;
+                isPasswordVisible = true;
+            }
+        }
     }
 }

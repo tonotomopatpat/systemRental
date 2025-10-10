@@ -34,6 +34,9 @@
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -46,7 +49,7 @@
             this.btnLogin.FillColor = System.Drawing.Color.DarkSlateGray;
             this.btnLogin.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(177, 190);
+            this.btnLogin.Location = new System.Drawing.Point(176, 231);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(133, 40);
             this.btnLogin.TabIndex = 37;
@@ -64,10 +67,11 @@
             this.btnShow.ForeColor = System.Drawing.Color.White;
             this.btnShow.Image = global::systemRental.Properties.Resources.hide;
             this.btnShow.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShow.Location = new System.Drawing.Point(228, 104);
+            this.btnShow.Location = new System.Drawing.Point(238, 164);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(39, 24);
             this.btnShow.TabIndex = 40;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // txtPassword
             // 
@@ -86,7 +90,7 @@
             this.txtPassword.ForeColor = System.Drawing.Color.White;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtPassword.IconLeft")));
-            this.txtPassword.Location = new System.Drawing.Point(35, 95);
+            this.txtPassword.Location = new System.Drawing.Point(45, 155);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PlaceholderForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -113,7 +117,7 @@
             this.txtUsername.ForeColor = System.Drawing.Color.White;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtUsername.IconLeft")));
-            this.txtUsername.Location = new System.Drawing.Point(35, 36);
+            this.txtUsername.Location = new System.Drawing.Point(45, 96);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PlaceholderForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -132,18 +136,41 @@
             this.btnCancel.FillColor = System.Drawing.Color.DarkSlateGray;
             this.btnCancel.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(12, 190);
+            this.btnCancel.Location = new System.Drawing.Point(11, 231);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(133, 40);
             this.btnCancel.TabIndex = 41;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(147, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 43;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(23, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(295, 22);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Login the current account first to create new one";
+            // 
             // frmLoginPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 254);
+            this.ClientSize = new System.Drawing.Size(330, 299);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.txtPassword);
@@ -153,7 +180,10 @@
             this.Name = "frmLoginPrompt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User confirmation";
+            this.Text = "frmLoginPrompt";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -164,5 +194,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2TextBox txtUsername;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
